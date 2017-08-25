@@ -1,1 +1,0 @@
-$(foreach clib,$(CRYPTO_LIBS),$(eval include $(CRYPTO_ROOT)/lib$(clib)/include.mk))

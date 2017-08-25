@@ -3,10 +3,11 @@ CC = g++
 CFLAGS += --std=c++11 -O1
 LIBS += -lm -L$(LIBS_DIR)
 
-CRYPTO_ROOT = $(PWD)/..
+PROJECT_ROOT = $(PWD)/..
+CRYPTO_ROOT = $(PROJECT_ROOT)/modules/module_crypto
 CRYPTO_LIBS = crypto
 
-BUILD_DIR = $(CRYPTO_ROOT)/build/release
+BUILD_DIR = $(PROJECT_ROOT)/build/release
 OBJECTS_DIR = $(BUILD_DIR)/objects
 LIBS_DIR = $(BUILD_DIR)/lib
 DEST_DIR = $(BUILD_DIR)
@@ -14,7 +15,7 @@ DEST_DIR = $(BUILD_DIR)
 # Build debug mode by default
 # Change all output directories
 debug: CFLAGS += -g
-debug: BUILD_DIR = $(CRYPTO_ROOT)/build/debug
+debug: BUILD_DIR = $(PROJECT_ROOT)/build/debug
 debug: OBJECTS_DIR = $(BUILD_DIR)/objects
 debug: LIBS_DIR = $(BUILD_DIR)/lib
 debug: DEST_DIR = $(BUILD_DIR)
