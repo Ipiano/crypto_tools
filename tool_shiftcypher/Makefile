@@ -1,0 +1,49 @@
+# General variables
+CC = g++
+CFLAGS += --std=c++11 -O1
+LIBS += -lm -L$(LIBS_DIR)
+
+CRYPTO_ROOT = $(PWD)/..
+CRYPTO_LIBS = crypto
+
+BUILD_DIR = $(CRYPTO_ROOT)/build/release
+OBJECTS_DIR = $(BUILD_DIR)/objects
+LIBS_DIR = $(BUILD_DIR)/lib
+DEST_DIR = $(BUILD_DIR)
+
+# Build debug mode by default
+# Change all output directories
+debug: CFLAGS += -g
+debug: BUILD_DIR = $(CRYPTO_ROOT)/build/debug
+debug: OBJECTS_DIR = $(BUILD_DIR)/objects
+debug: LIBS_DIR = $(BUILD_DIR)/lib
+debug: DEST_DIR = $(BUILD_DIR)
+debug: all
+
+all: tool_shiftcypher
+
+# Include necessary headers and either sources or libraries
+include $(CRYPTO_ROOT)/include.mk
+$(info   )
+
+.PHONY: clean mkdirs
+
+mkdirs:
+	@-mkdir -p $(BUILD_DIR)
+	@-mkdir -p $(OBJECTS_DIR)
+	@-mkdir -p $(LIBS_DIR)
+
+clean:
+	rm $(PWD)/*.o
+	rm $(OBJECTS_DIR)/*.o
+
+
+objs_main = main.o
+
+# Substitute objects location onto object files from internal libs
+tool_shiftcypher: build_objects = $(patsubst %.o, $(OBJECTS_DIR)/%.o, $(objs_main) $(LIB_OBJECTS))
+tool_shiftcypher: mkdirs $(objs_main) $(INCLUDED_LIBS)
+	$(CC) $(build_objects) $(LIBS) -o $(DEST_DIR)/$@
+
+$(objs_main): %.o: src/%.cpp
+	$(CC) -c $(CFLAGS) $(INCLUDES) $^ -o $(OBJECTS_DIR)/$@
