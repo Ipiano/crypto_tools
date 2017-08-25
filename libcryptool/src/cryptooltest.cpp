@@ -4,7 +4,7 @@
 
 using namespace std;
 
-void cryptooltestfunction()
+void testcryptoolfunction()
 {
     cout << "This is a cryptool test function" << endl;
 }

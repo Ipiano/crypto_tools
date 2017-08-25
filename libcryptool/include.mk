@@ -1,5 +1,4 @@
-# define before including this makefile:
-#	pwd_relative - pwd value to track location of included things
-#		relative to original makefile
-
-$(info Including cryptool at $(pwd_relative))
+$(if $(libcryptool_included),,\
+	$(eval libcryptool_included = true)\
+	$(eval include $(PROJECT_ROOT)/libcryptool/libcryptool.mk)\
+)

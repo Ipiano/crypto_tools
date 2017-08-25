@@ -5,7 +5,7 @@ LIBS += -lm -L$(LIBS_DIR)
 
 PROJECT_ROOT = $(PWD)/..
 CRYPTO_ROOT = $(PROJECT_ROOT)/modules/module_crypto
-CRYPTO_LIBS = crypto
+CRYPTO_LIBS = crypto gmpmods
 
 BUILD_DIR = $(PROJECT_ROOT)/build/release
 OBJECTS_DIR = $(BUILD_DIR)/objects
@@ -25,6 +25,9 @@ all: tool_shiftcypher
 
 # Include necessary headers and either sources or libraries
 include $(CRYPTO_ROOT)/include.mk
+include $(PROJECT_ROOT)/libcryptool/include.mk
+
+# Newline in terminal output
 $(info   )
 
 .PHONY: clean mkdirs

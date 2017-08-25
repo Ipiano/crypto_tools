@@ -1,6 +1,6 @@
-//#include "cryptooltest.h"
+#include "cryptooltest.h"
 #include "algotest.h"
-//#include "gmpmodtest.h"
+#include "gmpmodtest.h"
 
 #include <iostream>
 
@@ -10,7 +10,7 @@ int main()
 {
     cout << "This tool does a frequency analysis" << endl;
 
-    //testcryptoolfunction();
-    //testgmpfunction();
+    testcryptoolfunction();
+    testgmpfunction();
     testalgorithmfunction(3);
 }
