@@ -1,7 +1,7 @@
 # General variables
 CC = g++
 CFLAGS += --std=c++11 -O1
-LIBS += -lm -L$(LIBS_DIR)
+LIBS += -lm -lpthread -L$(LIBS_DIR)
 
 PROJECT_ROOT = $(PWD)/..
 CRYPTO_ROOT = $(PROJECT_ROOT)/modules/module_crypto
