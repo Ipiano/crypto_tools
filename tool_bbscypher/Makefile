@@ -5,8 +5,8 @@ LIBS += -lm -L$(LIBS_DIR)
 
 PROJECT_ROOT = $(PWD)/..
 CRYPTO_ROOT = $(PROJECT_ROOT)/modules/module_crypto
-CRYPTO_LIBS = crypto
-LIBCRYPTO_FEATURES = frequency
+CRYPTO_LIBS = random
+LIBRANDOM_FEATURES = bbs
 
 BUILD_DIR = $(PROJECT_ROOT)/build/release
 OBJECTS_DIR = $(BUILD_DIR)/objects
@@ -22,7 +22,7 @@ debug: LIBS_DIR = $(BUILD_DIR)/lib
 debug: DEST_DIR = $(BUILD_DIR)
 debug: all
 
-all: tool_frequencyanalysis
+all: tool_bbscypher
 
 # Include necessary headers and either sources or libraries
 include $(CRYPTO_ROOT)/include.mk
@@ -45,8 +45,8 @@ clean:
 objs_main = main.o
 
 # Substitute objects location onto object files from internal libs
-tool_frequencyanalysis: build_objects = $(patsubst %.o, $(OBJECTS_DIR)/%.o, $(objs_main) $(LIB_OBJECTS))
-tool_frequencyanalysis: mkdirs $(objs_main) $(INCLUDED_LIBS)
+tool_bbscypher: build_objects = $(patsubst %.o, $(OBJECTS_DIR)/%.o, $(objs_main) $(LIB_OBJECTS))
+tool_bbscypher: mkdirs $(objs_main) $(INCLUDED_LIBS)
 	$(CC) $(build_objects) $(LIBS) -o $(DEST_DIR)/$@
 
 $(objs_main): %.o: src/%.cpp
