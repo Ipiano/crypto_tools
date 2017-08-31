@@ -44,8 +44,7 @@ bool runCommand(const command& c, shared_ptr<vector<string>> output);
 string fileBase(const string& s);
 
 bool generatePrimes(uint64_t n, mpz_class start, shared_ptr<vector<string>> output);
-bool encodeFile(string file, const mpz_class& p, const mpz_class& q, const mpz_class& x, shared_ptr<vector<string>> output);
-bool decodeFile(string file, const mpz_class& p, const mpz_class& q, const mpz_class& x, shared_ptr<vector<string>> output);
+bool encodeFile(string file, const mpz_class& p, const mpz_class& q, const mpz_class& x, shared_ptr<vector<string>> output, string ext);
 
 int main(int argc, char** argv)
 {
@@ -203,6 +202,11 @@ bool processArgs(int argc, char** argv, unordered_map<string, commandGroup>& fil
 shared_ptr<vector<string>> runCommandGroup(commandGroup& g)
 {
     shared_ptr<vector<string>> results(new vector<string>);
+    if(g.front().fileName.size())
+    {
+        results->push_back(LINE);
+        results->push_back("File: " + g.front().fileName);
+    }
     while(g.size())
     {
         command& c = g.front();
@@ -227,9 +231,9 @@ bool runCommand(const command& c, shared_ptr<vector<string>> output)
         case GENERATE:
             return generatePrimes(c.n, c.start, output);
         case ENCODE:
-            return encodeFile(c.fileName, c.p, c.q, c.x, output);
+            return encodeFile(c.fileName, c.p, c.q, c.x, output, ".enc");
         case DECODE:
-            return decodeFile(c.fileName, c.p, c.q, c.x, output);
+            return encodeFile(c.fileName, c.p, c.q, c.x, output, ".dec");
     }
     return true;
 }
@@ -251,7 +255,8 @@ bool generatePrimes(uint64_t n, mpz_class start, shared_ptr<vector<string>> outp
     return true;
 }
 
-bool encodeFile(string file, const mpz_class& p, const mpz_class& q, const mpz_class& x, shared_ptr<vector<string>> output)
+bool encodeFile(string file, const mpz_class& p, const mpz_class& q, const mpz_class& x, 
+                shared_ptr<vector<string>> output, string ext)
 {
     blum_blum_shub_engine<uint32_t, 25>* random;
     try{
@@ -268,7 +273,7 @@ bool encodeFile(string file, const mpz_class& p, const mpz_class& q, const mpz_c
         return false;
     }
 
-    string ofile = fileBase(file) + ".enc";
+    string ofile = fileBase(file) + ext;
     ofstream fout(ofile);
     if(!fout)
     {
@@ -301,12 +306,6 @@ bool encodeFile(string file, const mpz_class& p, const mpz_class& q, const mpz_c
 
     return true;
 }
-
-bool decodeFile(string file, const mpz_class& p, const mpz_class& q, const mpz_class& x, shared_ptr<vector<string>> output)
-{
-
-}
-
 
 string fileBase(const string& s)
 {
