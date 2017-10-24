@@ -3,6 +3,8 @@ CC = g++
 CFLAGS += --std=c++11 -O1
 LIBS += -lm -lpthread -L$(LIBS_DIR)
 
+TARGET = tool_bbscypher
+
 PROJECT_ROOT = $(PWD)/..
 CRYPTO_ROOT = $(PROJECT_ROOT)/modules/module_crypto
 CRYPTO_LIBS = random
@@ -18,9 +20,9 @@ DEST_DIR = $(PWD)/$(BUILD_TYPE)
 # Change all output directories
 debug: CFLAGS += -g
 debug: BUILD_TYPE = debug
-debug: release
+debug: $(TARGET)
 
-release: tool_bbscypher
+release: $(TARGET)
 
 # Include necessary headers and either sources or libraries
 include $(CRYPTO_ROOT)/include.mk
@@ -36,16 +38,19 @@ mkdirs:
 	@-mkdir -p $(LIBS_DIR)
 	@-mkdir -p $(DEST_DIR)
 
+clean_debug: BUILD_TYPE = debug
+clean_debug: clean
+clean_release: clean
 clean:
-	rm $(PWD)/*.o
-	rm $(OBJECTS_DIR)/*.o
-
+	@-rm $(OBJECTS_DIR)/*.o
+	@-rm $(LIBS_DIR)/*.a
+	@-rm $(DEST_DIR)/$(TARGET)
 
 objs_main = main.o
 
 # Substitute objects location onto object files from internal libs
-tool_bbscypher: build_objects = $(patsubst %.o, $(OBJECTS_DIR)/%.o, $(objs_main) $(LIB_OBJECTS))
-tool_bbscypher: mkdirs $(objs_main) $(INCLUDED_LIBS)
+$(TARGET): build_objects = $(patsubst %.o, $(OBJECTS_DIR)/%.o, $(objs_main) $(LIB_OBJECTS))
+$(TARGET): mkdirs $(objs_main) $(INCLUDED_LIBS)
 	$(CC) $(build_objects) $(LIBS) -o $(DEST_DIR)/$@
 
 $(objs_main): %.o: src/%.cpp
