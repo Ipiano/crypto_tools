@@ -8,21 +8,19 @@ CRYPTO_ROOT = $(PROJECT_ROOT)/modules/module_crypto
 CRYPTO_LIBS = crypto
 LIBCRYPTO_FEATURES = frequency
 
-BUILD_DIR = $(PROJECT_ROOT)/build/release
+BUILD_TYPE = release
+BUILD_DIR = $(PROJECT_ROOT)/build/$(BUILD_TYPE)
 OBJECTS_DIR = $(BUILD_DIR)/objects
 LIBS_DIR = $(BUILD_DIR)/lib
-DEST_DIR = $(BUILD_DIR)
+DEST_DIR = $(PWD)/$(BUILD_TYPE)
 
 # Build debug mode by default
 # Change all output directories
 debug: CFLAGS += -g
-debug: BUILD_DIR = $(PROJECT_ROOT)/build/debug
-debug: OBJECTS_DIR = $(BUILD_DIR)/objects
-debug: LIBS_DIR = $(BUILD_DIR)/lib
-debug: DEST_DIR = $(BUILD_DIR)
-debug: all
+debug: BUILD_TYPE = debug
+debug: release
 
-all: tool_frequencyanalysis
+release: tool_frequencyanalysis
 
 # Include necessary headers and either sources or libraries
 include $(CRYPTO_ROOT)/include.mk
@@ -36,6 +34,7 @@ mkdirs:
 	@-mkdir -p $(BUILD_DIR)
 	@-mkdir -p $(OBJECTS_DIR)
 	@-mkdir -p $(LIBS_DIR)
+	@-mkdir -p $(DEST_DIR)
 
 clean:
 	rm $(PWD)/*.o
