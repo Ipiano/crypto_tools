@@ -3,7 +3,7 @@ CC = g++
 CFLAGS += --std=c++11 -O1
 LIBS += -lm -lpthread -L$(LIBS_DIR)
 
-TARGET = tool_bbscypher
+TARGET = tool_bbscipher
 
 PROJECT_ROOT = $(PWD)/..
 CRYPTO_ROOT = $(PROJECT_ROOT)/modules/module_crypto
