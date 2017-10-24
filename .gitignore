@@ -32,4 +32,6 @@
 *.app
 
 # Build directory
-/build
+*/debug/*
+*/release/*
+/Books

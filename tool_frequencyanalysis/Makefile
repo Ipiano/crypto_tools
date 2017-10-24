@@ -5,8 +5,8 @@ LIBS += -lm -L$(LIBS_DIR)
 
 PROJECT_ROOT = $(PWD)/..
 CRYPTO_ROOT = $(PROJECT_ROOT)/modules/module_crypto
-CRYPTO_LIBS = crypto
-LIBCRYPTO_FEATURES = frequency
+CRYPTO_LIBS = classiccrypto
+LIBCLASSICCRYPTO_FEATURES = frequency
 
 BUILD_TYPE = release
 BUILD_DIR = $(PROJECT_ROOT)/build/$(BUILD_TYPE)
