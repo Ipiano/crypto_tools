@@ -60,7 +60,9 @@ int main(int argc, char** argv)
 
     //Start one thread for each file operated on
     vector<pair<bool, future<shared_ptr<vector<string>>>>> threads;
-    threads.push_back(make_pair(false, async(launch::async, &runCommandGroup, ref(generates))));
+
+    if(generates.size())
+        threads.push_back(make_pair(false, async(launch::async, &runCommandGroup, ref(generates))));
     for(auto& i : fileOps)
     {
         threads.push_back(make_pair(false, async(launch::async, &runCommandGroup, ref(i.second))));
@@ -258,9 +260,9 @@ bool generatePrimes(uint64_t n, mpz_class start, shared_ptr<vector<string>> outp
 bool encodeFile(string file, const mpz_class& p, const mpz_class& q, const mpz_class& x, 
                 shared_ptr<vector<string>> output, string ext)
 {
-    blum_blum_shub_engine<uint32_t, 25>* random;
+    blum_blum_shub_engine<uint8_t>* random;
     try{
-        random = new blum_blum_shub_engine<uint32_t, 25>(p, q, x);
+        random = new blum_blum_shub_engine<uint8_t>(p, q, x);
     }catch(exception& ex){
         output->push_back("Unable to generate bbs engine: " + string(ex.what()));
         return false;
@@ -298,7 +300,11 @@ bool encodeFile(string file, const mpz_class& p, const mpz_class& q, const mpz_c
 
     while(fin)
     {
-        fout << (char)(fin.get() ^ (*random)());
+        char buff;
+        for(int i=0; i<8; i++)
+            buff = (buff << 1) | (*random)();
+            
+        fout << (char)(fin.get() ^ buff);
     }
 
     fout.close();
