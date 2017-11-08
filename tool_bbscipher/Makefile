@@ -1,9 +1,10 @@
 # General variables
 CC = g++
 CFLAGS += --std=c++11 -O1
-LIBS += -lm -lpthread -L$(LIBS_DIR)
+LIBS += -lm -lpthread -lgmp -lgmpxx -L$(LIBS_DIR)
 
 TARGET = tool_bbscipher
+DEFINES += -DCRYPTOMATH_GMP
 
 PROJECT_ROOT = $(PWD)/..
 CRYPTO_ROOT = $(PROJECT_ROOT)/modules/module_crypto
@@ -51,7 +52,7 @@ objs_main = main.o
 # Substitute objects location onto object files from internal libs
 $(TARGET): build_objects = $(patsubst %.o, $(OBJECTS_DIR)/%.o, $(objs_main) $(LIB_OBJECTS))
 $(TARGET): mkdirs $(objs_main) $(INCLUDED_LIBS)
-	$(CC) $(build_objects) $(LIBS) -o $(DEST_DIR)/$@
+	$(CC) $(build_objects) $(DEFINES) $(LIBS) -o $(DEST_DIR)/$@
 
 $(objs_main): %.o: src/%.cpp
-	$(CC) -c $(CFLAGS) $(INCLUDES) $^ -o $(OBJECTS_DIR)/$@
+	$(CC) -c $(CFLAGS) $(DEFINES) $(INCLUDES) $^ -o $(OBJECTS_DIR)/$@

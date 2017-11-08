@@ -260,9 +260,9 @@ bool generatePrimes(uint64_t n, mpz_class start, shared_ptr<vector<string>> outp
 bool encodeFile(string file, const mpz_class& p, const mpz_class& q, const mpz_class& x, 
                 shared_ptr<vector<string>> output, string ext)
 {
-    blum_blum_shub_engine<uint8_t>* random;
+    blum_blum_shub_engine<uint8_t, mpz_class>* random;
     try{
-        random = new blum_blum_shub_engine<uint8_t>(p, q, x);
+        random = new blum_blum_shub_engine<uint8_t, mpz_class>(p, q, x);
     }catch(exception& ex){
         output->push_back("Unable to generate bbs engine: " + string(ex.what()));
         return false;
