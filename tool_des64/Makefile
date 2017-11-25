@@ -3,12 +3,11 @@ CC = g++
 CFLAGS += --std=c++11 -O1
 LIBS += -lm -L$(LIBS_DIR)
 
-TARGET = tool_affine
+TARGET = tool_des64
 
 PROJECT_ROOT = $(PWD)/..
 CRYPTO_ROOT = $(PROJECT_ROOT)/modules/module_crypto
-CRYPTO_LIBS = classiccrypto
-LIBCLASSICCRYPTO_FEATURES = affine
+CRYPTO_LIBS = des
 
 BUILD_TYPE = release
 BUILD_DIR = $(PROJECT_ROOT)/build/$(BUILD_TYPE)

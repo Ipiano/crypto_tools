@@ -4,24 +4,25 @@
 #include <sstream>
 #include <cctype>
 #include <functional>
-#include <memory>
 #include <stdexcept>
 
-#include "affinecipher.h"
+#include "des64.h"
 
 using namespace std;
+using namespace des64;
 
 enum class Input{None, File, Term};
 enum class Output{None, File, Term};
 enum class Mode{None, Encrypt, Decrypt};
 
-bool processArgs(int argc, char** argv, Input& inMode, Output& outMode, Mode& op, int64_t& a, int64_t& b, string& input, string& output);
+bool processArgs(int argc, char** argv, Input& inMode, Output& outMode, Mode& op, string& key, string& input, string& output);
 void help(string name, string msg = "");
+string charsFromHex(string input);
+string hexFromChars(string input);
 
 int main(int argc, char** argv)
 {
-    string input, output;
-    int64_t a, b;
+    string key, input, output;
     Input inputMode;
     Output outputMode;
     Mode operation;
@@ -34,19 +35,21 @@ int main(int argc, char** argv)
     istream* inStream = &inText;
     ostream* outStream = &cout;
 
-    if(!processArgs(argc, argv, inputMode, outputMode, operation, a, b, input, output))
+    if(!processArgs(argc, argv, inputMode, outputMode, operation, key, input, output))
     {
         return 1;
     }
 
-    unique_ptr<affine::transformer> aff;
-
+    uint64_t key_val = 0;
     try
     {
-        aff.reset(new affine::transformer(a, b));
+        if(key.size() != 16)
+            throw logic_error("");
+        
+        key_val = stoull(key, 0, 16);
     }catch(exception& ex)
     {
-        cout << ex.what() << endl;
+        help(argv[0], "Key must contain exactly 16 hexadecimal characters [0-9, a-f]");
         return 3;
     }
 
@@ -63,7 +66,14 @@ int main(int argc, char** argv)
     }
     else
     {
-        inText << input;
+        try
+        {
+            inText << charsFromHex(input);  
+        }catch(exception)
+        {
+            help(argv[0], input + " is not a valid hexadecimal value");
+            return 4;
+        }
     }
 
     if(outputMode == Output::File)
@@ -79,16 +89,55 @@ int main(int argc, char** argv)
         outStream = &outFile;
     }
 
-    function<string(const string&)> op = std::bind((operation == Mode::Encrypt ? &affine::transformer::encrypt : &affine::transformer::decrypt), aff.get(), placeholders::_1);
+    function<uint64_t(uint64_t, const uint64_t&)> op = (operation == Mode::Encrypt ? encrypt : decrypt);
 
+    uint64_t block;
+    bool done = false;
     while(*inStream)
     {
-        string line;
-        getline(*inStream, line);
+        block = 0;
+        for(int i=0; i<8 && *inStream; i++)
+        {
+            unsigned char byte;
+            inStream->read((char*)&byte, 1);
 
-        line = op(line);
+            if(!*inStream)
+            {
+                done = true;
+            }
+            else
+            {
+                block |= ((uint64_t)byte << ((7-i) * 8));
+            }
+        }
+        if(done) break;
 
-        *outStream << line << endl;
+        try
+        {
+            block = op(block, key_val);
+        }catch(exception)
+        {
+            cerr << "Key parity fails" << endl;
+            inFile.close();
+            outFile.close();
+            return 5;
+        }
+        
+        unsigned char block_chars[8];
+        for(int i=0; i<8; i++)
+        {
+            block_chars[7-i] = (block & 0xFF);
+            block >>= 8;
+        }
+
+        if(outputMode == Output::File)
+        {
+            outStream->write((char*)block_chars, 8);
+        }
+        else
+        {
+            *outStream << hexFromChars(string((char*)block_chars, 8));
+        }
     }
 
     inFile.close();
@@ -97,10 +146,8 @@ int main(int argc, char** argv)
     return 0;
 }
 
-bool processArgs(int argc, char** argv, Input& inMode, Output& outMode, Mode& op, int64_t& a, int64_t& b, string& input, string& output)
+bool processArgs(int argc, char** argv, Input& inMode, Output& outMode, Mode& op, string& key, string& input, string& output)
 {
-    bool a_ = false, b_ = false;
-
     inMode = Input::None;
     outMode = Output::None;
     op = Mode::None;
@@ -109,33 +156,15 @@ bool processArgs(int argc, char** argv, Input& inMode, Output& outMode, Mode& op
     {
         string arg = argv[i];
 
-        if(arg == "-a")
+        if(arg == "-k")
         {
-            try
+            if(i >= argc-1)
             {
-                if(a_ || i == argc-1) throw logic_error("");
-                i++;
-                a = stoll(argv[i]);
-                a_ = true;
-            }catch(exception)
-            {
-                help(argv[0], "Enter a with -a [int]");                
+                help(argv[0], "Enter key with -k [key]");
                 return false;
             }
-        }
-        else if(arg == "-b")
-        {
-            try
-            {
-                if(b_ || i == argc-1) throw logic_error("");
-                i++;
-                b = stoll(argv[i]);
-                b_ = true;
-            }catch(exception)
-            {
-                help(argv[0], "Enter b with -b [int]");                
-                return false;
-            }
+            i++;
+            key = argv[i];
         }
         else if(arg == "-it")
         {
@@ -249,22 +278,39 @@ bool processArgs(int argc, char** argv, Input& inMode, Output& outMode, Mode& op
         return false;
     }
 
-    if(!a_)
-    {
-        help(argv[0], "Enter a with -a [int]");                
-        return false;        
-    }
-
-    if(!b_)
-    {
-        help(argv[0], "Enter b with -b [int]");                
-        return false;        
-    }
-
     return true;
 }
 
 void help(string name, string msg)
 {
     cout << msg << endl;
+}
+
+string charsFromHex(string input)
+{
+    string out = "";
+    for(char& c : input) c = tolower(c);
+    if(input.find_first_not_of("0123456789abcdef") != string::npos)
+        throw logic_error("");
+
+    if(input.size() % 2 == 1) input = input + "0";
+    for(int i=0; i<input.size(); i+=2)
+    {
+        out.push_back((input[i] >= 'a' ? input[i] - 'a' + 10 : input[i] - '0') << 4 |
+                      (input[i+1] >= 'a' ? input[i+1] - 'a' + 10 : input[i+1] - '0'));
+    }
+
+    return out;
+}
+
+string hexFromChars(string input)
+{
+    string out = "";
+    for(char c1 : input)
+    {
+        unsigned char c = c1;
+        out.push_back((c >> 4) >= 10 ? (c >> 4) - 10 + 'a' : (c >> 4) + '0');
+        out.push_back((c & 0xF) >= 10 ? (c & 0xF) - 10 + 'a' : (c & 0xF) + '0');        
+    }
+    return out;
 }

@@ -2,7 +2,9 @@
 #include <string>
 #include <fstream>
 #include <sstream>
+#include <cctype>
 #include <functional>
+#include <stdexcept>
 
 #include "des4.h"
 
@@ -15,6 +17,8 @@ enum class Mode{None, Encrypt, Decrypt};
 
 bool processArgs(int argc, char** argv, Input& inMode, Output& outMode, Mode& op, string& key, string& input, string& output);
 void help(string name, string msg = "");
+string charsFromHex(string input);
+string hexFromChars(string input);
 
 int main(int argc, char** argv)
 {
@@ -46,8 +50,6 @@ int main(int argc, char** argv)
     for(int i=0; i<9; i++)
         key_val |= ((key[i] - '0') << 8 - i);
 
-    inText << input;
-
     if(inputMode == Input::File)
     {
         inFile.open(input, ios::binary);
@@ -58,6 +60,17 @@ int main(int argc, char** argv)
         }
 
         inStream = &inFile;
+    }
+    else
+    {
+        try
+        {
+            inText << charsFromHex(input);  
+        }catch(exception)
+        {
+            help(argv[0], input + " is not a valid hexadecimal value");
+            return 4;
+        }
     }
 
     if(outputMode == Output::File)
@@ -81,6 +94,8 @@ int main(int argc, char** argv)
         blocks[0] = blocks[1] = blocks[2] = 0;
         inStream->read((char*)blocks, 3);
 
+        if(!*inStream && !inStream->gcount()) break;
+
         uint16_t block1 = (blocks[0] << 4) | (blocks[1] >> 4);
         uint16_t block2 = (blocks[1] << 8) | blocks[2];
 
@@ -91,7 +106,14 @@ int main(int argc, char** argv)
         blocks[1] = ((block1 & 0xF) << 4) | ((block2 & 0xF00) >> 8);
         blocks[2] = (block2 & 0xFF);
         
-        outStream->write((char*)blocks, 3);
+        if(outputMode == Output::File)
+        {
+            outStream->write((char*)blocks, 3);
+        }
+        else
+        {
+            *outStream << hexFromChars(string((char*)blocks, 3));
+        }
     }
 
     inFile.close();
@@ -238,4 +260,32 @@ bool processArgs(int argc, char** argv, Input& inMode, Output& outMode, Mode& op
 void help(string name, string msg)
 {
     cout << msg << endl;
+}
+
+string charsFromHex(string input)
+{
+    string out = "";
+    for(char& c : input) c = tolower(c);
+    if(input.find_first_not_of("0123456789abcdef") != string::npos)
+        throw logic_error("");
+
+    if(input.size() % 2 == 1) input = input + "0";
+    for(int i=0; i<input.size(); i+=2)
+    {
+        out.push_back((input[i] >= 'a' ? input[i] - 'a' + 10 : input[i] - '0') << 4 |
+                      (input[i+1] >= 'a' ? input[i+1] - 'a' + 10 : input[i+1] - '0'));
+    }
+    return out;
+}
+
+string hexFromChars(string input)
+{
+    string out = "";
+    for(char c1 : input)
+    {
+        unsigned char c = c1;
+        out.push_back((c >> 4) >= 10 ? (c >> 4) - 10 + 'a' : (c >> 4) + '0');
+        out.push_back((c & 0xF) >= 10 ? (c & 0xF) - 10 + 'a' : (c & 0xF) + '0');        
+    }
+    return out;
 }
