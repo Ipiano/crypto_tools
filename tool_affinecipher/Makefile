@@ -8,7 +8,7 @@ TARGET = tool_affine
 PROJECT_ROOT = $(PWD)/..
 CRYPTO_ROOT = $(PROJECT_ROOT)/modules/module_crypto
 CRYPTO_LIBS = classiccrypto
-LIBCLASSICCRYPTO_FEATURES = affine
+LIBCLASSICCRYPTO_FEATURES = affine frequency
 
 BUILD_TYPE ?= release
 BUILD_DIR = $(PROJECT_ROOT)/build/$(BUILD_TYPE)
