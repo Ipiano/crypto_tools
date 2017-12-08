@@ -127,13 +127,13 @@ bool processArgs(int argc, char** argv, unordered_map<string, commandGroup>& fil
             {
                 case GENERATE:
                 {
-                    if(++i < argc)
+                    if(i < argc)
                     {
                         newCmd.type = GENERATE;
 
                         uint64_t n;
                         try{
-                            n = stoull(argv[i]);
+                            n = stoull(argv[i++]);
                         }catch(exception& ex){
                             cout << "Unable to parse " << argv[i] << " to uint64" << endl;
                             return false;
@@ -141,14 +141,16 @@ bool processArgs(int argc, char** argv, unordered_map<string, commandGroup>& fil
 
                         newCmd.n = n;
 
-                        if(++i < argc && argv[i][0] != '-')
+                        if(i < argc && argv[i][0] != '-')
                         {
-                            newCmd.start = mpz_class(argv[i]);
+                            newCmd.start = mpz_class(argv[i++]);
                         }
                         else
                         {
                             newCmd.start = mpz_class(DEFAULTS[0]);
                         }
+
+                        cout << "Generate: " << newCmd.n << " " << newCmd.start << endl;
 
                         generateCmds.push(newCmd);
                     }
@@ -249,7 +251,7 @@ bool generatePrimes(uint64_t n, mpz_class start, shared_ptr<vector<string>> outp
 
     for(int i=0; i<n; i++)
     {
-        mpz_nextprime(gmpt(start), gmpt(start));
+        start = cryptomath::nextPrime(start);
         startStr = mpz_get_str(nullptr, 10, gmpt(start));
         output->push_back(string(startStr));
         delete[] startStr;
