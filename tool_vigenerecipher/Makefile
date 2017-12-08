@@ -8,7 +8,7 @@ TARGET = tool_vigenere
 PROJECT_ROOT = $(PWD)/..
 CRYPTO_ROOT = $(PROJECT_ROOT)/modules/module_crypto
 CRYPTO_LIBS = classiccrypto
-LIBCLASSICCRYPTO_FEATURES = vigenere
+LIBCLASSICCRYPTO_FEATURES = vigenere frequency
 
 BUILD_TYPE ?= release
 BUILD_DIR = $(PROJECT_ROOT)/build/$(BUILD_TYPE)
