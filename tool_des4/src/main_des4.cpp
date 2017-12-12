@@ -13,7 +13,7 @@ tool can also be used to do that.
 Details on the simplified algorithm and cryptanalysis can be found in the crytography library submodule
 which this tool uses.
 
-\section compile_des64 Compiling
+\section compile_des4 Compiling
 This tool can be built with the command 
 \verbatim 
 make

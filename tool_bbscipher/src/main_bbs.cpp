@@ -132,7 +132,7 @@ If the arguments are invalid, an error message is printed.
 \param[in] argc Number of arguments
 \param[in] argv The arguments
 \param[out] fileCmds Maps files to be processed to all commands for processing them
-\param[out] generateCommands Commands for generating prime numbers
+\param[out] generateCmds Commands for generating prime numbers
 \returns bool - Whether or not the arguments were valid
 */
 bool processArgs(int argc, char** argv, unordered_map<string, commandGroup>& fileCmds, commandGroup& generateCmds);

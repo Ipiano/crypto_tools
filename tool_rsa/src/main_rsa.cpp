@@ -150,7 +150,7 @@ void help(string name, string msg = "");
     until \f$ gcd(p, e) = gcd(q, e) = 1 \f$. At that point, \f$ n \f$ and \f$ d \f$ can be calculated.
 
     \param[in] bits Number of bits in \f$ n \f$
-    \param[out] pair<rsa_key, rsa_key>& the public, private pair generated
+    \param[out] out the public, private pair generated
 */
 void generateKey(const uint64_t& bits, pair<rsa_key, rsa_key>& out);
 
@@ -169,7 +169,7 @@ void loadKey(istream& in, rsa_key& key);
     The key is saved in the form of either \f$ e \f$ or \f$ d \f$, then whitespace, then \f$ n \f$,
     written in hexadecimal.
 
-    \param[in,out] in The stream to write to
+    \param[in,out] out The stream to write to
     \param[in] key The key to write
 */
 void saveKey(ostream& out, rsa_key& key);

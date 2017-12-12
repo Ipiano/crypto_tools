@@ -77,13 +77,17 @@ lower-case before it is processed.
 using namespace std;
 using namespace frequency;
 
-//! Valid characters to encrypt/decrypt
-const string ALPHABET = "abcdefghijklmnopqrstuvwxyz";
+//! Constants for this tool
+namespace constants {
+    //! Valid characters to encrypt/decrypt
+    const string ALPHABET = "abcdefghijklmnopqrstuvwxyz";
 
-//! Known frequencies of letters in the English alphabet
-const vector<double> FREQUENCIES{{.082, .015, .028, .043, .127, .022, .020, .061, .070, .002,
-                                  .008, .040, .024, .067, .075, .019, .001, .060, .063, .091,
-                                  .028, .010, .023, .001, .020, .001}};
+    //! Known frequencies of letters in the English alphabet
+    const vector<double> FREQUENCIES{{.082, .015, .028, .043, .127, .022, .020, .061, .070, .002,
+                                      .008, .040, .024, .067, .075, .019, .001, .060, .063, .091,
+                                      .028, .010, .023, .001, .020, .001}};
+}
+using namespace constants;
 
 //! Enums for this tool
 namespace enums {
@@ -129,7 +133,7 @@ void help(string name, string msg = "");
     into an input stream. 
 
     If the mode is encryption or decryption, the vigenere transform object is constructed.
-    If the key is invalid, the applicatino terminates. Otherwise, each line of the input is processed and printed to
+    If the key is invalid, the application terminates. Otherwise, each line of the input is processed and printed to
     the output.
 
     If the mode is cracking encrypted text, up to 2000 characters of input data are read. For each possible key length,

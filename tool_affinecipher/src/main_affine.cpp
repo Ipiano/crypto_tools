@@ -1,4 +1,72 @@
-/*! \file */
+/*! \file
+
+\page affine Affine Cipher Tool
+
+\section background_affine Background
+
+Affine ciphers are a form of substitution cipher which takes the
+plaintext to a ciphertext using the transform \f$ c = \alpha m + \beta \f$ (mod \f$ n \f$) where
+    - \f$ c \f$ is the ciphertext
+    - \f$ m \f$ is a character of the message
+    - \f$ n \f$ is the size of the character set to use
+    - \f$ \alpha \f$ is some value which is coprime with \f$ n \f$
+    - \f$ \beta \f$ is any value (mod \f$ n \f$)
+Text is decrypted with the transform \f$ m = (c - \beta)\alpha^{-1} \f$ (mod \f$ n \f$) where \f$ \alpha^{-1} \f$ is
+the multiplicative inverse of \f$ \alpha \f$ mod \f$ n \f$
+
+Characters are mapped to values mod \f$ n \f$ by their index in the alphabet. For example, if the alphabet is 'abcde', then
+    - \f$ n = \f$ 5
+    - 'a' maps to 0, 'b' maps to 1... 'e' maps to 4
+    - All values except for 0 and multiples of 5 are valid for \f$ \alpha \f$ because 5 is prime
+
+While this cipher is harder to crack than a simple shift cipher, it is still fairly trivial. If it is known what some plaintext
+values map to in the ciphertext, then a linear system of two variables can be solve mod \f$ n \f$ to yield \f$ \alpha, \beta \f$.
+If no mappings are known, a frequency analysis can be used to guess some.
+
+This tool can be used to encrypt and decrypt text with the affine cipher, as well as attempt to crack a ciphertext or print
+all possible decryptions for it. If the user is attempting to crack a ciphertext and knows some of the original text, they
+can enter that information with the -k command line argument. If enough information is given to solve the key a, b then
+only the cracked message will be displayed. If multiple solutions are possible, they are all displayed.
+
+\section compile_affine Compiling
+This tool can be built with the command 
+\verbatim 
+make
+\endverbatim
+This will generate a release version of the tool in the release directory. To build a debug version in the debug directory,
+use the command 
+\verbatim
+make BUILD_TYPE=debug
+\endverbatim
+
+\section usage_affine Usage
+This tool can be used to encrypt, decrypt, and crack encrypted text using this cipher.
+
+\verbatim
+tool_affinecipher -e/-d input output -a a -b b
+tool_affinecipher -ca/-cb input [-k m c]
+\endverbatim
+Mode Options
+    - -e : To encrypt
+    - -d : To decrypt
+    - -ca : To crack by testing all possible a, b key combinations
+    - -cb : To crack by attempting solve the linear system
+
+Input Options
+    - -it text : To input the text 'text'
+    - -if file : To input from the file 'file'
+
+Output Options
+    - -ot : To output to terminal
+    - -of file : To output to the file 'file'
+
+Cracking Hints
+    - -k m c : Indicates to the cracking algorithm that character m should encrypt to character c
+               Argument can be used multiple times, and is not required at all
+
+Any text in the input which is not in the range a-z or A-Z will copied as-is to the output. Any text in the range A-Z will be made
+lower-case before it is processed.
+*/
 #include <iostream>
 #include <string>
 #include <fstream>
@@ -17,20 +85,104 @@
 using namespace std;
 using namespace frequency;
 
-const string ALPHABET = "abcdefghijklmnopqrstuvwxyz";
-const string FREQUENCIES = "etaoinsrhdlucmfywgpbvkxqjz";
+//! Constants for this tool
+namespace constants {
+    //! Alphabet of characters to use
+    const string ALPHABET = "abcdefghijklmnopqrstuvwxyz";
+    //! Order of frequencies of the English alphabet
+    const string FREQUENCIES = "etaoinsrhdlucmfywgpbvkxqjz";
+}
+using namespace constants;
 
-enum class Input{None, File, Term};
-enum class Output{None, File, Term};
-enum class Mode{None, Encrypt, Decrypt, Crack_All, Crack_Best};
+//! Enums for this tool
+namespace enums {
+    //! Input options
+    enum class Input{None, File, Term};
 
+    //! Output options
+    enum class Output{None, File, Term};
+
+    //! Mode options
+    enum class Mode{None, Encrypt, Decrypt, Crack_All, Crack_Best};
+}
+using namespace enums;
+
+/*! Processes the command line arguments
+
+If the arguments are invalid, a usage prompt is printed with an error message
+
+\param[in] argc Number of arguments
+\param[in] argv The arguments
+\param[out] inMode Mode of input
+\param[out] outMode Mode of output
+\param[out] op The operation to perform
+\param[out] a The value first part of the key
+\param[out] b The value second part of the key
+\param[out] input String to process if text mode, file name if file mode
+\param[out] output File name to output to
+\param[out] known List of known plain -> cipher pairs
+\returns bool - Whether or not the arguments were valid
+*/
 bool processArgs(int argc, char** argv, Input& inMode, Output& outMode, Mode& op, 
                  int64_t& a, int64_t& b, string& input, string& output,
                  vector<pair<char, char>>& known);
+
+/*! Prints the program usage prompt with an error message
+
+\param[in] name Name of the program
+\param[in] msg Error message to print
+*/
 void help(string name, string msg = "");
+
+/*! Solves the linear system of two variables mod 26
+to get a, b.  If no solution is found, 0 is returned as a
+
+\param[in] p1 First x, y pair
+\param[in] p2 Second x, y pair
+\returns pair<int, int> - [a, b]. [0, 0] if no solution
+*/
 pair<int, int> linsolve(pair<char, char> p1, pair<char, char> p2);
+
+/*! Checks if a solution a, b can be used to decrypt a ciphertext
+and match all known before-after pairs that occur in it
+
+This function returns as soon as two knowns have matched because that
+should indicate that a,b is guaranteed the correct key
+
+\param[in] a First part of key
+\param[in] b Second part of key
+\param[in] ciph Ciphertext being cracked
+\param[in] known List of known plain -> cipher pairs
+\returns pair<int, string> - [number of matched knowns, decrypted text]
+*/
 pair<int, string> checkSoln(int a, int b, string ciph, vector<pair<char, char>>& known);
 
+/*!
+    Processes the command line arguments. If they are invalid, the application terminates. 
+    Any files that will be used are opened. If text is used as the input, it is copied
+    into an input stream. 
+
+    If the mode is encryption or decryption, the affine transform object is constructed.
+    If the key is invalid, the application terminates. Otherwise, each line of the input is processed and printed to
+    the output.
+
+    If the mode is cracking encrypted text, one line of characters of input data are read. If -ca was specified, this line
+    is decrypted with all possible a,b keys and printed (along with a, b).
+    If -cb was specified, the solver tries to solve the linear systems three times
+        - The first time, it attempts to use only user-entered known values
+        - The second time, it runs a frequency analysis on the entire input text, and attempts to solve using one known from the user
+            and one assumed from this analysis
+        - The third time, it tries to solve using all combinations of assumed knowns from the analysis
+    If at any point the solver finds an a,b key that matches at least two knowns (whether they are user-entered or assumed), processing stops.
+    If a solution matches only one known, but no others because they are not present in the string, the solution is printed, but processing continues
+
+    \param[in] argc Number of command line arguments
+    \param[in] argv The command line arguments
+    \returns 0 - The program ran successfully
+    \returns 1 - The command line arguments were invalid
+    \returns 2 - A file could not be opened
+    \returns 3 - The key was invalid
+*/
 int main(int argc, char** argv)
 {
     string input, output;
@@ -512,5 +664,29 @@ bool processArgs(int argc, char** argv, Input& inMode, Output& outMode, Mode& op
 
 void help(string name, string msg)
 {
-    cout << msg << endl;
+    cout << msg << endl << endl;
+
+    cout << "Usage:" << endl << "tool_affinecipher -e/-d input output -a a -b b\n\
+tool_affinecipher -ca/-cb input [-k m c]\n\
+\n\
+Mode Options\n\
+    -e : To encrypt\n\
+    -d : To decrypt\n\
+    -ca : To crack by testing all possible a, b key combinations\n\
+    -cb : To crack by attempting solve the linear system\n\
+    \n\
+Input Options\n\
+    -it text : To input the text 'text'\n\
+    -if file : To input from the file 'file'\n\
+    \n\
+Output Options\n\
+    -ot : To output to terminal\n\
+    -of file : To output to the file 'file'\n\
+    \n\
+Cracking Hints\n\
+    -k m c : Indicates to the cracking algorithm that character m should encrypt to character c\n\
+             Argument can be used multiple times, and is not required at all\n\
+                \n\
+Any text in the input which is not in the range a-z or A-Z will copied as-is to the output. Any text in the range A-Z will be made\n\
+lower-case before it is processed." << endl;
 }
