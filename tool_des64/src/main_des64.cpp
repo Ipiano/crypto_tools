@@ -1,6 +1,6 @@
 /*! \file 
 
-\page des The DES Tool
+\page des64 The DES Tool
 
 \section background_des64 Background
 
@@ -71,7 +71,7 @@ using namespace std;
 using namespace des64;
 
 //! Enums for this tool
-namespace enums {
+namespace enums_des64 {
     //! Input options
     enum class Input{None, File, Term};
 
@@ -82,7 +82,7 @@ namespace enums {
     enum class Mode{None, Encrypt, Decrypt};
 }
 
-using namespace enums;
+using namespace enums_des64;
 
 /*! Processes the command line arguments
 

@@ -106,12 +106,12 @@ The key file for encryption should be a public key, and for decryption should th
 using namespace std;
 
 //! Enums for this tool
-namespace enums {
+namespace enums_rsa {
     //! Mode options
     enum class Mode{None, Encrypt, Decrypt, Generate};
 }
 
-using namespace enums;
+using namespace enums_rsa;
 
 //! Container for some \f$ n \f$ and either \f$ e \f$ or \f$ d \f$
 struct rsa_key

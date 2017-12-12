@@ -1,6 +1,6 @@
 /*! \file 
 
-\page des The Blum Blum Shub Cipher
+\page bbs The Blum Blum Shub Cipher
 
 \section background_bbs Background
 

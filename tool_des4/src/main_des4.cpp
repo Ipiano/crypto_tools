@@ -1,6 +1,6 @@
 /*! \file
 
-\page des The Simplified DES Tool
+\page des4 The Simplified DES Tool
 
 \section background_des4 Background
 
@@ -64,7 +64,7 @@ using namespace std;
 using namespace des4;
 
 //! Enums for the tool
-namespace enums {
+namespace enums_des4 {
     //! Input options
     enum class Input{None, File, Term};
 
@@ -75,7 +75,7 @@ namespace enums {
     enum class Mode{None, Encrypt, Decrypt, Crack3, Crack4};
 }
 
-using namespace enums;
+using namespace enums_des4;
 
 /*! Processes the command line arguments
 

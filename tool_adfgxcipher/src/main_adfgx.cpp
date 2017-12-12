@@ -81,7 +81,7 @@ The key should have no duplicated characters
 using namespace std;
 
 //! Enums for this tool
-namespace enums {
+namespace enums_adfgx {
     //! Input modes
     enum class Input{None, File, Term};
 
@@ -92,7 +92,7 @@ namespace enums {
     enum class Mode{None, Encrypt, Decrypt};
 }
 
-using namespace enums;
+using namespace enums_adfgx;
 
 /*! Processes the command line arguments
 

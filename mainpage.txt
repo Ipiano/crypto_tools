@@ -81,5 +81,7 @@ git submodule update
 \endverbatim
 
 \subsection usage Using the Tools
-Each tool has its own page elsewhere in this documentation. See that page for details of the implemented algorithms and usage information.
+Implementation and background details for the different tools are found in a couple of sections of this documentation. The Implementation
+details can be found on a per-file bases in the 'Files' section of the documentation. Details about the theory of the tools and
+building/usage, look under the 'Related Pages' section.
 */

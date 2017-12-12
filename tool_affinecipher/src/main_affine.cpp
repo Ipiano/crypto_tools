@@ -86,16 +86,16 @@ using namespace std;
 using namespace frequency;
 
 //! Constants for this tool
-namespace constants {
+namespace constants_affine {
     //! Alphabet of characters to use
     const string ALPHABET = "abcdefghijklmnopqrstuvwxyz";
     //! Order of frequencies of the English alphabet
     const string FREQUENCIES = "etaoinsrhdlucmfywgpbvkxqjz";
 }
-using namespace constants;
+using namespace constants_affine;
 
 //! Enums for this tool
-namespace enums {
+namespace enums_affine {
     //! Input options
     enum class Input{None, File, Term};
 
@@ -105,7 +105,7 @@ namespace enums {
     //! Mode options
     enum class Mode{None, Encrypt, Decrypt, Crack_All, Crack_Best};
 }
-using namespace enums;
+using namespace enums_affine;
 
 /*! Processes the command line arguments
 

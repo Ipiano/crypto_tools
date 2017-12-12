@@ -78,7 +78,7 @@ using namespace std;
 using namespace frequency;
 
 //! Constants for this tool
-namespace constants {
+namespace constants_vigenere {
     //! Valid characters to encrypt/decrypt
     const string ALPHABET = "abcdefghijklmnopqrstuvwxyz";
 
@@ -87,10 +87,10 @@ namespace constants {
                                       .008, .040, .024, .067, .075, .019, .001, .060, .063, .091,
                                       .028, .010, .023, .001, .020, .001}};
 }
-using namespace constants;
+using namespace constants_vigenere;
 
 //! Enums for this tool
-namespace enums {
+namespace enums_vigenere {
     //! Input options
     enum class Input{None, File, Term};
 
@@ -101,7 +101,7 @@ namespace enums {
     enum class Mode{None, Encrypt, Decrypt, Crack};
 }
 
-using namespace enums;
+using namespace enums_vigenere;
 
 /*! Processes the command line arguments
 
