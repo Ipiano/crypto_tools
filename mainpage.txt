@@ -1,0 +1,85 @@
+/*! \file
+
+\mainpage Cryptography Tools
+
+\section course_section Course
+
+\author Andrew Stelter
+
+\par Professor: 
+        Christer Karlsson
+
+\par Course: 
+        Cryptography (CSC 512), Fall 2017
+
+\section program_section Library Information 
+
+\details Description:
+This set of tools was created as a part of the requirement for the Cryptography
+course at the South Dakota School of Mines and Technology. They utilize the general
+cryptography at https://github.com/Ipiano/module_crypto which was created as part
+of the same project.
+
+The book for the course was  "Introduction to Cryptography with Coding Theory (2nd Edition) 2nd Edition" by
+Wade Trappe and Lawrence C. Washington. This book was the main reference used for writing the library.
+
+DISCLAIMER: These tools are not written to follow any specific cryptographic standards. They exist
+to demonstrate an understanding of the concepts and theory which the subject is founded on.
+
+\subsection vigenere_brief Vigenere Cipher Tool
+The vigenere cipher tool can be used to encrypt and decrypt text, as well as 
+attack encrypted text in an attempt to determine the key used to encrypt it
+
+\subsection adfgx_brief ADFGX Cipher Tool
+The ADFGX cipher tool can be used to encrypt and decrypt text using the German
+ADFGX cipher and a default substitution matrix
+
+\subsection affine_brief Affine Cipher Tool
+The affine cipher tool can be used to encrypt and decrypt text, as well as 
+attack encrypted text in an attempt to determine the a, b used to encrypt it
+
+\subsection frequencey_brief Frequency Analysis Tool
+The frequency analysis tool can be used to find the frequency of characters
+in one or more texts.
+
+\subsection bbs_brief Blum Blum Shub Cipher Tool
+The Blum Blum Shub Cipher tool can be used to encrypt and decrypt text using a one-time pad.
+The one-time pad of bits is generated using the Blum Blum Shub pseudo-random number generation
+algorithm.
+
+\subsection des4_brief Simplified DES Tool
+The book used for the course described a simplified version of the DES which uses 4-rounds and operates on
+blocks of 12 bits. The des4 tool can be used to encrypt and decrypt text using this method, as well as attack
+the same algorithm which is encrypting text using 3 or 4 rounds.
+
+\subsection des64_brief Full DES Tool
+The des64 tool is the full 64-bit DES. It can be used to encrypt or decrypt text in ECB mode.
+
+\subsection rsa_brief RSA Tool
+The RSA tool can be used to generate RSA public and private key pairs, as well as use those
+pairs to encrypt and decrypt texts.
+
+\section compile_section Building the Tools
+Each tool can be built with the command 
+\verbatim 
+make
+\endverbatim
+This will generate a release version of the tool in [tool directory]/release. To build a debug version in [tool directory]/debug,
+use the command 
+\verbatim
+make BUILD_TYPE=debug
+\endverbatim
+
+\subsection depend Dependencies
+Both the RSA tool and the Blum Blum Shub cipher tool require the GNU Multi-Precision Library (GMP).
+
+This entire repository requires the cryptography module found at https://github.com/Ipiano/module_crypto as a submodule.
+If you did not pull this tools repository with the --recurse-submodules flag, you will need to update the submodule with
+\verbatim
+git submodule init
+git submodule update
+\endverbatim
+
+\subsection usage Using the Tools
+Each tool has its own page elsewhere in this documentation. See that page for details of the implemented algorithms and usage information.
+*/

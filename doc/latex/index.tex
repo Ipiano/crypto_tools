@@ -1,0 +1,36 @@
+\hypertarget{index_course_section}{}\section{Course}\label{index_course_section}
+\begin{DoxyAuthor}{Author}
+Andrew Stelter
+\end{DoxyAuthor}
+\begin{DoxyParagraph}{Professor\+: }
+Christer Karlsson
+\end{DoxyParagraph}
+\begin{DoxyParagraph}{Course\+: }
+Cryptography (C\+SC 512), Fall 2017
+\end{DoxyParagraph}
+\hypertarget{index_program_section}{}\section{Library Information}\label{index_program_section}
+Description\+: This set of tools was created as a part of the requirement for the Cryptography course at the South Dakota School of Mines and Technology. They utilize the general cryptography at \href{https://github.com/Ipiano/module_crypto}{\tt https\+://github.\+com/\+Ipiano/module\+\_\+crypto} which was created as part of the same project.
+
+The book for the course was \char`\"{}\+Introduction to Cryptography with Coding Theory (2nd Edition) 2nd Edition\char`\"{} by Wade Trappe and Lawrence C. Washington. This book was the main reference used for writing the library.
+
+D\+I\+S\+C\+L\+A\+I\+M\+ER\+: These tools are not written to follow any specific cryptographic standards. They exist to demonstrate an understanding of the concepts and theory which the subject is founded on.\hypertarget{index_vigenere_brief}{}\subsection{Vigenere Cipher Tool}\label{index_vigenere_brief}
+The vigenere cipher tool can be used to encrypt and decrypt text, as well as attack encrypted text in an attempt to determine the key used to encrypt it\hypertarget{index_adfgx_brief}{}\subsection{A\+D\+F\+G\+X Cipher Tool}\label{index_adfgx_brief}
+The A\+D\+F\+GX cipher tool can be used to encrypt and decrypt text using the German A\+D\+F\+GX cipher and a default substitution matrix\hypertarget{index_affine_brief}{}\subsection{Affine Cipher Tool}\label{index_affine_brief}
+The affine cipher tool can be used to encrypt and decrypt text, as well as attack encrypted text in an attempt to determine the a, b used to encrypt it\hypertarget{index_frequencey_brief}{}\subsection{Frequency Analysis Tool}\label{index_frequencey_brief}
+The frequency analysis tool can be used to find the frequency of characters in one or more texts.\hypertarget{index_bbs_brief}{}\subsection{Blum Blum Shub Cipher Tool}\label{index_bbs_brief}
+The Blum Blum Shub Cipher tool can be used to encrypt and decrypt text using a one-\/time pad. The one-\/time pad of bits is generated using the Blum Blum Shub pseudo-\/random number generation algorithm.\hypertarget{index_des4_brief}{}\subsection{Simplified D\+E\+S Tool}\label{index_des4_brief}
+The book used for the course described a simplified version of the D\+ES which uses 4-\/rounds and operates on blocks of 12 bits. The des4 tool can be used to encrypt and decrypt text using this method, as well as attack the same algorithm which is encrypting text using 3 or 4 rounds.\hypertarget{index_des64_brief}{}\subsection{Full D\+E\+S Tool}\label{index_des64_brief}
+The des64 tool is the full 64-\/bit D\+ES. It can be used to encrypt or decrypt text in E\+CB mode.\hypertarget{index_rsa_brief}{}\subsection{R\+S\+A Tool}\label{index_rsa_brief}
+The R\+SA tool can be used to generate R\+SA public and private key pairs, as well as use those pairs to encrypt and decrypt texts.\hypertarget{index_compile_section}{}\section{Building the Tools}\label{index_compile_section}
+Each tool can be built with the command \begin{DoxyVerb}make
+\end{DoxyVerb}
+ This will generate a release version of the tool in \mbox{[}tool directory\mbox{]}/release. To build a debug version in \mbox{[}tool directory\mbox{]}/debug, use the command \begin{DoxyVerb}make BUILD_TYPE=debug
+\end{DoxyVerb}
+\hypertarget{index_depend}{}\subsection{Dependencies}\label{index_depend}
+Both the R\+SA tool and the Blum Blum Shub cipher tool require the G\+NU Multi-\/\+Precision Library (G\+MP).
+
+This entire repository requires the cryptography module found at \href{https://github.com/Ipiano/module_crypto}{\tt https\+://github.\+com/\+Ipiano/module\+\_\+crypto} as a submodule. If you did not pull this tools repository with the --recurse-\/submodules flag, you will need to update the submodule with \begin{DoxyVerb}git submodule init
+git submodule update
+\end{DoxyVerb}
+\hypertarget{index_usage}{}\subsection{Using the Tools}\label{index_usage}
+Each tool has its own page elsewhere in this documentation. See that page for details of the implemented algorithms and usage information. 

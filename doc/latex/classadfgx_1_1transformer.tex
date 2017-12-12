@@ -1,0 +1,104 @@
+\hypertarget{classadfgx_1_1transformer}{}\section{adfgx\+:\+:transformer Class Reference}
+\label{classadfgx_1_1transformer}\index{adfgx\+::transformer@{adfgx\+::transformer}}
+
+
+The adfgx transformer.  
+
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classadfgx_1_1transformer_a22702dfde5ec9f3f07072fcf2397bafd}{transformer} (const std\+::string \&key)
+\begin{DoxyCompactList}\small\item\em Construts an A\+D\+F\+GX transformer with a specific keyword. \end{DoxyCompactList}\item 
+std\+::string \hyperlink{classadfgx_1_1transformer_a2ef992174d30380f21a333b2545b4913}{encrypt} (const std\+::string \&message)
+\begin{DoxyCompactList}\small\item\em Encrypts a string using the A\+D\+F\+GX cipher and the loaded key. \end{DoxyCompactList}\item 
+std\+::string \hyperlink{classadfgx_1_1transformer_a6fc1db3bf79b49f3d5c227149cc6acf5}{decrypt} (const std\+::string \&cipher)
+\begin{DoxyCompactList}\small\item\em Decrypts a string using the A\+D\+F\+GX cipher and the loaded key. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The adfgx transformer. 
+
+Construct this object using a key for the adfgx cipher, and use it to encrypt and/or decrypt multiple texts using that key 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{adfgx\+::transformer@{adfgx\+::transformer}!transformer@{transformer}}
+\index{transformer@{transformer}!adfgx\+::transformer@{adfgx\+::transformer}}
+\subsubsection[{\texorpdfstring{transformer(const std\+::string \&key)}{transformer(const std::string &key)}}]{\setlength{\rightskip}{0pt plus 5cm}adfgx\+::transformer\+::transformer (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{key}
+\end{DoxyParamCaption}
+)}\hypertarget{classadfgx_1_1transformer_a22702dfde5ec9f3f07072fcf2397bafd}{}\label{classadfgx_1_1transformer_a22702dfde5ec9f3f07072fcf2397bafd}
+
+
+Construts an A\+D\+F\+GX transformer with a specific keyword. 
+
+Constructs an A\+D\+F\+GX transformer with the given key. The key must
+\begin{DoxyItemize}
+\item Be non-\/empty
+\item Contain no duplicates
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em key} & The key to use for the cipher \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em logic\+\_\+error} & \+: The key is empty \\
+\hline
+{\em logic\+\_\+error} & \+: The key has duplicate letters \\
+\hline
+\end{DoxyExceptions}
+
+
+\subsection{Member Function Documentation}
+\index{adfgx\+::transformer@{adfgx\+::transformer}!decrypt@{decrypt}}
+\index{decrypt@{decrypt}!adfgx\+::transformer@{adfgx\+::transformer}}
+\subsubsection[{\texorpdfstring{decrypt(const std\+::string \&cipher)}{decrypt(const std::string &cipher)}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string adfgx\+::transformer\+::decrypt (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{cipher}
+\end{DoxyParamCaption}
+)}\hypertarget{classadfgx_1_1transformer_a6fc1db3bf79b49f3d5c227149cc6acf5}{}\label{classadfgx_1_1transformer_a6fc1db3bf79b49f3d5c227149cc6acf5}
+
+
+Decrypts a string using the A\+D\+F\+GX cipher and the loaded key. 
+
+Decrypts an A\+D\+F\+GX ciphertext using the default substitution matrix. All letters decrypted will be lower-\/case values in the range a-\/z. Any characters in the ciphertext which are not from \mbox{[}adfgx\mbox{]} will be removed.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cipher} & The text to decrypt \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string -\/ The decrypted message 
+\end{DoxyReturn}
+\index{adfgx\+::transformer@{adfgx\+::transformer}!encrypt@{encrypt}}
+\index{encrypt@{encrypt}!adfgx\+::transformer@{adfgx\+::transformer}}
+\subsubsection[{\texorpdfstring{encrypt(const std\+::string \&message)}{encrypt(const std::string &message)}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::string adfgx\+::transformer\+::encrypt (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{message}
+\end{DoxyParamCaption}
+)}\hypertarget{classadfgx_1_1transformer_a2ef992174d30380f21a333b2545b4913}{}\label{classadfgx_1_1transformer_a2ef992174d30380f21a333b2545b4913}
+
+
+Encrypts a string using the A\+D\+F\+GX cipher and the loaded key. 
+
+Encrypts a string using the A\+D\+F\+GX cipher method and the default substituion matrix. Any characters of the message which are not part of the english alphabet will be removed
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em message} & The string to encrypt \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string -\/ The resulting ciphertext 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+modules/module\+\_\+crypto/libclassiccrypto/adfgx/headers/\hyperlink{adfgxcipher_8h}{adfgxcipher.\+h}\item 
+modules/module\+\_\+crypto/libclassiccrypto/adfgx/src/\hyperlink{adfgxcipher_8cpp}{adfgxcipher.\+cpp}\end{DoxyCompactItemize}

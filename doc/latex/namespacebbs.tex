@@ -1,0 +1,18 @@
+\hypertarget{namespacebbs}{}\section{bbs Namespace Reference}
+\label{namespacebbs}\index{bbs@{bbs}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classbbs_1_1blum__blum__shub__engine}{blum\+\_\+blum\+\_\+shub\+\_\+engine}
+\begin{DoxyCompactList}\small\item\em A random engine implementing the Blum Blum Shub pseudorandom generator algorithm which satisfies the C++ Uniform\+Random\+Bit\+Generator concept The Blum Blum Shub pseudorandom generation algorithm is as follows
+\begin{DoxyEnumerate}
+\item Pick two primes $ p, q $ such that $ p $ and $ q $ are congruent to 3 mod 4
+\item Define $ n = p * q $
+\item Pick a seed $ x $ such that $ x $ is coprime to $ n $
+\item $ x_0 = x^2$ (mod $ n $)
+\item Repeatedly yield $ x_n $ where $ x_n = x_n^2 $ (mod $ n $) 
+\end{DoxyEnumerate}\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Contains the Blum Blum Shub random engine 

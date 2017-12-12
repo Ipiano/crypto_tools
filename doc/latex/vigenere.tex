@@ -1,0 +1,45 @@
+\hypertarget{vigenere_background_vigenere}{}\section{Background}\label{vigenere_background_vigenere}
+The Vigenere cipher was invented during the 16th century, and is often attributed to Vigenere. The ciper works similarly to a shift cipher, but instead of shifting each character by the same amount, a key is used to determine how far to shift each letter.
+
+For example, if the key is \textquotesingle{}0 4 2 3\textquotesingle{}, then the first letter of the message is shifted by 0, the second by 4, the third by 2, and the fourth by 3. At this point, the key repeats, so the fifth character is shifted by 0, the sixth by 4 and so on until the end of the message.
+
+In general, the key is some text which is easy to remember. The text to be encrypted/decrypted and key are mapped to numbers by their index in the respective alphabet. For example, if the alphabet is \textquotesingle{}abcde\textquotesingle{}, then
+\begin{DoxyItemize}
+\item \textquotesingle{}a\textquotesingle{} maps to 0, \textquotesingle{}b\textquotesingle{} maps to 1... \textquotesingle{}e\textquotesingle{} maps to 4
+\end{DoxyItemize}
+
+This encryption method was thought to be secure through the twentieth cenurty, at which point Friedman developed a generalized method for breaking it and similar ciphers. A common method of cracking the Vigenere cipher involves comparing the ciphertext to itself, offset by varying amounts, to determine the key length. Once the key length is determined, then sets of every nth character can be analyzed with a frequency analysis to determine specific letters of the key.\hypertarget{vigenere_compile_vigenere}{}\section{Compiling}\label{vigenere_compile_vigenere}
+This tool can be built with the command \begin{DoxyVerb}make
+\end{DoxyVerb}
+ This will generate a release version of the tool in the release directory. To build a debug version in the debug directory, use the command \begin{DoxyVerb}make BUILD_TYPE=debug
+\end{DoxyVerb}
+\hypertarget{vigenere_usage_vigenere}{}\section{Usage}\label{vigenere_usage_vigenere}
+This tool can be used to encrypt, decrypt, and crack encrypted text using this cipher.
+
+\begin{DoxyVerb}tool_vigenerecipher mode input output [key]
+\end{DoxyVerb}
+ Mode Options
+\begin{DoxyItemize}
+\item -\/e \+: To encrypt
+\item -\/d \+: To decrypt
+\item -\/c n \+: To crack an encrypted text. n is the maximum key length to check
+\end{DoxyItemize}
+
+Input Options
+\begin{DoxyItemize}
+\item -\/it text \+: To input the text \textquotesingle{}text\textquotesingle{}
+\item -\/if file \+: To input from the file \textquotesingle{}file\textquotesingle{}
+\end{DoxyItemize}
+
+Output Options
+\begin{DoxyItemize}
+\item -\/ot \+: To output to terminal
+\item -\/of file \+: To output to the file \textquotesingle{}file\textquotesingle{}
+\end{DoxyItemize}
+
+Key Options (Not needed for cracking)
+\begin{DoxyItemize}
+\item -\/k key \+: The key to use
+\end{DoxyItemize}
+
+The key should contain only the letters a-\/z. Any text in the input which is not in the range a-\/z or A-\/Z will copied as-\/is to the output. Any text in the range A-\/Z will be made lower-\/case before it is processed. 

@@ -43,7 +43,7 @@ clean:
 	@-rm $(LIBS_DIR)/*.a 2>/dev/null || true
 	@-rm $(DEST_DIR)/$(TARGET) 2>/dev/null || true
 
-objs_main = $(patsubst %.o, $(OBJECTS_DIR)/%.o, main.o)
+objs_main = $(patsubst %.o, $(OBJECTS_DIR)/%.o, main_freq.o)
 build_objects = $(objs_main) $(LIB_OBJECTS)
 
 # Substitute objects location onto object files from internal libs

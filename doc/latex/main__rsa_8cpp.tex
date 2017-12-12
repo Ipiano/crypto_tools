@@ -1,0 +1,254 @@
+\hypertarget{main__rsa_8cpp}{}\section{tool\+\_\+rsa/src/main\+\_\+rsa.cpp File Reference}
+\label{main__rsa_8cpp}\index{tool\+\_\+rsa/src/main\+\_\+rsa.\+cpp@{tool\+\_\+rsa/src/main\+\_\+rsa.\+cpp}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structrsa__key}{rsa\+\_\+key}
+\begin{DoxyCompactList}\small\item\em Container for some $ n $ and either $ e $ or $ d $. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \hyperlink{namespaceenums}{enums}
+\begin{DoxyCompactList}\small\item\em Enums for this tool. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{namespaceenums_aed42844026607625098e717501196684}{enums\+::\+Mode} \{ \\*
+{\bfseries None}, 
+{\bfseries Encrypt}, 
+{\bfseries Decrypt}, 
+{\bfseries Generate}, 
+\\*
+{\bfseries None}, 
+{\bfseries Encrypt}, 
+{\bfseries Decrypt}, 
+{\bfseries Crack}
+ \}\hypertarget{namespaceenums_aed42844026607625098e717501196684}{}\label{namespaceenums_aed42844026607625098e717501196684}
+\begin{DoxyCompactList}\small\item\em Mode options. \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{main__rsa_8cpp_aac6d200828bd30f152cc0f8c675c6f5e}{process\+Args} (int argc, char $\ast$$\ast$argv, Mode \&op, string \&file1, string \&file2, string \&file3, uint64\+\_\+t \&bits)
+\item 
+void \hyperlink{main__rsa_8cpp_a998eb8cd6913e67befa24a5d2c2ce4aa}{help} (string name, string msg=\char`\"{}\char`\"{})
+\item 
+void \hyperlink{main__rsa_8cpp_a0023a0c5116b539e4a75258bf0d16ae1}{generate\+Key} (const uint64\+\_\+t \&bits, pair$<$ \hyperlink{structrsa__key}{rsa\+\_\+key}, \hyperlink{structrsa__key}{rsa\+\_\+key} $>$ \&out)
+\item 
+void \hyperlink{main__rsa_8cpp_a1531cebbc4d3c7a2d2ff1ee6f8d2834d}{load\+Key} (istream \&in, \hyperlink{structrsa__key}{rsa\+\_\+key} \&key)
+\item 
+void \hyperlink{main__rsa_8cpp_a24d43556aee609e44fdb8add2344728c}{save\+Key} (ostream \&out, \hyperlink{structrsa__key}{rsa\+\_\+key} \&key)
+\item 
+void \hyperlink{main__rsa_8cpp_a205ebfa94d290a98fc98170da4c3451e}{encrypt} (istream \&in, ostream \&out, const \hyperlink{structrsa__key}{rsa\+\_\+key} \&publick)
+\item 
+void \hyperlink{main__rsa_8cpp_ad8b7d01ec6ab7b14e75c2d54554a8e41}{decrypt} (istream \&in, ostream \&out, const \hyperlink{structrsa__key}{rsa\+\_\+key} \&privatek)
+\item 
+uint64\+\_\+t \hyperlink{main__rsa_8cpp_a996c9ad22dd3f709090d6ce0fc3f0c6c}{block\+Size} (const mpz\+\_\+class \&n)
+\item 
+int \hyperlink{main__rsa_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main} (int argc, char $\ast$$\ast$argv)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\index{main\+\_\+rsa.\+cpp@{main\+\_\+rsa.\+cpp}!block\+Size@{block\+Size}}
+\index{block\+Size@{block\+Size}!main\+\_\+rsa.\+cpp@{main\+\_\+rsa.\+cpp}}
+\subsubsection[{\texorpdfstring{block\+Size(const mpz\+\_\+class \&n)}{blockSize(const mpz_class &n)}}]{\setlength{\rightskip}{0pt plus 5cm}uint64\+\_\+t block\+Size (
+\begin{DoxyParamCaption}
+\item[{const mpz\+\_\+class \&}]{n}
+\end{DoxyParamCaption}
+)}\hypertarget{main__rsa_8cpp_a996c9ad22dd3f709090d6ce0fc3f0c6c}{}\label{main__rsa_8cpp_a996c9ad22dd3f709090d6ce0fc3f0c6c}
+Calculates the number of bytes to use to build a single message $ m $
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em n} & The value $ n $ that the message should be smaller than uint64\+\_\+t -\/ The number of bytes that can be used to build a message $ m $ \\
+\hline
+\end{DoxyParams}
+\index{main\+\_\+rsa.\+cpp@{main\+\_\+rsa.\+cpp}!decrypt@{decrypt}}
+\index{decrypt@{decrypt}!main\+\_\+rsa.\+cpp@{main\+\_\+rsa.\+cpp}}
+\subsubsection[{\texorpdfstring{decrypt(istream \&in, ostream \&out, const rsa\+\_\+key \&privatek)}{decrypt(istream &in, ostream &out, const rsa_key &privatek)}}]{\setlength{\rightskip}{0pt plus 5cm}void decrypt (
+\begin{DoxyParamCaption}
+\item[{istream \&}]{in, }
+\item[{ostream \&}]{out, }
+\item[{const {\bf rsa\+\_\+key} \&}]{privatek}
+\end{DoxyParamCaption}
+)}\hypertarget{main__rsa_8cpp_ad8b7d01ec6ab7b14e75c2d54554a8e41}{}\label{main__rsa_8cpp_ad8b7d01ec6ab7b14e75c2d54554a8e41}
+Decrypts all data in a stream and writes it to an output stream
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em in} & The stream to read \\
+\hline
+\mbox{\tt in,out}  & {\em out} & The stream to write \\
+\hline
+\mbox{\tt in}  & {\em privatek} & The private key to decrypt with \\
+\hline
+\end{DoxyParams}
+\index{main\+\_\+rsa.\+cpp@{main\+\_\+rsa.\+cpp}!encrypt@{encrypt}}
+\index{encrypt@{encrypt}!main\+\_\+rsa.\+cpp@{main\+\_\+rsa.\+cpp}}
+\subsubsection[{\texorpdfstring{encrypt(istream \&in, ostream \&out, const rsa\+\_\+key \&publick)}{encrypt(istream &in, ostream &out, const rsa_key &publick)}}]{\setlength{\rightskip}{0pt plus 5cm}void encrypt (
+\begin{DoxyParamCaption}
+\item[{istream \&}]{in, }
+\item[{ostream \&}]{out, }
+\item[{const {\bf rsa\+\_\+key} \&}]{publick}
+\end{DoxyParamCaption}
+)}\hypertarget{main__rsa_8cpp_a205ebfa94d290a98fc98170da4c3451e}{}\label{main__rsa_8cpp_a205ebfa94d290a98fc98170da4c3451e}
+Encrypts all data in a stream and writes it to an output stream
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em in} & The stream to read \\
+\hline
+\mbox{\tt in,out}  & {\em out} & The stream to write \\
+\hline
+\mbox{\tt in}  & {\em publick} & The public key to encrypt with \\
+\hline
+\end{DoxyParams}
+\index{main\+\_\+rsa.\+cpp@{main\+\_\+rsa.\+cpp}!generate\+Key@{generate\+Key}}
+\index{generate\+Key@{generate\+Key}!main\+\_\+rsa.\+cpp@{main\+\_\+rsa.\+cpp}}
+\subsubsection[{\texorpdfstring{generate\+Key(const uint64\+\_\+t \&bits, pair$<$ rsa\+\_\+key, rsa\+\_\+key $>$ \&out)}{generateKey(const uint64_t &bits, pair< rsa_key, rsa_key > &out)}}]{\setlength{\rightskip}{0pt plus 5cm}void generate\+Key (
+\begin{DoxyParamCaption}
+\item[{const uint64\+\_\+t \&}]{bits, }
+\item[{pair$<$ {\bf rsa\+\_\+key}, {\bf rsa\+\_\+key} $>$ \&}]{out}
+\end{DoxyParamCaption}
+)}\hypertarget{main__rsa_8cpp_a0023a0c5116b539e4a75258bf0d16ae1}{}\label{main__rsa_8cpp_a0023a0c5116b539e4a75258bf0d16ae1}
+Generates an R\+SA public, private key pair.
+
+$ e $ is chosen to be 65537, and then random $ p, q $ are generated with bits/2 bits until $ gcd(p, e) = gcd(q, e) = 1 $. At that point, $ n $ and $ d $ can be calculated.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em bits} & Number of bits in $ n $ \\
+\hline
+\mbox{\tt out}  & {\em pair$<$rsa\+\_\+key,rsa\+\_\+key$>$\&} & the public, private pair generated\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em logic\+\_\+error} & \+: n is smaller than 256 \\
+\hline
+\end{DoxyExceptions}
+\index{main\+\_\+rsa.\+cpp@{main\+\_\+rsa.\+cpp}!help@{help}}
+\index{help@{help}!main\+\_\+rsa.\+cpp@{main\+\_\+rsa.\+cpp}}
+\subsubsection[{\texorpdfstring{help(string name, string msg="""")}{help(string name, string msg="")}}]{\setlength{\rightskip}{0pt plus 5cm}void help (
+\begin{DoxyParamCaption}
+\item[{string}]{name, }
+\item[{string}]{msg = {\ttfamily \char`\"{}\char`\"{}}}
+\end{DoxyParamCaption}
+)}\hypertarget{main__rsa_8cpp_a998eb8cd6913e67befa24a5d2c2ce4aa}{}\label{main__rsa_8cpp_a998eb8cd6913e67befa24a5d2c2ce4aa}
+Prints the program usage prompt with an error message
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em name} & Name of the program \\
+\hline
+\mbox{\tt in}  & {\em msg} & Error message to print \\
+\hline
+\end{DoxyParams}
+\index{main\+\_\+rsa.\+cpp@{main\+\_\+rsa.\+cpp}!load\+Key@{load\+Key}}
+\index{load\+Key@{load\+Key}!main\+\_\+rsa.\+cpp@{main\+\_\+rsa.\+cpp}}
+\subsubsection[{\texorpdfstring{load\+Key(istream \&in, rsa\+\_\+key \&key)}{loadKey(istream &in, rsa_key &key)}}]{\setlength{\rightskip}{0pt plus 5cm}void load\+Key (
+\begin{DoxyParamCaption}
+\item[{istream \&}]{in, }
+\item[{{\bf rsa\+\_\+key} \&}]{key}
+\end{DoxyParamCaption}
+)}\hypertarget{main__rsa_8cpp_a1531cebbc4d3c7a2d2ff1ee6f8d2834d}{}\label{main__rsa_8cpp_a1531cebbc4d3c7a2d2ff1ee6f8d2834d}
+Loads a generated key from an input stream
+
+The key is assumed to be first either $ e $ or $ d $, then whitespace, then $ n $, written in hexadecimal.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em in} & The stream to read from \\
+\hline
+\mbox{\tt out}  & {\em key} & The key read \\
+\hline
+\end{DoxyParams}
+\index{main\+\_\+rsa.\+cpp@{main\+\_\+rsa.\+cpp}!main@{main}}
+\index{main@{main}!main\+\_\+rsa.\+cpp@{main\+\_\+rsa.\+cpp}}
+\subsubsection[{\texorpdfstring{main(int argc, char $\ast$$\ast$argv)}{main(int argc, char **argv)}}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$$\ast$}]{argv}
+\end{DoxyParamCaption}
+)}\hypertarget{main__rsa_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{}\label{main__rsa_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}
+Processes the command line arguments. If they are invalid, the application terminates. Any files that will be used are opened. If file opening fails, the application terminates.
+
+If generation mode, then public and private keys are generated and written to file. If encryption or decryption mode, then the specified file is read and processed.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em argc} & Number of command line arguments \\
+\hline
+\mbox{\tt in}  & {\em argv} & The command line arguments \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 -\/ The program ran successfully 
+
+1 -\/ The command line arguments were invalid 
+
+2 -\/ A file could not be opened 
+
+3 -\/ An error occurred while reading a key file 
+
+4 -\/ An error occurred while processing an input file 
+
+5 -\/ An error occurred while generating a key pair 
+\end{DoxyReturn}
+\index{main\+\_\+rsa.\+cpp@{main\+\_\+rsa.\+cpp}!process\+Args@{process\+Args}}
+\index{process\+Args@{process\+Args}!main\+\_\+rsa.\+cpp@{main\+\_\+rsa.\+cpp}}
+\subsubsection[{\texorpdfstring{process\+Args(int argc, char $\ast$$\ast$argv, Mode \&op, string \&file1, string \&file2, string \&file3, uint64\+\_\+t \&bits)}{processArgs(int argc, char **argv, Mode &op, string &file1, string &file2, string &file3, uint64_t &bits)}}]{\setlength{\rightskip}{0pt plus 5cm}bool process\+Args (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$$\ast$}]{argv, }
+\item[{Mode \&}]{op, }
+\item[{string \&}]{file1, }
+\item[{string \&}]{file2, }
+\item[{string \&}]{file3, }
+\item[{uint64\+\_\+t \&}]{bits}
+\end{DoxyParamCaption}
+)}\hypertarget{main__rsa_8cpp_aac6d200828bd30f152cc0f8c675c6f5e}{}\label{main__rsa_8cpp_aac6d200828bd30f152cc0f8c675c6f5e}
+Processes the command line arguments
+
+If the arguments are invalid, a usage prompt is printed with an error message
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em argc} & Number of arguments \\
+\hline
+\mbox{\tt in}  & {\em argv} & The arguments \\
+\hline
+\mbox{\tt out}  & {\em op} & The operation to perform \\
+\hline
+\mbox{\tt out}  & {\em file1} & The first file parameter \\
+\hline
+\mbox{\tt out}  & {\em file2} & The second file parameter \\
+\hline
+\mbox{\tt out}  & {\em file3} & The third file parameter for encryption or decryptino \\
+\hline
+\mbox{\tt out}  & {\em bits} & The number of bits to use if generating a key \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool -\/ Whether or not the arguments were valid 
+\end{DoxyReturn}
+\index{main\+\_\+rsa.\+cpp@{main\+\_\+rsa.\+cpp}!save\+Key@{save\+Key}}
+\index{save\+Key@{save\+Key}!main\+\_\+rsa.\+cpp@{main\+\_\+rsa.\+cpp}}
+\subsubsection[{\texorpdfstring{save\+Key(ostream \&out, rsa\+\_\+key \&key)}{saveKey(ostream &out, rsa_key &key)}}]{\setlength{\rightskip}{0pt plus 5cm}void save\+Key (
+\begin{DoxyParamCaption}
+\item[{ostream \&}]{out, }
+\item[{{\bf rsa\+\_\+key} \&}]{key}
+\end{DoxyParamCaption}
+)}\hypertarget{main__rsa_8cpp_a24d43556aee609e44fdb8add2344728c}{}\label{main__rsa_8cpp_a24d43556aee609e44fdb8add2344728c}
+Saves a generated key to an output stream
+
+The key is saved in the form of either $ e $ or $ d $, then whitespace, then $ n $, written in hexadecimal.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em in} & The stream to write to \\
+\hline
+\mbox{\tt in}  & {\em key} & The key to write \\
+\hline
+\end{DoxyParams}

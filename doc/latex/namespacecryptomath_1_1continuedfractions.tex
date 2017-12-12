@@ -1,0 +1,156 @@
+\hypertarget{namespacecryptomath_1_1continuedfractions}{}\section{cryptomath\+:\+:continuedfractions Namespace Reference}
+\label{namespacecryptomath_1_1continuedfractions}\index{cryptomath\+::continuedfractions@{cryptomath\+::continuedfractions}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ uint64\+\_\+t $>$ \hyperlink{namespacecryptomath_1_1continuedfractions_af87b96352efe22d9def88f39cbdaf5ac}{dtocf} (double d, const uint64\+\_\+t \&max\+\_\+iterations=20)
+\begin{DoxyCompactList}\small\item\em Converts a real value to a continued fraction. \end{DoxyCompactList}\item 
+std\+::vector$<$ uint64\+\_\+t $>$ \hyperlink{namespacecryptomath_1_1continuedfractions_ac3b6555ab2b9daaa1e8f87c7a6e3df20}{ftocf} (uint64\+\_\+t p, uint64\+\_\+t q)
+\begin{DoxyCompactList}\small\item\em Converts a rational to a continued fraction. \end{DoxyCompactList}\item 
+std\+::vector$<$ uint64\+\_\+t $>$ \hyperlink{namespacecryptomath_1_1continuedfractions_ae623004528a5e561255f468807116656}{sqrttocf} (uint64\+\_\+t n)
+\begin{DoxyCompactList}\small\item\em Converts a simple square root to a repeating continued fraction. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::pair$<$ uint64\+\_\+t, uint64\+\_\+t $>$ $>$ \hyperlink{namespacecryptomath_1_1continuedfractions_a3241a0ecf56e1613ef0fed6153811301}{cftof} (const std\+::vector$<$ uint64\+\_\+t $>$ \&cf, uint64\+\_\+t repetitions=0)
+\begin{DoxyCompactList}\small\item\em Converts a continued fraction to approximate rationals. \end{DoxyCompactList}\item 
+double \hyperlink{namespacecryptomath_1_1continuedfractions_a48be92979e70c335f3531294f728edc2}{cftod} (const std\+::vector$<$ uint64\+\_\+t $>$ \&cf, uint64\+\_\+t repetitions=0)
+\begin{DoxyCompactList}\small\item\em Converts a continued fraction to a real value. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Contains functions for converting to and from continued fractions 
+
+\subsection{Function Documentation}
+\index{cryptomath\+::continuedfractions@{cryptomath\+::continuedfractions}!cftod@{cftod}}
+\index{cftod@{cftod}!cryptomath\+::continuedfractions@{cryptomath\+::continuedfractions}}
+\subsubsection[{\texorpdfstring{cftod(const std\+::vector$<$ uint64\+\_\+t $>$ \&cf, uint64\+\_\+t repetitions=0)}{cftod(const std::vector< uint64_t > &cf, uint64_t repetitions=0)}}]{\setlength{\rightskip}{0pt plus 5cm}double cryptomath\+::continuedfractions\+::cftod (
+\begin{DoxyParamCaption}
+\item[{const std\+::vector$<$ uint64\+\_\+t $>$ \&}]{cf, }
+\item[{uint64\+\_\+t}]{repetitions}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacecryptomath_1_1continuedfractions_a48be92979e70c335f3531294f728edc2}{}\label{namespacecryptomath_1_1continuedfractions_a48be92979e70c335f3531294f728edc2}
+
+
+Converts a continued fraction to a real value. 
+
+Generates a double value from a continued fraction form by using the formula $ x = i + 1/x $ for each value in the continued fraction in reverse order.
+
+By default, all values will be used once. If repetitions is set to n (n != 0), then the first n times the loop hits the second value in the input, the loop will jump back to the end.
+
+For example\+: \mbox{[}1, 2, 3, 2\mbox{]} with 0 repetitions (default) will process 2, 3, 2, 1. With 2 repetitions, it will process 2, 3, 2, 2, 3, 2, 2, 3, 2, 1.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cf} & The continued fraction to convert \\
+\hline
+\mbox{\tt in}  & {\em repetitions} & The number of times to repeat the non-\/integer portion beyond the first time.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+double -\/ The real value 
+\end{DoxyReturn}
+\index{cryptomath\+::continuedfractions@{cryptomath\+::continuedfractions}!cftof@{cftof}}
+\index{cftof@{cftof}!cryptomath\+::continuedfractions@{cryptomath\+::continuedfractions}}
+\subsubsection[{\texorpdfstring{cftof(const std\+::vector$<$ uint64\+\_\+t $>$ \&cf, uint64\+\_\+t repetitions=0)}{cftof(const std::vector< uint64_t > &cf, uint64_t repetitions=0)}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ pair$<$ uint64\+\_\+t, uint64\+\_\+t $>$ $>$ cryptomath\+::continuedfractions\+::cftof (
+\begin{DoxyParamCaption}
+\item[{const std\+::vector$<$ uint64\+\_\+t $>$ \&}]{cf, }
+\item[{uint64\+\_\+t}]{repetitions}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacecryptomath_1_1continuedfractions_a3241a0ecf56e1613ef0fed6153811301}{}\label{namespacecryptomath_1_1continuedfractions_a3241a0ecf56e1613ef0fed6153811301}
+
+
+Converts a continued fraction to approximate rationals. 
+
+Generates all p/q approximations of the continued fraction using the following formulas
+\begin{DoxyItemize}
+\item $ p(k) = a(k) * p(k-1) + p(k-2) $
+\item $ q(k) = a(k) * q(k-1) + q(k-2) $ Where
+\item $ p(-2) = 0, p(-1) = 1 $
+\item $ q(-2) = 1, q(-1) = 0 $
+\end{DoxyItemize}
+
+By default, all values will be used once. If repetitions is set to n (n != 0), then the first n times the loop hits the last value in the input, the loop will jump back to the second value.
+
+For example\+: \mbox{[}1, 2, 3, 2\mbox{]} with 0 repetitions (default) will process 1, 2, 3, 2. With 2 repetitions, it will process 1, 2, 3, 2, 2, 3, 2, 2, 3, 2
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em cf} & The continued fraction to convert \\
+\hline
+\mbox{\tt in}  & {\em repetitions} & The number of times to repeat the non-\/integer portion beyond the first time.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vector$<$pair$<$uint64\+\_\+t, uint64\+\_\+t$>$$>$ -\/ All p/q approximations generated by the cf 
+\end{DoxyReturn}
+\index{cryptomath\+::continuedfractions@{cryptomath\+::continuedfractions}!dtocf@{dtocf}}
+\index{dtocf@{dtocf}!cryptomath\+::continuedfractions@{cryptomath\+::continuedfractions}}
+\subsubsection[{\texorpdfstring{dtocf(double d, const uint64\+\_\+t \&max\+\_\+iterations=20)}{dtocf(double d, const uint64_t &max_iterations=20)}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ uint64\+\_\+t $>$ cryptomath\+::continuedfractions\+::dtocf (
+\begin{DoxyParamCaption}
+\item[{double}]{d, }
+\item[{const uint64\+\_\+t \&}]{max\+\_\+iterations}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacecryptomath_1_1continuedfractions_af87b96352efe22d9def88f39cbdaf5ac}{}\label{namespacecryptomath_1_1continuedfractions_af87b96352efe22d9def88f39cbdaf5ac}
+
+
+Converts a real value to a continued fraction. 
+
+Takes a real value and converts it to a continued fraction, represented as \mbox{[}i; f, f, f...\mbox{]} where i is the integer part of the fraction, and f1 -\/ fn are the integer values added on the layers of the fraction. The first value in the array returned is i, and the remaining values are f1 -\/ fn, in order.
+
+The result may contain only an integer value
+
+If the result has a cycle, it will not be detected. If you need cycle detection in a simple square root, use \hyperlink{namespacecryptomath_1_1continuedfractions_ae623004528a5e561255f468807116656}{sqrttocf}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em d} & The real value to convert \\
+\hline
+\mbox{\tt in}  & {\em max\+\_\+iterations} & Maximum number of iterations to run if the fraction does not terminate sooner\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vector$<$uint64\+\_\+t$>$ -\/ The continued fraction, including the integer part 
+\end{DoxyReturn}
+\index{cryptomath\+::continuedfractions@{cryptomath\+::continuedfractions}!ftocf@{ftocf}}
+\index{ftocf@{ftocf}!cryptomath\+::continuedfractions@{cryptomath\+::continuedfractions}}
+\subsubsection[{\texorpdfstring{ftocf(uint64\+\_\+t p, uint64\+\_\+t q)}{ftocf(uint64_t p, uint64_t q)}}]{\setlength{\rightskip}{0pt plus 5cm}vector$<$ uint64\+\_\+t $>$ cryptomath\+::continuedfractions\+::ftocf (
+\begin{DoxyParamCaption}
+\item[{uint64\+\_\+t}]{p, }
+\item[{uint64\+\_\+t}]{q}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacecryptomath_1_1continuedfractions_ac3b6555ab2b9daaa1e8f87c7a6e3df20}{}\label{namespacecryptomath_1_1continuedfractions_ac3b6555ab2b9daaa1e8f87c7a6e3df20}
+
+
+Converts a rational to a continued fraction. 
+
+Finds the continued fraction of a rational as an integer i and a finite set of continued fraction coefficients.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em p} & The top of the rational to convert \\
+\hline
+\mbox{\tt in}  & {\em q} & The bottom of the rational to convert\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vector$<$uint64\+\_\+t$>$ -\/ The continued fraction, including the integer part 
+\end{DoxyReturn}
+\index{cryptomath\+::continuedfractions@{cryptomath\+::continuedfractions}!sqrttocf@{sqrttocf}}
+\index{sqrttocf@{sqrttocf}!cryptomath\+::continuedfractions@{cryptomath\+::continuedfractions}}
+\subsubsection[{\texorpdfstring{sqrttocf(uint64\+\_\+t n)}{sqrttocf(uint64_t n)}}]{\setlength{\rightskip}{0pt plus 5cm}std\+::vector$<$ uint64\+\_\+t $>$ cryptomath\+::continuedfractions\+::sqrttocf (
+\begin{DoxyParamCaption}
+\item[{uint64\+\_\+t}]{n}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacecryptomath_1_1continuedfractions_ae623004528a5e561255f468807116656}{}\label{namespacecryptomath_1_1continuedfractions_ae623004528a5e561255f468807116656}
+
+
+Converts a simple square root to a repeating continued fraction. 
+
+Finds the continued fraction of sqrt(n) as an integer i and repeating continued fraction coefficients. The first value in the returned continued fraction is the integer portion, and the remaning values will repeat infinitely. The end of the period is the first value in the repeating fraction a such that $ a == 2*i $
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em n} & The value to convert the square root of\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vector$<$uint64\+\_\+t$>$ The continued fraction, including the integer part. Everything except the integer part repeats infinitely 
+\end{DoxyReturn}

@@ -1,0 +1,122 @@
+\hypertarget{classaffine_1_1transformer}{}\section{affine\+:\+:transformer Class Reference}
+\label{classaffine_1_1transformer}\index{affine\+::transformer@{affine\+::transformer}}
+
+
+The affine transformer.  
+
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classaffine_1_1transformer_a6f04f1103f166c97c6a11fb97c891d34}{transformer} (const int64\+\_\+t \&a, const int64\+\_\+t \&b, const std\+::string \&alphabet=\hyperlink{namespaceaffine_affbde77969645d73c99952c7f3259b83}{D\+E\+F\+A\+U\+L\+T\+\_\+\+A\+L\+P\+H\+A\+B\+ET}, bool case\+Sensitive=true)
+\begin{DoxyCompactList}\small\item\em Construts an affine transformer with a specific $ \alpha, \beta $ and alphabet. \end{DoxyCompactList}\item 
+std\+::string \hyperlink{classaffine_1_1transformer_ad28f9eef120bf302ac0d191b7c2480f7}{encrypt} (const std\+::string \&message)
+\begin{DoxyCompactList}\small\item\em Encrypts a text with the affine transform using the loaded key and alphabet. \end{DoxyCompactList}\item 
+std\+::string \hyperlink{classaffine_1_1transformer_a7e977925e3182cc82e95ec3e2313e207}{decrypt} (const std\+::string \&message)
+\begin{DoxyCompactList}\small\item\em Decrypts a text with the affine transform using the loaded key and alphabet. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The affine transformer. 
+
+Construct this object using some $ \alpha, \beta $ and alphabet for an affine cipher, and use it to encrypt and/or decrypt multiple texts using that pair and alphabet 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{affine\+::transformer@{affine\+::transformer}!transformer@{transformer}}
+\index{transformer@{transformer}!affine\+::transformer@{affine\+::transformer}}
+\subsubsection[{\texorpdfstring{transformer(const int64\+\_\+t \&a, const int64\+\_\+t \&b, const std\+::string \&alphabet=\+D\+E\+F\+A\+U\+L\+T\+\_\+\+A\+L\+P\+H\+A\+B\+E\+T, bool case\+Sensitive=true)}{transformer(const int64_t &a, const int64_t &b, const std::string &alphabet=DEFAULT_ALPHABET, bool caseSensitive=true)}}]{\setlength{\rightskip}{0pt plus 5cm}affine\+::transformer\+::transformer (
+\begin{DoxyParamCaption}
+\item[{const int64\+\_\+t \&}]{a, }
+\item[{const int64\+\_\+t \&}]{b, }
+\item[{const std\+::string \&}]{alphabet = {\ttfamily {\bf D\+E\+F\+A\+U\+L\+T\+\_\+\+A\+L\+P\+H\+A\+B\+ET}}, }
+\item[{bool}]{case\+Sensitive = {\ttfamily true}}
+\end{DoxyParamCaption}
+)}\hypertarget{classaffine_1_1transformer_a6f04f1103f166c97c6a11fb97c891d34}{}\label{classaffine_1_1transformer_a6f04f1103f166c97c6a11fb97c891d34}
+
+
+Construts an affine transformer with a specific $ \alpha, \beta $ and alphabet. 
+
+Initializes the transformer with a key pair and alphabet. If case\+Sensitive is false, then all upper-\/case text will be treated as lower-\/case during the transform (but it will be outputted in upper-\/case); in this case, all upper-\/case values in the alphabet will be changed to lower-\/case.
+
+Constraints
+\begin{DoxyItemize}
+\item The alphabet must be non-\/empty
+\item The alphabet must not contain duplicates
+\item $ \alpha $ must be coprime with $ n $
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em a} & $ \alpha $ \\
+\hline
+\mbox{\tt in}  & {\em b} & $ \beta $ \\
+\hline
+\mbox{\tt in}  & {\em alphabet} & The alphabet to use (Defaults to \hyperlink{namespaceaffine_affbde77969645d73c99952c7f3259b83}{affine\+::\+D\+E\+F\+A\+U\+L\+T\+\_\+\+A\+L\+P\+H\+A\+B\+ET}) \\
+\hline
+\mbox{\tt in}  & {\em case\+Sensitive} & Whether or not the transformer is case-\/sensitive (Defaults to true)\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em logic\+\_\+error} & \+: The alphabet is empty \\
+\hline
+{\em logic\+\_\+error} & \+: The alphabet contains duplicates \\
+\hline
+{\em logic\+\_\+error} & \+: $ \alpha $ is not coprime to $ n $ \\
+\hline
+\end{DoxyExceptions}
+
+
+\subsection{Member Function Documentation}
+\index{affine\+::transformer@{affine\+::transformer}!decrypt@{decrypt}}
+\index{decrypt@{decrypt}!affine\+::transformer@{affine\+::transformer}}
+\subsubsection[{\texorpdfstring{decrypt(const std\+::string \&message)}{decrypt(const std::string &message)}}]{\setlength{\rightskip}{0pt plus 5cm}string affine\+::transformer\+::decrypt (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{message}
+\end{DoxyParamCaption}
+)}\hypertarget{classaffine_1_1transformer_a7e977925e3182cc82e95ec3e2313e207}{}\label{classaffine_1_1transformer_a7e977925e3182cc82e95ec3e2313e207}
+
+
+Decrypts a text with the affine transform using the loaded key and alphabet. 
+
+If the transformer is case-\/insensitive, then upper-\/case values will be transformed as if they were lower-\/case, but the resulting value will be outputted upper-\/case (if it is alphabetic). This may result in loss of some capitalization from the original message if the alphabet contains non-\/alphabetic characters.
+
+Any characters not in the alphabet will be unchanged
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em message} & The message to decrypt \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string -\/ The decrypted message 
+\end{DoxyReturn}
+\index{affine\+::transformer@{affine\+::transformer}!encrypt@{encrypt}}
+\index{encrypt@{encrypt}!affine\+::transformer@{affine\+::transformer}}
+\subsubsection[{\texorpdfstring{encrypt(const std\+::string \&message)}{encrypt(const std::string &message)}}]{\setlength{\rightskip}{0pt plus 5cm}string affine\+::transformer\+::encrypt (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{message}
+\end{DoxyParamCaption}
+)}\hypertarget{classaffine_1_1transformer_ad28f9eef120bf302ac0d191b7c2480f7}{}\label{classaffine_1_1transformer_ad28f9eef120bf302ac0d191b7c2480f7}
+
+
+Encrypts a text with the affine transform using the loaded key and alphabet. 
+
+If the transformer is case-\/insensitive, then upper-\/case values will be transformed as if they were lower-\/case, but the resulting value will be outputted upper-\/case (if it is alphabetic). This may result in loss of some capitalization on decryption if the alphabet contains non-\/alphabetic characters.
+
+Any characters not in the alphabet will be unchanged
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em message} & The message to encrypt \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string -\/ The encrypted ciphertext 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+modules/module\+\_\+crypto/libclassiccrypto/affine/headers/\hyperlink{affinecipher_8h}{affinecipher.\+h}\item 
+modules/module\+\_\+crypto/libclassiccrypto/affine/src/affinecipher.\+cpp\end{DoxyCompactItemize}

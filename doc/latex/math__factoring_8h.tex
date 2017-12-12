@@ -1,0 +1,56 @@
+\hypertarget{math__factoring_8h}{}\section{modules/module\+\_\+crypto/libcryptomath/headers/math\+\_\+factoring.h File Reference}
+\label{math__factoring_8h}\index{modules/module\+\_\+crypto/libcryptomath/headers/math\+\_\+factoring.\+h@{modules/module\+\_\+crypto/libcryptomath/headers/math\+\_\+factoring.\+h}}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \hyperlink{namespacecryptomath}{cryptomath}
+\item 
+ \hyperlink{namespacecryptomath_1_1factoring}{cryptomath\+::factoring}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{math__factoring_8h_a8ff0b933d3dc86e26d84f957c4d5ef6f}{D\+B\+G\+O\+UT}(a)
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{namespacecryptomath_a66e56d7b478803e17352ef017eb1264b}{cryptomath\+::\+Factor\+\_\+\+Method} \{ {\bfseries Fermat}, 
+{\bfseries Pollard\+Rho}, 
+{\bfseries Shanks}, 
+{\bfseries Pollard\+P\+\_\+1}
+ \}\hypertarget{namespacecryptomath_a66e56d7b478803e17352ef017eb1264b}{}\label{namespacecryptomath_a66e56d7b478803e17352ef017eb1264b}
+\begin{DoxyCompactList}\small\item\em Enum containing all factoring methods available. \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class Integral $>$ }\\std\+::pair$<$ Integral, Integral $>$ \hyperlink{namespacecryptomath_1_1factoring_a33e645e34227080e657d9c366d9b0e9b}{cryptomath\+::factoring\+::shanks} (const Integral \&n)
+\begin{DoxyCompactList}\small\item\em Shanks\textquotesingle{} square forms factorization. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Integral $>$ }\\std\+::pair$<$ Integral, Integral $>$ \hyperlink{namespacecryptomath_1_1factoring_ae33e833ece59c1b1b23a77397dc01e95}{cryptomath\+::factoring\+::fermat} (const Integral \&n)
+\begin{DoxyCompactList}\small\item\em Fermat\textquotesingle{}s factorization algorithm. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Integral $>$ }\\Integral \hyperlink{namespacecryptomath_1_1factoring_a3704974d2db3229d70a82ebcb33a0516}{cryptomath\+::factoring\+::p\+Rho1} (const Integral \&a, const Integral \&n)
+\item 
+{\footnotesize template$<$class Integral $>$ }\\Integral \hyperlink{namespacecryptomath_1_1factoring_ac3a437caacf2d5051c2c052495abaeeb}{cryptomath\+::factoring\+::p\+Rho2} (const Integral \&a, const Integral \&n)
+\item 
+{\footnotesize template$<$class Integral $>$ }\\std\+::pair$<$ Integral, Integral $>$ \hyperlink{namespacecryptomath_1_1factoring_a99ecf3ad17c5768de52218f3178ecd29}{cryptomath\+::factoring\+::pollardrho} (const Integral \&n)
+\item 
+{\footnotesize template$<$class Integral $>$ }\\std\+::pair$<$ Integral, Integral $>$ \hyperlink{namespacecryptomath_1_1factoring_a219073421eb9727c2b6433fa59f027b9}{cryptomath\+::factoring\+::pollardp1} (const Integral \&n)
+\begin{DoxyCompactList}\small\item\em Pollard\textquotesingle{}s p-\/1 factoring algorithm. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Integral $>$ }\\std\+::vector$<$ Integral $>$ \hyperlink{namespacecryptomath_a8efd5be118d0ab42b0c13ed237010f4d}{cryptomath\+::factor} (const Integral \&n, const Factor\+\_\+\+Method \&m=Factor\+\_\+\+Method\+::\+Pollard\+Rho)
+\begin{DoxyCompactList}\small\item\em General factoring algorithm. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Integral $>$ }\\Integral \hyperlink{namespacecryptomath_a89a47b8e8f73c44552d629e8b599df4a}{cryptomath\+::phi} (Integral n)
+\item 
+{\footnotesize template$<$class Integral $>$ }\\bool \hyperlink{namespacecryptomath_ade4d38bdd977cca7686b73b516d1edde}{cryptomath\+::is\+Primitive\+Root} (Integral a, const Integral \&n)
+\begin{DoxyCompactList}\small\item\em Checks if some value is a primitive root. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\index{math\+\_\+factoring.\+h@{math\+\_\+factoring.\+h}!D\+B\+G\+O\+UT@{D\+B\+G\+O\+UT}}
+\index{D\+B\+G\+O\+UT@{D\+B\+G\+O\+UT}!math\+\_\+factoring.\+h@{math\+\_\+factoring.\+h}}
+\subsubsection[{\texorpdfstring{D\+B\+G\+O\+UT}{DBGOUT}}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\+B\+G\+O\+UT(
+\begin{DoxyParamCaption}
+\item[{}]{a}
+\end{DoxyParamCaption}
+)}\hypertarget{math__factoring_8h_a8ff0b933d3dc86e26d84f957c4d5ef6f}{}\label{math__factoring_8h_a8ff0b933d3dc86e26d84f957c4d5ef6f}
+Removes verbose debug outputs from compiled result 

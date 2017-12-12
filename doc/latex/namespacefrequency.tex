@@ -1,0 +1,137 @@
+\hypertarget{namespacefrequency}{}\section{frequency Namespace Reference}
+\label{namespacefrequency}\index{frequency@{frequency}}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class T $>$ }\\using \hyperlink{namespacefrequency_af87bfdb87aeaf4b03b24c0632e9f0285}{incrementer} = std\+::function$<$ void(T \&)$>$
+\item 
+{\footnotesize template$<$class T $>$ }\\using \hyperlink{namespacefrequency_aa17c006bff1dce09290290eb7e5e6acf}{mapper} = std\+::function$<$ uint64\+\_\+t(const T \&)$>$
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class In\+Iterator , class Out\+Iterator , class I , class O $>$ }\\void \hyperlink{namespacefrequency_af3425c17daa62ab96cb41b8e9ceb29a8}{count\+Frequencies} (In\+Iterator start, const In\+Iterator \&end, Out\+Iterator out, \hyperlink{namespacefrequency_af87bfdb87aeaf4b03b24c0632e9f0285}{incrementer}$<$ O $>$ inc\+Fn, \hyperlink{namespacefrequency_aa17c006bff1dce09290290eb7e5e6acf}{mapper}$<$ I $>$ map\+Fn)
+\begin{DoxyCompactList}\small\item\em Core frequency counter. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Iterator , class O $>$ }\\void \hyperlink{namespacefrequency_a76ebc4c0b0090363b539d17adf40d57d}{count\+Frequencies} (const std\+::string \&text, Iterator out, \hyperlink{namespacefrequency_af87bfdb87aeaf4b03b24c0632e9f0285}{incrementer}$<$ O $>$ inc\+Fn, bool case\+Sensitive=false)
+\begin{DoxyCompactList}\small\item\em Convenience function to count frequency in a string. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Iterator , class O $>$ }\\void \hyperlink{namespacefrequency_ad4f50d5d37b4053cc8cc18c1efe59ddb}{count\+Frequencies} (std\+::istream \&input, Iterator out, \hyperlink{namespacefrequency_af87bfdb87aeaf4b03b24c0632e9f0285}{incrementer}$<$ O $>$ inc\+Fn, bool case\+Sensitive=false)
+\begin{DoxyCompactList}\small\item\em Convenience function to count frequency in a text stream. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Contains functions for counting the number of occurances of things in sequences 
+
+\subsection{Typedef Documentation}
+\index{frequency@{frequency}!incrementer@{incrementer}}
+\index{incrementer@{incrementer}!frequency@{frequency}}
+\subsubsection[{\texorpdfstring{incrementer}{incrementer}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ using {\bf frequency\+::incrementer} = typedef std\+::function$<$void(T\&)$>$}\hypertarget{namespacefrequency_af87bfdb87aeaf4b03b24c0632e9f0285}{}\label{namespacefrequency_af87bfdb87aeaf4b03b24c0632e9f0285}
+Function that increments a type T \index{frequency@{frequency}!mapper@{mapper}}
+\index{mapper@{mapper}!frequency@{frequency}}
+\subsubsection[{\texorpdfstring{mapper}{mapper}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ using {\bf frequency\+::mapper} = typedef std\+::function$<$uint64\+\_\+t(const T\&)$>$}\hypertarget{namespacefrequency_aa17c006bff1dce09290290eb7e5e6acf}{}\label{namespacefrequency_aa17c006bff1dce09290290eb7e5e6acf}
+Function that maps a type T to an unsigned 64-\/bit int 
+
+\subsection{Function Documentation}
+\index{frequency@{frequency}!count\+Frequencies@{count\+Frequencies}}
+\index{count\+Frequencies@{count\+Frequencies}!frequency@{frequency}}
+\subsubsection[{\texorpdfstring{count\+Frequencies(\+In\+Iterator start, const In\+Iterator \&end, Out\+Iterator out, incrementer$<$ O $>$ inc\+Fn, mapper$<$ I $>$ map\+Fn)}{countFrequencies(InIterator start, const InIterator &end, OutIterator out, incrementer< O > incFn, mapper< I > mapFn)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class In\+Iterator , class Out\+Iterator , class I , class O $>$ void frequency\+::count\+Frequencies (
+\begin{DoxyParamCaption}
+\item[{In\+Iterator}]{start, }
+\item[{const In\+Iterator \&}]{end, }
+\item[{Out\+Iterator}]{out, }
+\item[{{\bf incrementer}$<$ O $>$}]{inc\+Fn, }
+\item[{{\bf mapper}$<$ I $>$}]{map\+Fn}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacefrequency_af3425c17daa62ab96cb41b8e9ceb29a8}{}\label{namespacefrequency_af3425c17daa62ab96cb41b8e9ceb29a8}
+
+
+Core frequency counter. 
+
+Processes all data provided between the start and end input iterators. Each value is mapped to a value in the output sequence using the map function. The data is accessed by adding the index to the output iterator, and that value is incremented with the increment function.
+
+Template arguments
+\begin{DoxyItemize}
+\item class In\+Iterator -\/ Iterator type for sequence to process
+\item class Out\+Iterator -\/ Iterator type for sequence to store results in
+\item class I -\/ Type of data read from input sequence
+\item class O -\/ Type of data to increment in output sequence
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em start} & Beginning of range of things to count \\
+\hline
+\mbox{\tt in}  & {\em end} & 1 after the end of the range of things to count \\
+\hline
+\mbox{\tt in,out}  & {\em out} & Beginning of range to output to \\
+\hline
+\mbox{\tt in}  & {\em inc\+Fn} & Function to increment type O \\
+\hline
+\mbox{\tt in}  & {\em map\+Fn} & Function to map type I to a location in the range starting at out \\
+\hline
+\end{DoxyParams}
+\index{frequency@{frequency}!count\+Frequencies@{count\+Frequencies}}
+\index{count\+Frequencies@{count\+Frequencies}!frequency@{frequency}}
+\subsubsection[{\texorpdfstring{count\+Frequencies(const std\+::string \&text, Iterator out, incrementer$<$ O $>$ inc\+Fn, bool case\+Sensitive=false)}{countFrequencies(const std::string &text, Iterator out, incrementer< O > incFn, bool caseSensitive=false)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Iterator , class O $>$ void frequency\+::count\+Frequencies (
+\begin{DoxyParamCaption}
+\item[{const std\+::string \&}]{text, }
+\item[{Iterator}]{out, }
+\item[{{\bf incrementer}$<$ O $>$}]{inc\+Fn, }
+\item[{bool}]{case\+Sensitive = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacefrequency_a76ebc4c0b0090363b539d17adf40d57d}{}\label{namespacefrequency_a76ebc4c0b0090363b539d17adf40d57d}
+
+
+Convenience function to count frequency in a string. 
+
+Processes all data provided between the start and end input iterators. The output iterator\textquotesingle{}s sequence should have a size of at least 255. Characters are mapped to the range 0-\/255 by their A\+S\+C\+II value. If the function is not case sensitive, then upper-\/case values are mapped to their lower-\/case equivalent\textquotesingle{}s A\+S\+C\+II value. The data is accessed by adding the index to the output iterator, and that value is incremented with the increment function.
+
+Template arguments
+\begin{DoxyItemize}
+\item class Iterator -\/ Iterator type for sequence to store results in
+\item class O -\/ Type of data to increment in output sequence
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em text} & String of data to frequency count \\
+\hline
+\mbox{\tt in}  & {\em out} & Beginning of range to output to \\
+\hline
+\mbox{\tt in}  & {\em inc\+Fn} & Function to increment type O \\
+\hline
+\mbox{\tt in}  & {\em case\+Sensitive} & If true, capital letters are counted separate from their lower-\/case counterparts. Default false \\
+\hline
+\end{DoxyParams}
+\index{frequency@{frequency}!count\+Frequencies@{count\+Frequencies}}
+\index{count\+Frequencies@{count\+Frequencies}!frequency@{frequency}}
+\subsubsection[{\texorpdfstring{count\+Frequencies(std\+::istream \&input, Iterator out, incrementer$<$ O $>$ inc\+Fn, bool case\+Sensitive=false)}{countFrequencies(std::istream &input, Iterator out, incrementer< O > incFn, bool caseSensitive=false)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Iterator , class O $>$ void frequency\+::count\+Frequencies (
+\begin{DoxyParamCaption}
+\item[{std\+::istream \&}]{input, }
+\item[{Iterator}]{out, }
+\item[{{\bf incrementer}$<$ O $>$}]{inc\+Fn, }
+\item[{bool}]{case\+Sensitive = {\ttfamily false}}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacefrequency_ad4f50d5d37b4053cc8cc18c1efe59ddb}{}\label{namespacefrequency_ad4f50d5d37b4053cc8cc18c1efe59ddb}
+
+
+Convenience function to count frequency in a text stream. 
+
+Processes all data provided by the input stream. Data is read using std\+::getline. The output iterator\textquotesingle{}s sequence should have a size of at least 255. Characters are mapped to the range 0-\/255 by their A\+S\+C\+II value. If the function is not case sensitive, then upper-\/case values are mapped to their lower-\/case equivalent\textquotesingle{}s A\+S\+C\+II value. The data is accessed by adding the index to the output iterator, and that value is incremented with the increment function.
+
+Template arguments
+\begin{DoxyItemize}
+\item class Iterator -\/ Iterator type for sequence to store results in
+\item class O -\/ Type of data to increment in output sequence
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em input} & Input stream containing text to count frequency in \\
+\hline
+\mbox{\tt in}  & {\em out} & Beginning of range to output to \\
+\hline
+\mbox{\tt in}  & {\em inc\+Fn} & Function to increment type O \\
+\hline
+\mbox{\tt in}  & {\em case\+Sensitive} & If true, capital letters are counted separate from their lower-\/case counterparts. Default false \\
+\hline
+\end{DoxyParams}

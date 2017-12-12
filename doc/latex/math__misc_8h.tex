@@ -1,0 +1,48 @@
+\hypertarget{math__misc_8h}{}\section{modules/module\+\_\+crypto/libcryptomath/headers/math\+\_\+misc.h File Reference}
+\label{math__misc_8h}\index{modules/module\+\_\+crypto/libcryptomath/headers/math\+\_\+misc.\+h@{modules/module\+\_\+crypto/libcryptomath/headers/math\+\_\+misc.\+h}}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \hyperlink{namespacecryptomath}{cryptomath}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{math__misc_8h_a8ff0b933d3dc86e26d84f957c4d5ef6f}{D\+B\+G\+O\+UT}(a)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class Integral $>$ }\\uint8\+\_\+t \hyperlink{namespacecryptomath_abdfca9e5adf3b3660fcd8fcf94f116e6}{cryptomath\+::mod2} (const Integral \&n)
+\begin{DoxyCompactList}\small\item\em Checks if a value is odd. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Integral $>$ }\\Integral \hyperlink{namespacecryptomath_a9e16705865a198f4d3b0227619a85596}{cryptomath\+::sqrtfloor} (const Integral \&n)
+\begin{DoxyCompactList}\small\item\em Floor of square root. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Integral $>$ }\\Integral \hyperlink{namespacecryptomath_ad0bcf1b0015f3f35ed982614b9faee7e}{cryptomath\+::pow\+Int} (const Integral \&a, const Integral \&b)
+\begin{DoxyCompactList}\small\item\em Integer pow function. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Integral $>$ }\\uint64\+\_\+t \hyperlink{namespacecryptomath_a72742b30d75eae62e700454832df24c6}{cryptomath\+::log2} (const Integral \&n)
+\begin{DoxyCompactList}\small\item\em Log base 2. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Integral $>$ }\\bool \hyperlink{namespacecryptomath_ad160be1fb9fce8cfb5862366d2298f13}{cryptomath\+::has\+Bits} (const uint64\+\_\+t \&i)
+\begin{DoxyCompactList}\small\item\em Tests if a type has a certain number of bits. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Integral $>$ }\\Integral \hyperlink{namespacecryptomath_abfbfbbf081ad84dfad43a2fa928d6bc8}{cryptomath\+::abs} (const Integral \&a)
+\begin{DoxyCompactList}\small\item\em Absolute value. \end{DoxyCompactList}\item 
+{\footnotesize template$<$$>$ }\\uint64\+\_\+t \hyperlink{namespacecryptomath_a7f99173aeb277588bc453a6bb6dc8e0b}{cryptomath\+::abs$<$ uint64\+\_\+t $>$} (const uint64\+\_\+t \&a)
+\begin{DoxyCompactList}\small\item\em Absolute value. \end{DoxyCompactList}\item 
+{\footnotesize template$<$$>$ }\\uint32\+\_\+t \hyperlink{namespacecryptomath_a6c5d524cfbc767ac94668ea02f851d23}{cryptomath\+::abs$<$ uint32\+\_\+t $>$} (const uint32\+\_\+t \&a)
+\begin{DoxyCompactList}\small\item\em Absolute value. \end{DoxyCompactList}\item 
+{\footnotesize template$<$$>$ }\\uint8\+\_\+t \hyperlink{namespacecryptomath_aa5431f9c91fc877731b94cc3a4496c10}{cryptomath\+::abs$<$ uint8\+\_\+t $>$} (const uint8\+\_\+t \&a)
+\begin{DoxyCompactList}\small\item\em Absolute value. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Integral $>$ }\\bool \hyperlink{namespacecryptomath_a28abfc305f16df25575cba3bb3947bb8}{cryptomath\+::is\+Maybe\+Square} (const Integral \&n)
+\begin{DoxyCompactList}\small\item\em Checks if it is possible that a number is square. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Integral $>$ }\\std\+::pair$<$ bool, Integral $>$ \hyperlink{namespacecryptomath_a0d995827651201bac29716368c7e264b}{cryptomath\+::int\+Sqrt} (const Integral \&n)
+\begin{DoxyCompactList}\small\item\em Returns the square root of a square integer as an integer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\index{math\+\_\+misc.\+h@{math\+\_\+misc.\+h}!D\+B\+G\+O\+UT@{D\+B\+G\+O\+UT}}
+\index{D\+B\+G\+O\+UT@{D\+B\+G\+O\+UT}!math\+\_\+misc.\+h@{math\+\_\+misc.\+h}}
+\subsubsection[{\texorpdfstring{D\+B\+G\+O\+UT}{DBGOUT}}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\+B\+G\+O\+UT(
+\begin{DoxyParamCaption}
+\item[{}]{a}
+\end{DoxyParamCaption}
+)}\hypertarget{math__misc_8h_a8ff0b933d3dc86e26d84f957c4d5ef6f}{}\label{math__misc_8h_a8ff0b933d3dc86e26d84f957c4d5ef6f}
+Removes verbose debug outputs from compiled result 

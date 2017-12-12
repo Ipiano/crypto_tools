@@ -1,0 +1,91 @@
+\hypertarget{main__affine_8cpp}{}\section{tool\+\_\+affinecipher/src/main\+\_\+affine.cpp File Reference}
+\label{main__affine_8cpp}\index{tool\+\_\+affinecipher/src/main\+\_\+affine.\+cpp@{tool\+\_\+affinecipher/src/main\+\_\+affine.\+cpp}}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum {\bfseries Input} \{ \\*
+{\bfseries None}, 
+{\bfseries File}, 
+{\bfseries Term}, 
+{\bfseries None}, 
+\\*
+{\bfseries File}, 
+{\bfseries Term}, 
+{\bfseries None}, 
+{\bfseries File}, 
+\\*
+{\bfseries Term}, 
+{\bfseries None}, 
+{\bfseries File}, 
+{\bfseries Term}
+ \}\hypertarget{main__affine_8cpp_a080a822f0093973313bd644e517a5090}{}\label{main__affine_8cpp_a080a822f0093973313bd644e517a5090}
+
+\item 
+enum {\bfseries Output} \{ \\*
+{\bfseries None}, 
+{\bfseries File}, 
+{\bfseries Term}, 
+{\bfseries None}, 
+\\*
+{\bfseries File}, 
+{\bfseries Term}, 
+{\bfseries None}, 
+{\bfseries File}, 
+\\*
+{\bfseries Term}, 
+{\bfseries None}, 
+{\bfseries File}, 
+{\bfseries Term}
+ \}\hypertarget{main__affine_8cpp_a53dd77e01e0e3b0f0f2f26a2498a5442}{}\label{main__affine_8cpp_a53dd77e01e0e3b0f0f2f26a2498a5442}
+
+\item 
+enum {\bfseries Mode} \{ \\*
+{\bfseries None}, 
+{\bfseries Encrypt}, 
+{\bfseries Decrypt}, 
+{\bfseries None}, 
+\\*
+{\bfseries Encrypt}, 
+{\bfseries Decrypt}, 
+{\bfseries Crack\+\_\+\+All}, 
+{\bfseries Crack\+\_\+\+Best}, 
+\\*
+{\bfseries None}, 
+{\bfseries Encrypt}, 
+{\bfseries Decrypt}, 
+{\bfseries Crack3}, 
+\\*
+{\bfseries Crack4}, 
+{\bfseries None}, 
+{\bfseries Encrypt}, 
+{\bfseries Decrypt}
+ \}\hypertarget{main__affine_8cpp_a46c8a310cf4c094f8c80e1cb8dc1f911}{}\label{main__affine_8cpp_a46c8a310cf4c094f8c80e1cb8dc1f911}
+
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool {\bfseries process\+Args} (int argc, char $\ast$$\ast$argv, Input \&in\+Mode, Output \&out\+Mode, Mode \&op, int64\+\_\+t \&a, int64\+\_\+t \&b, string \&input, string \&output, vector$<$ pair$<$ char, char $>$$>$ \&known)\hypertarget{main__affine_8cpp_a426148d8fdbfa56e57069ae071cf2d81}{}\label{main__affine_8cpp_a426148d8fdbfa56e57069ae071cf2d81}
+
+\item 
+void {\bfseries help} (string name, string msg=\char`\"{}\char`\"{})\hypertarget{main__affine_8cpp_a998eb8cd6913e67befa24a5d2c2ce4aa}{}\label{main__affine_8cpp_a998eb8cd6913e67befa24a5d2c2ce4aa}
+
+\item 
+pair$<$ int, int $>$ {\bfseries linsolve} (pair$<$ char, char $>$ p1, pair$<$ char, char $>$ p2)\hypertarget{main__affine_8cpp_a762360c321d65f0c7ce3f486310948b2}{}\label{main__affine_8cpp_a762360c321d65f0c7ce3f486310948b2}
+
+\item 
+pair$<$ int, string $>$ {\bfseries check\+Soln} (int a, int b, string ciph, vector$<$ pair$<$ char, char $>$$>$ \&known)\hypertarget{main__affine_8cpp_a6b1b2ac57554957a1439be0e5bc44775}{}\label{main__affine_8cpp_a6b1b2ac57554957a1439be0e5bc44775}
+
+\item 
+int {\bfseries main} (int argc, char $\ast$$\ast$argv)\hypertarget{main__affine_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{}\label{main__affine_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}
+
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const string {\bfseries A\+L\+P\+H\+A\+B\+ET} = \char`\"{}abcdefghijklmnopqrstuvwxyz\char`\"{}\hypertarget{main__affine_8cpp_ab62354bd5a11bc87a11a1d53a2abb623}{}\label{main__affine_8cpp_ab62354bd5a11bc87a11a1d53a2abb623}
+
+\item 
+const string {\bfseries F\+R\+E\+Q\+U\+E\+N\+C\+I\+ES} = \char`\"{}etaoinsrhdlucmfywgpbvkxqjz\char`\"{}\hypertarget{main__affine_8cpp_a7a141cf3b7436084fcea345d3cfc01f9}{}\label{main__affine_8cpp_a7a141cf3b7436084fcea345d3cfc01f9}
+
+\end{DoxyCompactItemize}

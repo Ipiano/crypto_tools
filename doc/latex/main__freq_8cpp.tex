@@ -1,0 +1,43 @@
+\hypertarget{main__freq_8cpp}{}\section{tool\+\_\+frequencyanalysis/src/main\+\_\+freq.cpp File Reference}
+\label{main__freq_8cpp}\index{tool\+\_\+frequencyanalysis/src/main\+\_\+freq.\+cpp@{tool\+\_\+frequencyanalysis/src/main\+\_\+freq.\+cpp}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structfrequency__count}{frequency\+\_\+count}
+\begin{DoxyCompactList}\small\item\em Container for letter frequency and relative percentage. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{main__freq_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main} (int argc, char $\ast$$\ast$argv)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\index{main\+\_\+freq.\+cpp@{main\+\_\+freq.\+cpp}!main@{main}}
+\index{main@{main}!main\+\_\+freq.\+cpp@{main\+\_\+freq.\+cpp}}
+\subsubsection[{\texorpdfstring{main(int argc, char $\ast$$\ast$argv)}{main(int argc, char **argv)}}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$$\ast$}]{argv}
+\end{DoxyParamCaption}
+)}\hypertarget{main__freq_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{}\label{main__freq_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}
+If fewer than two arguments are found, the process terminates.
+
+A global occurrence list is set up, and the frequency count is run on each file of the input that can be read.
+
+Each character is printed out with its number of occurances and what percentage of the text read was it.
+
+All alphabetic letters are considered lower-\/case
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em argc} & Number of command line arguments \\
+\hline
+\mbox{\tt in}  & {\em argv} & Command line arguments \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 The program ran successfully 
+
+1 No files were given 
+\end{DoxyReturn}

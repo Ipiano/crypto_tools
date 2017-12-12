@@ -1,0 +1,116 @@
+\hypertarget{test__continuedfraction_8cpp}{}\section{modules/module\+\_\+crypto/unittests/tests/cryptomath/test\+\_\+continuedfraction.cpp File Reference}
+\label{test__continuedfraction_8cpp}\index{modules/module\+\_\+crypto/unittests/tests/cryptomath/test\+\_\+continuedfraction.\+cpp@{modules/module\+\_\+crypto/unittests/tests/cryptomath/test\+\_\+continuedfraction.\+cpp}}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bfseries pi}~3.\+14159265359\hypertarget{test__continuedfraction_8cpp_a1daf785e3f68d293c7caa1c756d5cb74}{}\label{test__continuedfraction_8cpp_a1daf785e3f68d293c7caa1c756d5cb74}
+
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{test__continuedfraction_8cpp_ab53218170b1f0d7d03a10f9d7ef2d84b}{T\+E\+S\+T\+\_\+\+C\+A\+SE} (\char`\"{}Double to continued fraction\char`\"{})
+\item 
+\hyperlink{test__continuedfraction_8cpp_a6494869677218c6bdd53aa492fbaa510}{T\+E\+S\+T\+\_\+\+C\+A\+SE} (\char`\"{}Fraction to continued fraction\char`\"{})
+\item 
+\hyperlink{test__continuedfraction_8cpp_aa4e3cd0ec8e9303b450e5e393efa22b4}{T\+E\+S\+T\+\_\+\+C\+A\+SE} (\char`\"{}Continued fractions of simple square roots\char`\"{})
+\item 
+\hyperlink{test__continuedfraction_8cpp_a8e31ec0c02999769c07d1282c9997212}{T\+E\+S\+T\+\_\+\+C\+A\+SE} (\char`\"{}Continued fraction to approximation\char`\"{})
+\item 
+\hyperlink{test__continuedfraction_8cpp_aae98ad9ca66a312c62ab296999173984}{T\+E\+S\+T\+\_\+\+C\+A\+SE} (\char`\"{}Continued fraction to double\char`\"{})
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\index{test\+\_\+continuedfraction.\+cpp@{test\+\_\+continuedfraction.\+cpp}!T\+E\+S\+T\+\_\+\+C\+A\+SE@{T\+E\+S\+T\+\_\+\+C\+A\+SE}}
+\index{T\+E\+S\+T\+\_\+\+C\+A\+SE@{T\+E\+S\+T\+\_\+\+C\+A\+SE}!test\+\_\+continuedfraction.\+cpp@{test\+\_\+continuedfraction.\+cpp}}
+\subsubsection[{\texorpdfstring{T\+E\+S\+T\+\_\+\+C\+A\+S\+E(""Double to continued fraction"")}{TEST_CASE("Double to continued fraction")}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+S\+T\+\_\+\+C\+A\+SE (
+\begin{DoxyParamCaption}
+\item[{\char`\"{}Double to continued fraction\char`\"{}}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{test__continuedfraction_8cpp_ab53218170b1f0d7d03a10f9d7ef2d84b}{}\label{test__continuedfraction_8cpp_ab53218170b1f0d7d03a10f9d7ef2d84b}
+\begin{DoxyRefDesc}{Test}
+\item[\hyperlink{test__test000012}{Test}]Tests converting doubles to continued fractions
+\begin{DoxyItemize}
+\item 0
+\item 1
+\item 23
+\item 23.\+5
+\item 23.\+3333
+\item pi 
+\end{DoxyItemize}\end{DoxyRefDesc}
+\index{test\+\_\+continuedfraction.\+cpp@{test\+\_\+continuedfraction.\+cpp}!T\+E\+S\+T\+\_\+\+C\+A\+SE@{T\+E\+S\+T\+\_\+\+C\+A\+SE}}
+\index{T\+E\+S\+T\+\_\+\+C\+A\+SE@{T\+E\+S\+T\+\_\+\+C\+A\+SE}!test\+\_\+continuedfraction.\+cpp@{test\+\_\+continuedfraction.\+cpp}}
+\subsubsection[{\texorpdfstring{T\+E\+S\+T\+\_\+\+C\+A\+S\+E(""Fraction to continued fraction"")}{TEST_CASE("Fraction to continued fraction")}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+S\+T\+\_\+\+C\+A\+SE (
+\begin{DoxyParamCaption}
+\item[{\char`\"{}Fraction to continued fraction\char`\"{}}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{test__continuedfraction_8cpp_a6494869677218c6bdd53aa492fbaa510}{}\label{test__continuedfraction_8cpp_a6494869677218c6bdd53aa492fbaa510}
+\begin{DoxyRefDesc}{Test}
+\item[\hyperlink{test__test000013}{Test}]Tests converting raionals to continued fractions
+\begin{DoxyItemize}
+\item 10/8
+\item 10/28
+\item 3/7
+\item 13/9
+\item 1/1
+\item 0/1 
+\end{DoxyItemize}\end{DoxyRefDesc}
+\index{test\+\_\+continuedfraction.\+cpp@{test\+\_\+continuedfraction.\+cpp}!T\+E\+S\+T\+\_\+\+C\+A\+SE@{T\+E\+S\+T\+\_\+\+C\+A\+SE}}
+\index{T\+E\+S\+T\+\_\+\+C\+A\+SE@{T\+E\+S\+T\+\_\+\+C\+A\+SE}!test\+\_\+continuedfraction.\+cpp@{test\+\_\+continuedfraction.\+cpp}}
+\subsubsection[{\texorpdfstring{T\+E\+S\+T\+\_\+\+C\+A\+S\+E(""Continued fractions of simple square roots"")}{TEST_CASE("Continued fractions of simple square roots")}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+S\+T\+\_\+\+C\+A\+SE (
+\begin{DoxyParamCaption}
+\item[{\char`\"{}Continued fractions of simple square roots\char`\"{}}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{test__continuedfraction_8cpp_aa4e3cd0ec8e9303b450e5e393efa22b4}{}\label{test__continuedfraction_8cpp_aa4e3cd0ec8e9303b450e5e393efa22b4}
+\begin{DoxyRefDesc}{Test}
+\item[\hyperlink{test__test000014}{Test}]Tests converting simple square roots to continued fractions with repeating portions
+\begin{DoxyItemize}
+\item sqrt(7)
+\item sqrt(3)
+\item sqrt(0)
+\item sqrt(1)
+\item sqrt(4) 
+\end{DoxyItemize}\end{DoxyRefDesc}
+\index{test\+\_\+continuedfraction.\+cpp@{test\+\_\+continuedfraction.\+cpp}!T\+E\+S\+T\+\_\+\+C\+A\+SE@{T\+E\+S\+T\+\_\+\+C\+A\+SE}}
+\index{T\+E\+S\+T\+\_\+\+C\+A\+SE@{T\+E\+S\+T\+\_\+\+C\+A\+SE}!test\+\_\+continuedfraction.\+cpp@{test\+\_\+continuedfraction.\+cpp}}
+\subsubsection[{\texorpdfstring{T\+E\+S\+T\+\_\+\+C\+A\+S\+E(""Continued fraction to approximation"")}{TEST_CASE("Continued fraction to approximation")}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+S\+T\+\_\+\+C\+A\+SE (
+\begin{DoxyParamCaption}
+\item[{\char`\"{}Continued fraction to approximation\char`\"{}}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{test__continuedfraction_8cpp_a8e31ec0c02999769c07d1282c9997212}{}\label{test__continuedfraction_8cpp_a8e31ec0c02999769c07d1282c9997212}
+\begin{DoxyRefDesc}{Test}
+\item[\hyperlink{test__test000015}{Test}]Tests converting continued fractions to rational approximations
+\begin{DoxyItemize}
+\item 0
+\item 1
+\item 23
+\item 23; 2
+\item 23; 3, 3333, 7778288
+\item 2; 1, 1, 1, 4
+\item 1; 1, 2
+\item 3; 7, 15, 1
+\item 1; 4
+\item 0; 2, 1, 4
+\item 0; 2, 3
+\item 1; 2, 4 
+\end{DoxyItemize}\end{DoxyRefDesc}
+\index{test\+\_\+continuedfraction.\+cpp@{test\+\_\+continuedfraction.\+cpp}!T\+E\+S\+T\+\_\+\+C\+A\+SE@{T\+E\+S\+T\+\_\+\+C\+A\+SE}}
+\index{T\+E\+S\+T\+\_\+\+C\+A\+SE@{T\+E\+S\+T\+\_\+\+C\+A\+SE}!test\+\_\+continuedfraction.\+cpp@{test\+\_\+continuedfraction.\+cpp}}
+\subsubsection[{\texorpdfstring{T\+E\+S\+T\+\_\+\+C\+A\+S\+E(""Continued fraction to double"")}{TEST_CASE("Continued fraction to double")}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+S\+T\+\_\+\+C\+A\+SE (
+\begin{DoxyParamCaption}
+\item[{\char`\"{}Continued fraction to double\char`\"{}}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{test__continuedfraction_8cpp_aae98ad9ca66a312c62ab296999173984}{}\label{test__continuedfraction_8cpp_aae98ad9ca66a312c62ab296999173984}
+\begin{DoxyRefDesc}{Test}
+\item[\hyperlink{test__test000016}{Test}]Tests converting continued fractions to real approximation
+\begin{DoxyItemize}
+\item 0
+\item 1
+\item 23
+\item 23; 2
+\item 23; 3, 3333, 7778288
+\item 2; 1, 1, 1, 4
+\item 1; 1, 2
+\item 3; 7, 15, 1, 292, 1 
+\end{DoxyItemize}\end{DoxyRefDesc}

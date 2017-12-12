@@ -1,0 +1,25 @@
+\hypertarget{test__bbs_8cpp}{}\section{modules/module\+\_\+crypto/unittests/tests/random/test\+\_\+bbs.cpp File Reference}
+\label{test__bbs_8cpp}\index{modules/module\+\_\+crypto/unittests/tests/random/test\+\_\+bbs.\+cpp@{modules/module\+\_\+crypto/unittests/tests/random/test\+\_\+bbs.\+cpp}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{test__bbs_8cpp_aed1a29ce8a080760a2f04dee32910007}{T\+E\+S\+T\+\_\+\+C\+A\+SE} (\char`\"{}bbs constructor errors\char`\"{})
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\index{test\+\_\+bbs.\+cpp@{test\+\_\+bbs.\+cpp}!T\+E\+S\+T\+\_\+\+C\+A\+SE@{T\+E\+S\+T\+\_\+\+C\+A\+SE}}
+\index{T\+E\+S\+T\+\_\+\+C\+A\+SE@{T\+E\+S\+T\+\_\+\+C\+A\+SE}!test\+\_\+bbs.\+cpp@{test\+\_\+bbs.\+cpp}}
+\subsubsection[{\texorpdfstring{T\+E\+S\+T\+\_\+\+C\+A\+S\+E(""bbs constructor errors"")}{TEST_CASE("bbs constructor errors")}}]{\setlength{\rightskip}{0pt plus 5cm}T\+E\+S\+T\+\_\+\+C\+A\+SE (
+\begin{DoxyParamCaption}
+\item[{\char`\"{}bbs constructor errors\char`\"{}}]{}
+\end{DoxyParamCaption}
+)}\hypertarget{test__bbs_8cpp_aed1a29ce8a080760a2f04dee32910007}{}\label{test__bbs_8cpp_aed1a29ce8a080760a2f04dee32910007}
+\begin{DoxyRefDesc}{Test}
+\item[\hyperlink{test__test000033}{Test}]Confirms that the blum\+\_\+blum\+\_\+shub engine constructor throws an exception if
+\begin{DoxyItemize}
+\item P, Q are not prime
+\item P, Q are not 3 mod 4
+\item More bits are going to be extracted than is secure
+\item X is given but is not coprime to p and q 
+\end{DoxyItemize}\end{DoxyRefDesc}

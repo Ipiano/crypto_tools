@@ -1,0 +1,200 @@
+\hypertarget{namespacecryptomath_1_1factoring}{}\section{cryptomath\+:\+:factoring Namespace Reference}
+\label{namespacecryptomath_1_1factoring}\index{cryptomath\+::factoring@{cryptomath\+::factoring}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class Integral $>$ }\\std\+::pair$<$ Integral, Integral $>$ \hyperlink{namespacecryptomath_1_1factoring_a33e645e34227080e657d9c366d9b0e9b}{shanks} (const Integral \&n)
+\begin{DoxyCompactList}\small\item\em Shanks\textquotesingle{} square forms factorization. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Integral $>$ }\\std\+::pair$<$ Integral, Integral $>$ \hyperlink{namespacecryptomath_1_1factoring_ae33e833ece59c1b1b23a77397dc01e95}{fermat} (const Integral \&n)
+\begin{DoxyCompactList}\small\item\em Fermat\textquotesingle{}s factorization algorithm. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Integral $>$ }\\Integral \hyperlink{namespacecryptomath_1_1factoring_a3704974d2db3229d70a82ebcb33a0516}{p\+Rho1} (const Integral \&a, const Integral \&n)
+\item 
+{\footnotesize template$<$class Integral $>$ }\\Integral \hyperlink{namespacecryptomath_1_1factoring_ac3a437caacf2d5051c2c052495abaeeb}{p\+Rho2} (const Integral \&a, const Integral \&n)
+\item 
+{\footnotesize template$<$class Integral $>$ }\\std\+::pair$<$ Integral, Integral $>$ \hyperlink{namespacecryptomath_1_1factoring_a99ecf3ad17c5768de52218f3178ecd29}{pollardrho} (const Integral \&n)
+\item 
+{\footnotesize template$<$class Integral $>$ }\\std\+::pair$<$ Integral, Integral $>$ \hyperlink{namespacecryptomath_1_1factoring_a219073421eb9727c2b6433fa59f027b9}{pollardp1} (const Integral \&n)
+\begin{DoxyCompactList}\small\item\em Pollard\textquotesingle{}s p-\/1 factoring algorithm. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Contains algorithms for finding $ ab=n $ for some odd, non-\/prime $ n $ 
+
+\subsection{Function Documentation}
+\index{cryptomath\+::factoring@{cryptomath\+::factoring}!fermat@{fermat}}
+\index{fermat@{fermat}!cryptomath\+::factoring@{cryptomath\+::factoring}}
+\subsubsection[{\texorpdfstring{fermat(const Integral \&n)}{fermat(const Integral &n)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Integral $>$ std\+::pair$<$Integral, Integral$>$ cryptomath\+::factoring\+::fermat (
+\begin{DoxyParamCaption}
+\item[{const Integral \&}]{n}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacecryptomath_1_1factoring_ae33e833ece59c1b1b23a77397dc01e95}{}\label{namespacecryptomath_1_1factoring_ae33e833ece59c1b1b23a77397dc01e95}
+
+
+Fermat\textquotesingle{}s factorization algorithm. 
+
+Fermat\textquotesingle{}s factorization algorithm is based on the fact that every odd number can be written as the difference of two squares. ( $ n = a^2 - b^2$ for some $ a, b$). When those values are found, we can write $ n = (a-b)(a+b) $; therefore $ a-b, a+b $ are factors of $ n $.
+
+Fermat\textquotesingle{}s algorithm starts with $ a = sqrt(n) $ and repeatedly checks if some possible $ b^2 = a^2 - n $ is actually squared. If it is, then $ a, b $ have been found; if not, $ a $ is incremented.
+
+Template arguments
+\begin{DoxyItemize}
+\item class Integral -\/ Some Integer type
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em n} & The value to factor \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pair$<$\+Integral, Integral$>$ -\/ Two values with a product $ n $ 
+\end{DoxyReturn}
+\index{cryptomath\+::factoring@{cryptomath\+::factoring}!pollardp1@{pollardp1}}
+\index{pollardp1@{pollardp1}!cryptomath\+::factoring@{cryptomath\+::factoring}}
+\subsubsection[{\texorpdfstring{pollardp1(const Integral \&n)}{pollardp1(const Integral &n)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Integral $>$ std\+::pair$<$Integral, Integral$>$ cryptomath\+::factoring\+::pollardp1 (
+\begin{DoxyParamCaption}
+\item[{const Integral \&}]{n}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacecryptomath_1_1factoring_a219073421eb9727c2b6433fa59f027b9}{}\label{namespacecryptomath_1_1factoring_a219073421eb9727c2b6433fa59f027b9}
+
+
+Pollard\textquotesingle{}s p-\/1 factoring algorithm. 
+
+Pollard\textquotesingle{}s p-\/1 algorithm leverages Fermat\textquotesingle{}s little theorem and the idea that $ a^{K(p-1)} = 1 $ mod $ p $ for some prime and all positive $ k $.
+
+Because of this, we know that if some $ x $ is congruent to 1 mod a factor of some $ n $ then the gcd of $ x-1 $ and $ n $ will be divisible by that factor.
+
+So, we make $ K(p-1) $ very large by using prime powers, we can use this test to find factors of $ n $. We pick some $ x $ and repeatedly do $ x = x^\omega $ where $ \omega $ is some prime power. (This ensures that we have $ K(p-1) $ with lots of prime factors). When the gcd of $ x-1 $ and $ n $ is not 1 or $ n $ we have found a factor of $ n $.
+
+Template arguments
+\begin{DoxyItemize}
+\item class Integral -\/ Some Integer type
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em n} & The value to factor \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pair$<$\+Integral, Integral$>$ -\/ Two values with a product $ n $ 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em logic\+\_\+error} & \+: powmod would overflow the Integral type \\
+\hline
+\end{DoxyExceptions}
+\index{cryptomath\+::factoring@{cryptomath\+::factoring}!pollardrho@{pollardrho}}
+\index{pollardrho@{pollardrho}!cryptomath\+::factoring@{cryptomath\+::factoring}}
+\subsubsection[{\texorpdfstring{pollardrho(const Integral \&n)}{pollardrho(const Integral &n)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Integral $>$ std\+::pair$<$Integral, Integral$>$ cryptomath\+::factoring\+::pollardrho (
+\begin{DoxyParamCaption}
+\item[{const Integral \&}]{n}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacecryptomath_1_1factoring_a99ecf3ad17c5768de52218f3178ecd29}{}\label{namespacecryptomath_1_1factoring_a99ecf3ad17c5768de52218f3178ecd29}
+Pollard\textquotesingle{}s Rho algorithm for factoring
+
+Pollard\textquotesingle{}s Rho algorithm makes use of the cyclical nature of polynomials mod some $ n $. Given some function $ g(x) $, it can be used to generate a sequence of values $ x_0 = x, x_1 = g(x), x_2 = g(g(x))... $.
+
+This sequence can be taken mod $ p $ for some prime to generate a new sequence. Since the original sequence is mod $ n $ and the second is mod $ p $, we know they will eventually start to repeat. We can even say that the second sequence, $ x_k $ mod $ p $ is likely to repeat much sooner because of the birthday paradox.
+
+By stepping both sequences together, and checking the gcd of $ k_i, k_j $ we can find a factor of $ n $. Specifically, when the gcd is not 1, we know one of the sequences is repeating because $ k_i = k_j $ mod $ p $; therefore the difference between them is a multiple of $ p $ and the gcd is one of the factors of $ n $.
+
+Pollards Rho algorithm generates the two sequences as
+\begin{DoxyItemize}
+\item $ k_{i+1} = g(k_i) $
+\item $ k_{j+1} = g(g(k_j)) $
+\end{DoxyItemize}
+
+If we reach a cycle and the gcd of the two numbers is $ n $, then a different function is used, or a different initial value is tried
+
+Template arguments
+\begin{DoxyItemize}
+\item class Integral -\/ Some Integer type
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em n} & The value to factor \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pair$<$\+Integral, Integral$>$ -\/ Two values with a product $ n $ 
+\end{DoxyReturn}
+\index{cryptomath\+::factoring@{cryptomath\+::factoring}!p\+Rho1@{p\+Rho1}}
+\index{p\+Rho1@{p\+Rho1}!cryptomath\+::factoring@{cryptomath\+::factoring}}
+\subsubsection[{\texorpdfstring{p\+Rho1(const Integral \&a, const Integral \&n)}{pRho1(const Integral &a, const Integral &n)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Integral $>$ Integral cryptomath\+::factoring\+::p\+Rho1 (
+\begin{DoxyParamCaption}
+\item[{const Integral \&}]{a, }
+\item[{const Integral \&}]{n}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacecryptomath_1_1factoring_a3704974d2db3229d70a82ebcb33a0516}{}\label{namespacecryptomath_1_1factoring_a3704974d2db3229d70a82ebcb33a0516}
+$ a^2 + 1 $ mod $ n $ A function to be used in Pollard\textquotesingle{}s rho factorization algorithm
+
+Template arguments
+\begin{DoxyItemize}
+\item class Integral -\/ Some Integer type
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em a} & \\
+\hline
+\mbox{\tt in}  & {\em n} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$ a^2 + 1 $ mod $ n $ 
+\end{DoxyReturn}
+\index{cryptomath\+::factoring@{cryptomath\+::factoring}!p\+Rho2@{p\+Rho2}}
+\index{p\+Rho2@{p\+Rho2}!cryptomath\+::factoring@{cryptomath\+::factoring}}
+\subsubsection[{\texorpdfstring{p\+Rho2(const Integral \&a, const Integral \&n)}{pRho2(const Integral &a, const Integral &n)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Integral $>$ Integral cryptomath\+::factoring\+::p\+Rho2 (
+\begin{DoxyParamCaption}
+\item[{const Integral \&}]{a, }
+\item[{const Integral \&}]{n}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacecryptomath_1_1factoring_ac3a437caacf2d5051c2c052495abaeeb}{}\label{namespacecryptomath_1_1factoring_ac3a437caacf2d5051c2c052495abaeeb}
+$ a^2 - 1 $ mod $ n $ A function to be used in Pollard\textquotesingle{}s rho factorization algorithm
+
+Template arguments
+\begin{DoxyItemize}
+\item class Integral -\/ Some Integer type
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em a} & \\
+\hline
+\mbox{\tt in}  & {\em n} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+$ a^2 - 1 $ mod $ n $ 
+\end{DoxyReturn}
+\index{cryptomath\+::factoring@{cryptomath\+::factoring}!shanks@{shanks}}
+\index{shanks@{shanks}!cryptomath\+::factoring@{cryptomath\+::factoring}}
+\subsubsection[{\texorpdfstring{shanks(const Integral \&n)}{shanks(const Integral &n)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Integral $>$ std\+::pair$<$Integral, Integral$>$ cryptomath\+::factoring\+::shanks (
+\begin{DoxyParamCaption}
+\item[{const Integral \&}]{n}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacecryptomath_1_1factoring_a33e645e34227080e657d9c366d9b0e9b}{}\label{namespacecryptomath_1_1factoring_a33e645e34227080e657d9c366d9b0e9b}
+
+
+Shanks\textquotesingle{} square forms factorization. 
+
+Fermat\textquotesingle{}s factorization algorithm requires finding $ x^2 - y^2 = n $; however, it can be faster to look for some $ x^2 = y^2 $ (mod $ n $). While finding such a pair $ x, y $ does not guarantee a factor of $ n $, it implies that $ n $ is a factor of $ (x-y)(x+y) $. Since there\textquotesingle{}s a good chance that the factors of $ n $ are split between $ x-y, x+y $, then $ gcd(n, x-y) $ is likely to yield a non-\/trivial factor of $ n $.
+
+Shank\textquotesingle{}s square forms algorithm is a method for finding some $ x^2, y^2 $ which satisfy this. It starts with some small multiple of $ n $ and walks forward until a square is found, and then walks backwards to find the second square. At this point, the gcd of the difference and $ n $ can be checked. If it is not 1 or $ n $, a nontrivial factor has been found; if it is trivial, the algorithm is repeated with some different multiple of $ n $
+
+Template arguments
+\begin{DoxyItemize}
+\item class Integral -\/ Some Integer type
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em n} & The value to factor \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pair$<$\+Integral, Integral$>$ -\/ Two values with a product $ n $ 
+\end{DoxyReturn}

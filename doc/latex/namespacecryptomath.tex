@@ -1,0 +1,1098 @@
+\hypertarget{namespacecryptomath}{}\section{cryptomath Namespace Reference}
+\label{namespacecryptomath}\index{cryptomath@{cryptomath}}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \hyperlink{namespacecryptomath_1_1continuedfractions}{continuedfractions}
+\item 
+ \hyperlink{namespacecryptomath_1_1factoring}{factoring}
+\item 
+ \hyperlink{namespacecryptomath_1_1primality}{primality}
+\begin{DoxyCompactList}\small\item\em Contains specific primality tests. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{namespacecryptomath_a66e56d7b478803e17352ef017eb1264b}{Factor\+\_\+\+Method} \{ {\bfseries Fermat}, 
+{\bfseries Pollard\+Rho}, 
+{\bfseries Shanks}, 
+{\bfseries Pollard\+P\+\_\+1}
+ \}\hypertarget{namespacecryptomath_a66e56d7b478803e17352ef017eb1264b}{}\label{namespacecryptomath_a66e56d7b478803e17352ef017eb1264b}
+\begin{DoxyCompactList}\small\item\em Enum containing all factoring methods available. \end{DoxyCompactList}
+\item 
+enum \hyperlink{namespacecryptomath_ad814ed5cc6da07c16839c8ee79f0830d}{Primality\+\_\+\+Test} \{ {\bfseries Miller\+Rabin}, 
+{\bfseries Solovay\+Strassen}
+ \}\hypertarget{namespacecryptomath_ad814ed5cc6da07c16839c8ee79f0830d}{}\label{namespacecryptomath_ad814ed5cc6da07c16839c8ee79f0830d}
+\begin{DoxyCompactList}\small\item\em Enum for available primality tests. \end{DoxyCompactList}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class Integral $>$ }\\std\+::vector$<$ Integral $>$ \hyperlink{namespacecryptomath_a8efd5be118d0ab42b0c13ed237010f4d}{factor} (const Integral \&n, const \hyperlink{namespacecryptomath_a66e56d7b478803e17352ef017eb1264b}{Factor\+\_\+\+Method} \&m=Factor\+\_\+\+Method\+::\+Pollard\+Rho)
+\begin{DoxyCompactList}\small\item\em General factoring algorithm. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Integral $>$ }\\Integral \hyperlink{namespacecryptomath_a89a47b8e8f73c44552d629e8b599df4a}{phi} (Integral n)
+\item 
+{\footnotesize template$<$class Integral $>$ }\\bool \hyperlink{namespacecryptomath_ade4d38bdd977cca7686b73b516d1edde}{is\+Primitive\+Root} (Integral a, const Integral \&n)
+\begin{DoxyCompactList}\small\item\em Checks if some value is a primitive root. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Integral $>$ }\\uint8\+\_\+t \hyperlink{namespacecryptomath_abdfca9e5adf3b3660fcd8fcf94f116e6}{mod2} (const Integral \&n)
+\begin{DoxyCompactList}\small\item\em Checks if a value is odd. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Integral $>$ }\\Integral \hyperlink{namespacecryptomath_a9e16705865a198f4d3b0227619a85596}{sqrtfloor} (const Integral \&n)
+\begin{DoxyCompactList}\small\item\em Floor of square root. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Integral $>$ }\\Integral \hyperlink{namespacecryptomath_ad0bcf1b0015f3f35ed982614b9faee7e}{pow\+Int} (const Integral \&a, const Integral \&b)
+\begin{DoxyCompactList}\small\item\em Integer pow function. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Integral $>$ }\\uint64\+\_\+t \hyperlink{namespacecryptomath_a72742b30d75eae62e700454832df24c6}{log2} (const Integral \&n)
+\begin{DoxyCompactList}\small\item\em Log base 2. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Integral $>$ }\\bool \hyperlink{namespacecryptomath_ad160be1fb9fce8cfb5862366d2298f13}{has\+Bits} (const uint64\+\_\+t \&i)
+\begin{DoxyCompactList}\small\item\em Tests if a type has a certain number of bits. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Integral $>$ }\\Integral \hyperlink{namespacecryptomath_abfbfbbf081ad84dfad43a2fa928d6bc8}{abs} (const Integral \&a)
+\begin{DoxyCompactList}\small\item\em Absolute value. \end{DoxyCompactList}\item 
+{\footnotesize template$<$$>$ }\\uint64\+\_\+t \hyperlink{namespacecryptomath_a7f99173aeb277588bc453a6bb6dc8e0b}{abs$<$ uint64\+\_\+t $>$} (const uint64\+\_\+t \&a)
+\begin{DoxyCompactList}\small\item\em Absolute value. \end{DoxyCompactList}\item 
+{\footnotesize template$<$$>$ }\\uint32\+\_\+t \hyperlink{namespacecryptomath_a6c5d524cfbc767ac94668ea02f851d23}{abs$<$ uint32\+\_\+t $>$} (const uint32\+\_\+t \&a)
+\begin{DoxyCompactList}\small\item\em Absolute value. \end{DoxyCompactList}\item 
+{\footnotesize template$<$$>$ }\\uint8\+\_\+t \hyperlink{namespacecryptomath_aa5431f9c91fc877731b94cc3a4496c10}{abs$<$ uint8\+\_\+t $>$} (const uint8\+\_\+t \&a)
+\begin{DoxyCompactList}\small\item\em Absolute value. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Integral $>$ }\\bool \hyperlink{namespacecryptomath_a28abfc305f16df25575cba3bb3947bb8}{is\+Maybe\+Square} (const Integral \&n)
+\begin{DoxyCompactList}\small\item\em Checks if it is possible that a number is square. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Integral $>$ }\\std\+::pair$<$ bool, Integral $>$ \hyperlink{namespacecryptomath_a0d995827651201bac29716368c7e264b}{int\+Sqrt} (const Integral \&n)
+\begin{DoxyCompactList}\small\item\em Returns the square root of a square integer as an integer. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Integral $>$ }\\Integral \hyperlink{namespacecryptomath_ab3f91eb84145b179dc7f377bbec75a95}{mod} (const Integral \&a, const Integral \&b)
+\begin{DoxyCompactList}\small\item\em Computes a (mod b), properly handling negative values. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Integral $>$ }\\Integral \hyperlink{namespacecryptomath_a2aed65df4cc031c29146aebffc667c9c}{\+\_\+pow\+Mod} (Integral a, Integral b, const Integral \&n)
+\item 
+{\footnotesize template$<$class Integral $>$ }\\Integral \hyperlink{namespacecryptomath_a2d0fbf94961a03f0b41a4026bb2d71fe}{pow\+Mod} (const Integral \&a, const Integral \&b, const Integral \&n)
+\begin{DoxyCompactList}\small\item\em Pow\+Mod wrapper to prevent overflow. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Integral $>$ }\\Integral \hyperlink{namespacecryptomath_af7628255f4415286878a8c12414fd5a5}{\+\_\+unsignedgcd} (const Integral \&a, const Integral \&b)
+\begin{DoxyCompactList}\small\item\em Recursive gcd calculation that assumes a, b unsigned. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Integral $>$ }\\Integral \hyperlink{namespacecryptomath_aa611c2ae215df44cc0b7d967642ce252}{gcd} (Integral a, Integral b)
+\begin{DoxyCompactList}\small\item\em Computes gcd($\vert$a$\vert$, $\vert$b$\vert$). \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Integral $>$ }\\std\+::array$<$ Integral, 3 $>$ \hyperlink{namespacecryptomath_ade73e96f11f5b082fda92068b63e07e4}{extended\+Gcd} (Integral a\+\_\+, Integral b\+\_\+)
+\begin{DoxyCompactList}\small\item\em Computes the extended gcd of a, b. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Integral $>$ }\\Integral \hyperlink{namespacecryptomath_a3016a6b389d67dbc28682a48776df32a}{inverse\+Mod} (const Integral \&a, const Integral \&n)
+\begin{DoxyCompactList}\small\item\em Finds $ a^{-1} $ mod $ n $. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Integral $>$ }\\Integral \hyperlink{namespacecryptomath_ae79615d1b307a407ebe932c452279682}{legendre} (const Integral \&a, const Integral \&p)
+\begin{DoxyCompactList}\small\item\em Computes the Legendre symbol. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Integral $>$ }\\Integral \hyperlink{namespacecryptomath_a4c17a71b0bde52c2e11acefc3975210f}{\+\_\+jacobi} (Integral a, Integral n)
+\begin{DoxyCompactList}\small\item\em Computes the jacobi symbol. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Integral $>$ }\\Integral \hyperlink{namespacecryptomath_aeaf6fff4156956c6cd1c684cf2d68476}{jacobi} (const Integral \&a, const Integral \&n)
+\begin{DoxyCompactList}\small\item\em Jacobi symbol wrapper to guarantee that the type is signed. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Integral $>$ }\\std\+::pair$<$ Integral, Integral $>$ \hyperlink{namespacecryptomath_ad36ab56ab6b7f4626fb3ab5840fd67f1}{factor2s} (const Integral \&n)
+\begin{DoxyCompactList}\small\item\em Factors all powers of 2 out of a number. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Integral $>$ }\\void \hyperlink{namespacecryptomath_a6964cc63e189eadb8c74202df0fd0040}{sundaram\+Sieve} (const Integral \&n, std\+::vector$<$ Integral $>$ \&result)
+\begin{DoxyCompactList}\small\item\em Sundaram\textquotesingle{}s sieve for finding prime numbers. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Integral $>$ }\\bool \hyperlink{namespacecryptomath_abf75dafaf0743a34c20ca949abd858cf}{is\+Prime} (const Integral \&n, const \hyperlink{namespacecryptomath_ad814ed5cc6da07c16839c8ee79f0830d}{Primality\+\_\+\+Test} \&test=Primality\+\_\+\+Test\+::\+Miller\+Rabin, const uint64\+\_\+t \&iterations=20)
+\item 
+{\footnotesize template$<$class Integral $>$ }\\Integral \hyperlink{namespacecryptomath_a50fd8408608cf109b166fbc13268cbd0}{next\+Prime} (Integral start, const uint64\+\_\+t \&reps=20)
+\begin{DoxyCompactList}\small\item\em Finds the first prime greater than some number. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Integral , class Uniform\+Random\+Bit\+Generator $>$ }\\Integral \hyperlink{namespacecryptomath_a01547d5de9fda1bcfb783be02d512d06}{\+\_\+random\+Prime} (Uniform\+Random\+Bit\+Generator \&bits, const uint64\+\_\+t \&bitcount, const uint64\+\_\+t \&prime\+\_\+reps=20)
+\begin{DoxyCompactList}\small\item\em Generates a random prime with a specific number of bits. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class Integral , class Uniform\+Random\+Bit\+Generator $>$ }\\Integral \hyperlink{namespacecryptomath_a93f24268856fbd366cb688640736fb60}{random\+Prime} (Uniform\+Random\+Bit\+Generator \&bits, const uint64\+\_\+t \&bitcount, const uint64\+\_\+t \&prime\+\_\+reps=20)
+\begin{DoxyCompactList}\small\item\em Wrapper for \+\_\+random\+Prime that verifies that the output type can hold the prime without overflow. \end{DoxyCompactList}\item 
+{\footnotesize template$<$$>$ }\\bool \hyperlink{namespacecryptomath_aea4ea3d67f0fc08b698da0b718244b4f}{has\+Bits$<$ mpz\+\_\+class $>$} (const uint64\+\_\+t \&i)
+\item 
+{\footnotesize template$<$$>$ }\\uint64\+\_\+t \hyperlink{namespacecryptomath_ace84983f1bbb2211b1fba2c6a606c678}{log2$<$ mpz\+\_\+class $>$} (const mpz\+\_\+class \&n)
+\item 
+{\footnotesize template$<$$>$ }\\mpz\+\_\+class \hyperlink{namespacecryptomath_abfcd8397f758faec532f382662223fb6}{sqrtfloor$<$ mpz\+\_\+class $>$} (const mpz\+\_\+class \&n)
+\item 
+{\footnotesize template$<$$>$ }\\uint8\+\_\+t \hyperlink{namespacecryptomath_a44ebe48f61ac75ba4a1cda2ef1fd168c}{mod2$<$ mpz\+\_\+class $>$} (const mpz\+\_\+class \&n)
+\item 
+{\footnotesize template$<$$>$ }\\mpz\+\_\+class \hyperlink{namespacecryptomath_a482b681cd134f41c52e4801ee0f61de2}{pow\+Mod$<$ mpz\+\_\+class $>$} (const mpz\+\_\+class \&a, const mpz\+\_\+class \&b, const mpz\+\_\+class \&n)
+\item 
+{\footnotesize template$<$$>$ }\\mpz\+\_\+class \hyperlink{namespacecryptomath_a47b55922895218d613733ea0370e8e5f}{jacobi$<$ mpz\+\_\+class $>$} (const mpz\+\_\+class \&a, const mpz\+\_\+class \&n)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Contains a variety of functions used in cryptography and modular arithmetic. As well as some template specializations to make most of the functions compatible with the G\+NU Multiprecision library (G\+MP)
+
+file 
+
+\subsection{Function Documentation}
+\index{cryptomath@{cryptomath}!\+\_\+jacobi@{\+\_\+jacobi}}
+\index{\+\_\+jacobi@{\+\_\+jacobi}!cryptomath@{cryptomath}}
+\subsubsection[{\texorpdfstring{\+\_\+jacobi(\+Integral a, Integral n)}{_jacobi(Integral a, Integral n)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Integral $>$ Integral cryptomath\+::\+\_\+jacobi (
+\begin{DoxyParamCaption}
+\item[{Integral}]{a, }
+\item[{Integral}]{n}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacecryptomath_a4c17a71b0bde52c2e11acefc3975210f}{}\label{namespacecryptomath_a4c17a71b0bde52c2e11acefc3975210f}
+
+
+Computes the jacobi symbol. 
+
+This function should not be called directly. Call the wrapper \hyperlink{namespacecryptomath_aeaf6fff4156956c6cd1c684cf2d68476}{jacobi()} to prevent type issues
+
+The Jacobi symbol $ (\frac{a}{n}) $ is a generalization of the Legendre symbol to all odd integers. One way to compute it is to find the product of the Legendre symbols for all prime factors of $ n $. This specific implementation uses the law of Quadratic Reciprocity to calculate the Jacobi without factoring $ n $. More details on the algorithm can be found at \href{http://2000clicks.com/mathhelp/NumberTh27JacobiSymbolAlgorithm.aspx}{\tt http\+://2000clicks.\+com/mathhelp/\+Number\+Th27\+Jacobi\+Symbol\+Algorithm.\+aspx}
+
+Template arguments
+\begin{DoxyItemize}
+\item class Integral -\/ Some signed integer type
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em a} & \\
+\hline
+\mbox{\tt in}  & {\em n} & -\/ Some odd integer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Integral -\/ $ (\frac{a}{n}) $ 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em logic\+\_\+error} & \+: n is negative or even \\
+\hline
+\end{DoxyExceptions}
+\index{cryptomath@{cryptomath}!\+\_\+pow\+Mod@{\+\_\+pow\+Mod}}
+\index{\+\_\+pow\+Mod@{\+\_\+pow\+Mod}!cryptomath@{cryptomath}}
+\subsubsection[{\texorpdfstring{\+\_\+pow\+Mod(\+Integral a, Integral b, const Integral \&n)}{_powMod(Integral a, Integral b, const Integral &n)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Integral $>$ Integral cryptomath\+::\+\_\+pow\+Mod (
+\begin{DoxyParamCaption}
+\item[{Integral}]{a, }
+\item[{Integral}]{b, }
+\item[{const Integral \&}]{n}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacecryptomath_a2aed65df4cc031c29146aebffc667c9c}{}\label{namespacecryptomath_a2aed65df4cc031c29146aebffc667c9c}
+Computes $ a^b$ mod $ n $
+
+Fast power mod function taken from Applied Cryptography by Bruce Schneier. It makes use of the powers of two present in $ b $ to compute the result.
+
+Template arguments
+\begin{DoxyItemize}
+\item class Integral -\/ Some integer type
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em a} & \\
+\hline
+\mbox{\tt in}  & {\em b} & \\
+\hline
+\mbox{\tt in}  & {\em n} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Integral -\/ $ a^b$ mod $ n $ 
+\end{DoxyReturn}
+\index{cryptomath@{cryptomath}!\+\_\+random\+Prime@{\+\_\+random\+Prime}}
+\index{\+\_\+random\+Prime@{\+\_\+random\+Prime}!cryptomath@{cryptomath}}
+\subsubsection[{\texorpdfstring{\+\_\+random\+Prime(\+Uniform\+Random\+Bit\+Generator \&bits, const uint64\+\_\+t \&bitcount, const uint64\+\_\+t \&prime\+\_\+reps=20)}{_randomPrime(UniformRandomBitGenerator &bits, const uint64_t &bitcount, const uint64_t &prime_reps=20)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Integral , class Uniform\+Random\+Bit\+Generator $>$ Integral cryptomath\+::\+\_\+random\+Prime (
+\begin{DoxyParamCaption}
+\item[{Uniform\+Random\+Bit\+Generator \&}]{bits, }
+\item[{const uint64\+\_\+t \&}]{bitcount, }
+\item[{const uint64\+\_\+t \&}]{prime\+\_\+reps = {\ttfamily 20}}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacecryptomath_a01547d5de9fda1bcfb783be02d512d06}{}\label{namespacecryptomath_a01547d5de9fda1bcfb783be02d512d06}
+
+
+Generates a random prime with a specific number of bits. 
+
+This function should not be called directly; use \hyperlink{namespacecryptomath_a93f24268856fbd366cb688640736fb60}{random\+Prime()} in order to guaranteed that the output value will fit in the templated type
+
+It is often useful to have a random prime of a specific number of bits. This function generates a random number with the specified number of bits, and then finds the first prime larger than that. If that prime has too many bits, it is divided in half and the first prime greater than that is used. The Miller-\/\+Rabin primality test is used to find the first bigger prime.
+
+Template arguments
+\begin{DoxyItemize}
+\item class Integral -\/ Some integer type
+\item class Uniform\+Random\+Bit\+Generator -\/ Some type meeting the C++ Uniform\+Random\+Bit\+Generator specification
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em bits} & -\/ A random bit generator \\
+\hline
+\mbox{\tt in}  & {\em bitcount} & -\/ Number of bits in final value \\
+\hline
+\mbox{\tt in}  & {\em prime\+\_\+reps} & -\/ Number of iterations to do probabalistic primality test \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Integral -\/ A random prime with the specified number of bits 
+\end{DoxyReturn}
+\index{cryptomath@{cryptomath}!\+\_\+unsignedgcd@{\+\_\+unsignedgcd}}
+\index{\+\_\+unsignedgcd@{\+\_\+unsignedgcd}!cryptomath@{cryptomath}}
+\subsubsection[{\texorpdfstring{\+\_\+unsignedgcd(const Integral \&a, const Integral \&b)}{_unsignedgcd(const Integral &a, const Integral &b)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Integral $>$ Integral cryptomath\+::\+\_\+unsignedgcd (
+\begin{DoxyParamCaption}
+\item[{const Integral \&}]{a, }
+\item[{const Integral \&}]{b}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacecryptomath_af7628255f4415286878a8c12414fd5a5}{}\label{namespacecryptomath_af7628255f4415286878a8c12414fd5a5}
+
+
+Recursive gcd calculation that assumes a, b unsigned. 
+
+For general use, call \hyperlink{namespacecryptomath_aa611c2ae215df44cc0b7d967642ce252}{gcd}
+
+Uses the Euclidian gcd formula. If a \% b is non-\/0, then the solution is the same as gcd(b, a \% b)
+
+Template arguments
+\begin{DoxyItemize}
+\item class Integral -\/ Some integer type
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em a} & \\
+\hline
+\mbox{\tt in}  & {\em b} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Integral -\/ gcd(a, b) 
+\end{DoxyReturn}
+\index{cryptomath@{cryptomath}!abs@{abs}}
+\index{abs@{abs}!cryptomath@{cryptomath}}
+\subsubsection[{\texorpdfstring{abs(const Integral \&a)}{abs(const Integral &a)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Integral $>$ Integral cryptomath\+::abs (
+\begin{DoxyParamCaption}
+\item[{const Integral \&}]{a}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacecryptomath_abfbfbbf081ad84dfad43a2fa928d6bc8}{}\label{namespacecryptomath_abfbfbbf081ad84dfad43a2fa928d6bc8}
+
+
+Absolute value. 
+
+Templated absolute value function which can be specialized for non standard integer types
+
+Template arguments
+\begin{DoxyItemize}
+\item class Integral -\/ Some integer type
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em a} & Value to absolute \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Integral -\/ $\vert$a$\vert$ 
+\end{DoxyReturn}
+\index{cryptomath@{cryptomath}!abs$<$ uint32\+\_\+t $>$@{abs$<$ uint32\+\_\+t $>$}}
+\index{abs$<$ uint32\+\_\+t $>$@{abs$<$ uint32\+\_\+t $>$}!cryptomath@{cryptomath}}
+\subsubsection[{\texorpdfstring{abs$<$ uint32\+\_\+t $>$(const uint32\+\_\+t \&a)}{abs< uint32_t >(const uint32_t &a)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$$>$ uint32\+\_\+t {\bf cryptomath\+::abs}$<$ uint32\+\_\+t $>$ (
+\begin{DoxyParamCaption}
+\item[{const uint32\+\_\+t \&}]{a}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{namespacecryptomath_a6c5d524cfbc767ac94668ea02f851d23}{}\label{namespacecryptomath_a6c5d524cfbc767ac94668ea02f851d23}
+
+
+Absolute value. 
+
+Specialization of abs for unsigned 32 bit int so that other functions which need an absolute value can work with unsigned values
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em a} & Value to absolute \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint32\+\_\+t -\/ $\vert$a$\vert$ 
+\end{DoxyReturn}
+\index{cryptomath@{cryptomath}!abs$<$ uint64\+\_\+t $>$@{abs$<$ uint64\+\_\+t $>$}}
+\index{abs$<$ uint64\+\_\+t $>$@{abs$<$ uint64\+\_\+t $>$}!cryptomath@{cryptomath}}
+\subsubsection[{\texorpdfstring{abs$<$ uint64\+\_\+t $>$(const uint64\+\_\+t \&a)}{abs< uint64_t >(const uint64_t &a)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$$>$ uint64\+\_\+t {\bf cryptomath\+::abs}$<$ uint64\+\_\+t $>$ (
+\begin{DoxyParamCaption}
+\item[{const uint64\+\_\+t \&}]{a}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{namespacecryptomath_a7f99173aeb277588bc453a6bb6dc8e0b}{}\label{namespacecryptomath_a7f99173aeb277588bc453a6bb6dc8e0b}
+
+
+Absolute value. 
+
+Specialization of abs for unsigned 64 bit int so that other functions which need an absolute value can work with unsigned values
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em a} & Value to absolute \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint64\+\_\+t -\/ $\vert$a$\vert$ 
+\end{DoxyReturn}
+\index{cryptomath@{cryptomath}!abs$<$ uint8\+\_\+t $>$@{abs$<$ uint8\+\_\+t $>$}}
+\index{abs$<$ uint8\+\_\+t $>$@{abs$<$ uint8\+\_\+t $>$}!cryptomath@{cryptomath}}
+\subsubsection[{\texorpdfstring{abs$<$ uint8\+\_\+t $>$(const uint8\+\_\+t \&a)}{abs< uint8_t >(const uint8_t &a)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$$>$ uint8\+\_\+t {\bf cryptomath\+::abs}$<$ uint8\+\_\+t $>$ (
+\begin{DoxyParamCaption}
+\item[{const uint8\+\_\+t \&}]{a}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{namespacecryptomath_aa5431f9c91fc877731b94cc3a4496c10}{}\label{namespacecryptomath_aa5431f9c91fc877731b94cc3a4496c10}
+
+
+Absolute value. 
+
+Specialization of abs for unsigned 8 bit int so that other functions which need an absolute value can work with unsigned values
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em a} & Value to absolute \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint8\+\_\+t -\/ $\vert$a$\vert$ 
+\end{DoxyReturn}
+\index{cryptomath@{cryptomath}!extended\+Gcd@{extended\+Gcd}}
+\index{extended\+Gcd@{extended\+Gcd}!cryptomath@{cryptomath}}
+\subsubsection[{\texorpdfstring{extended\+Gcd(\+Integral a\+\_\+, Integral b\+\_\+)}{extendedGcd(Integral a_, Integral b_)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Integral $>$ std\+::array$<$Integral, 3$>$ cryptomath\+::extended\+Gcd (
+\begin{DoxyParamCaption}
+\item[{Integral}]{a\+\_\+, }
+\item[{Integral}]{b\+\_\+}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacecryptomath_ade73e96f11f5b082fda92068b63e07e4}{}\label{namespacecryptomath_ade73e96f11f5b082fda92068b63e07e4}
+
+
+Computes the extended gcd of a, b. 
+
+Finds a solution for a$\ast$x + b$\ast$y = gcd($\vert$a$\vert$, $\vert$b$\vert$) using the extended Euclidian gcd. For each iteration until a \% b = 0
+\begin{DoxyItemize}
+\item $ q(i) = a/b $
+\item $ x(i) = -q(i)*x(i-1) + x(i-2)$
+\item $ y(i) = -q(i)*y(i-1) + y(i-2) $
+\item $ b, a = a%b, b $
+\end{DoxyItemize}
+
+Template arguments
+\begin{DoxyItemize}
+\item class Integral -\/ Some integer type
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em a\+\_\+} & \\
+\hline
+\mbox{\tt in}  & {\em b\+\_\+} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array$<$\+Integral, 3$>$ -\/ \mbox{[}gcd($\vert$a$\vert$, $\vert$b$\vert$), x, y\mbox{]} 
+\end{DoxyReturn}
+\index{cryptomath@{cryptomath}!factor@{factor}}
+\index{factor@{factor}!cryptomath@{cryptomath}}
+\subsubsection[{\texorpdfstring{factor(const Integral \&n, const Factor\+\_\+\+Method \&m=\+Factor\+\_\+\+Method\+::\+Pollard\+Rho)}{factor(const Integral &n, const Factor_Method &m=Factor_Method::PollardRho)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Integral $>$ std\+::vector$<$Integral$>$ cryptomath\+::factor (
+\begin{DoxyParamCaption}
+\item[{const Integral \&}]{n, }
+\item[{const {\bf Factor\+\_\+\+Method} \&}]{m = {\ttfamily Factor\+\_\+Method\+:\+:PollardRho}}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacecryptomath_a8efd5be118d0ab42b0c13ed237010f4d}{}\label{namespacecryptomath_a8efd5be118d0ab42b0c13ed237010f4d}
+
+
+General factoring algorithm. 
+
+This function will use one of the specific factoring functions in the factoring namespace to find all prime factors of a number. It factors out all powers of 2, and checks for primality; while factors are not prime, they are factored using the specified algorithm.
+
+Template arguments
+\begin{DoxyItemize}
+\item class Integral -\/ Some Integer type
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em n} & The value to factor \\
+\hline
+\mbox{\tt in}  & {\em m} & The method of factorization to use (Default Pollard\textquotesingle{}s Rho algorithm) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vector$<$\+Integral, Integral$>$ -\/ All prime factors of $ n $ sorted from smallest to largest. If $ n $ is prime, it contains only $ n $. Factors which are used multiple times are included multiple times 
+\end{DoxyReturn}
+\index{cryptomath@{cryptomath}!factor2s@{factor2s}}
+\index{factor2s@{factor2s}!cryptomath@{cryptomath}}
+\subsubsection[{\texorpdfstring{factor2s(const Integral \&n)}{factor2s(const Integral &n)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Integral $>$ std\+::pair$<$Integral, Integral$>$ cryptomath\+::factor2s (
+\begin{DoxyParamCaption}
+\item[{const Integral \&}]{n}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacecryptomath_ad36ab56ab6b7f4626fb3ab5840fd67f1}{}\label{namespacecryptomath_ad36ab56ab6b7f4626fb3ab5840fd67f1}
+
+
+Factors all powers of 2 out of a number. 
+
+Many factoring and primality tests only work with odd integers. This function divides all powers of two out of a number
+
+Template arguments
+\begin{DoxyItemize}
+\item class Integral -\/ Some integer type
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em n} & -\/ The number to factor 2\textquotesingle{}s from \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pair$<$\+Integral, Integral$>$ -\/ \mbox{[}number of 2\textquotesingle{}s factored out, n with all powers of 2 factored out\mbox{]} 
+\end{DoxyReturn}
+\index{cryptomath@{cryptomath}!gcd@{gcd}}
+\index{gcd@{gcd}!cryptomath@{cryptomath}}
+\subsubsection[{\texorpdfstring{gcd(\+Integral a, Integral b)}{gcd(Integral a, Integral b)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Integral $>$ Integral cryptomath\+::gcd (
+\begin{DoxyParamCaption}
+\item[{Integral}]{a, }
+\item[{Integral}]{b}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacecryptomath_aa611c2ae215df44cc0b7d967642ce252}{}\label{namespacecryptomath_aa611c2ae215df44cc0b7d967642ce252}
+
+
+Computes gcd($\vert$a$\vert$, $\vert$b$\vert$). 
+
+If a or b is 0, the other is returned. gcd(0, 0) returns 0.
+
+Template arguments
+\begin{DoxyItemize}
+\item class Integral -\/ Some integer type
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em a} & \\
+\hline
+\mbox{\tt in}  & {\em b} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Integral -\/ gcd($\vert$a$\vert$, $\vert$b$\vert$) 
+\end{DoxyReturn}
+\index{cryptomath@{cryptomath}!has\+Bits@{has\+Bits}}
+\index{has\+Bits@{has\+Bits}!cryptomath@{cryptomath}}
+\subsubsection[{\texorpdfstring{has\+Bits(const uint64\+\_\+t \&i)}{hasBits(const uint64_t &i)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Integral $>$ bool cryptomath\+::has\+Bits (
+\begin{DoxyParamCaption}
+\item[{const uint64\+\_\+t \&}]{i}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacecryptomath_ad160be1fb9fce8cfb5862366d2298f13}{}\label{namespacecryptomath_ad160be1fb9fce8cfb5862366d2298f13}
+
+
+Tests if a type has a certain number of bits. 
+
+Can be specialized for arbitrary precision types to always return true
+
+Template arguments
+\begin{DoxyItemize}
+\item class Integral -\/ Some integer type
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em i} & Number of bits \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool -\/ Whether or not Integral type has at least i bits 
+\end{DoxyReturn}
+\index{cryptomath@{cryptomath}!has\+Bits$<$ mpz\+\_\+class $>$@{has\+Bits$<$ mpz\+\_\+class $>$}}
+\index{has\+Bits$<$ mpz\+\_\+class $>$@{has\+Bits$<$ mpz\+\_\+class $>$}!cryptomath@{cryptomath}}
+\subsubsection[{\texorpdfstring{has\+Bits$<$ mpz\+\_\+class $>$(const uint64\+\_\+t \&i)}{hasBits< mpz_class >(const uint64_t &i)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$$>$ bool {\bf cryptomath\+::has\+Bits}$<$ mpz\+\_\+class $>$ (
+\begin{DoxyParamCaption}
+\item[{const uint64\+\_\+t \&}]{i}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{namespacecryptomath_aea4ea3d67f0fc08b698da0b718244b4f}{}\label{namespacecryptomath_aea4ea3d67f0fc08b698da0b718244b4f}
+Template specialization of \hyperlink{namespacecryptomath_ad160be1fb9fce8cfb5862366d2298f13}{has\+Bits()} for mpz\+\_\+class
+
+Always returns true because mpz\+\_\+class type has an unlimited number of bits
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em i} & -\/ Number of bits needed \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool -\/ true 
+\end{DoxyReturn}
+\index{cryptomath@{cryptomath}!int\+Sqrt@{int\+Sqrt}}
+\index{int\+Sqrt@{int\+Sqrt}!cryptomath@{cryptomath}}
+\subsubsection[{\texorpdfstring{int\+Sqrt(const Integral \&n)}{intSqrt(const Integral &n)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Integral $>$ std\+::pair$<$bool, Integral$>$ cryptomath\+::int\+Sqrt (
+\begin{DoxyParamCaption}
+\item[{const Integral \&}]{n}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacecryptomath_a0d995827651201bac29716368c7e264b}{}\label{namespacecryptomath_a0d995827651201bac29716368c7e264b}
+
+
+Returns the square root of a square integer as an integer. 
+
+Utilizes the is\+Maybe\+Square function to quickly rule out some numbers as being square. If the number might be square, it is checked by computing the square of the floor of its square root.
+
+Template arguments
+\begin{DoxyItemize}
+\item class Integral -\/ Some integer type
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em n} & The number to square root \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+pair$<$bool, Integral$>$ -\/ \mbox{[}false, 0\mbox{]} if n not square, \mbox{[}true, sqrt(n)\mbox{]} if it is 
+\end{DoxyReturn}
+\index{cryptomath@{cryptomath}!inverse\+Mod@{inverse\+Mod}}
+\index{inverse\+Mod@{inverse\+Mod}!cryptomath@{cryptomath}}
+\subsubsection[{\texorpdfstring{inverse\+Mod(const Integral \&a, const Integral \&n)}{inverseMod(const Integral &a, const Integral &n)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Integral $>$ Integral cryptomath\+::inverse\+Mod (
+\begin{DoxyParamCaption}
+\item[{const Integral \&}]{a, }
+\item[{const Integral \&}]{n}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacecryptomath_a3016a6b389d67dbc28682a48776df32a}{}\label{namespacecryptomath_a3016a6b389d67dbc28682a48776df32a}
+
+
+Finds $ a^{-1} $ mod $ n $. 
+
+Finds the modular inverse of a (mod n). That is, finds x such that $ a*x = 1 $ mod $ n $. Using the extended gcd of a and n, if a and n are relatively prime, then the solution is x (mod n) from the equation $ ax + ny = 1 $
+
+Template arguments
+\begin{DoxyItemize}
+\item class Integral -\/ Some integer type
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em a} & \\
+\hline
+\mbox{\tt in}  & {\em n} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Integral -\/ $ a^{-1} $ mod $ n $ (0 if non-\/existant) 
+\end{DoxyReturn}
+\index{cryptomath@{cryptomath}!is\+Maybe\+Square@{is\+Maybe\+Square}}
+\index{is\+Maybe\+Square@{is\+Maybe\+Square}!cryptomath@{cryptomath}}
+\subsubsection[{\texorpdfstring{is\+Maybe\+Square(const Integral \&n)}{isMaybeSquare(const Integral &n)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Integral $>$ bool cryptomath\+::is\+Maybe\+Square (
+\begin{DoxyParamCaption}
+\item[{const Integral \&}]{n}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacecryptomath_a28abfc305f16df25575cba3bb3947bb8}{}\label{namespacecryptomath_a28abfc305f16df25575cba3bb3947bb8}
+
+
+Checks if it is possible that a number is square. 
+
+It can be show that any perfect square must be of one of the following forms\+: 00, e1, e4, 25, o6, e9 where e is any even digit and o is any odd digit. Using this rule, we can rule out some numbers as perfect squares quickly.
+
+Proof\+:
+
+Any number can be written in the form $ 100a + 10b + c $ where $ b, c $ are the last two digits of the number and $ a $ is the rest of the digits. If we square this, we obtain \[10000a^2 + 2000ab + 200ac + 100b^2 + 20bc + c^2 \] The first four terms are guaranteed to be greater than 100, so we care about $20bc + c^2 $. Notice that $ 20bc $ is guaranteed to contribute an even amount to the 10\textquotesingle{}s place. If we write out all possible values for $ c^2 $, we can see that all the of listed forms except 00 and 25 are accounted for. The only case to end with 0 is when $ c=0 $, so therefore $ 20bc = 0$, which means 00 is a valid form. The only way to end with 5 is when $ c = 5 $. In this case, $ 20bc $ becomes $ 100b $ and therefore does not contribute to the last two digits; so we are left with $ c^2 = 25 $ asthe last two digits
+
+Template arguments
+\begin{DoxyItemize}
+\item class Integral -\/ Some integer type
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em n} & The number to check for possible squareness \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool -\/ Whether or not it\textquotesingle{}s possible that n is square 
+\end{DoxyReturn}
+\index{cryptomath@{cryptomath}!is\+Prime@{is\+Prime}}
+\index{is\+Prime@{is\+Prime}!cryptomath@{cryptomath}}
+\subsubsection[{\texorpdfstring{is\+Prime(const Integral \&n, const Primality\+\_\+\+Test \&test=\+Primality\+\_\+\+Test\+::\+Miller\+Rabin, const uint64\+\_\+t \&iterations=20)}{isPrime(const Integral &n, const Primality_Test &test=Primality_Test::MillerRabin, const uint64_t &iterations=20)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Integral $>$ bool cryptomath\+::is\+Prime (
+\begin{DoxyParamCaption}
+\item[{const Integral \&}]{n, }
+\item[{const {\bf Primality\+\_\+\+Test} \&}]{test = {\ttfamily Primality\+\_\+Test\+:\+:MillerRabin}, }
+\item[{const uint64\+\_\+t \&}]{iterations = {\ttfamily 20}}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacecryptomath_abf75dafaf0743a34c20ca949abd858cf}{}\label{namespacecryptomath_abf75dafaf0743a34c20ca949abd858cf}
+General prime test
+
+This prime test function uses one of the prime tests in the primality namespace to check if a number is prime. A couple of trivial cases are checked for first; anything less than 3 or even is hard-\/coded.
+
+Template arguments
+\begin{DoxyItemize}
+\item class Integral -\/ Some integer type
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em n} & The number to test for primality \\
+\hline
+\mbox{\tt in}  & {\em test} & Which primality test to use \\
+\hline
+\mbox{\tt in}  & {\em iterations} & Number of iterations to do the probabalistic test \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool -\/ Whether or not $ n $ is probably prime 
+\end{DoxyReturn}
+\index{cryptomath@{cryptomath}!is\+Primitive\+Root@{is\+Primitive\+Root}}
+\index{is\+Primitive\+Root@{is\+Primitive\+Root}!cryptomath@{cryptomath}}
+\subsubsection[{\texorpdfstring{is\+Primitive\+Root(\+Integral a, const Integral \&n)}{isPrimitiveRoot(Integral a, const Integral &n)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Integral $>$ bool cryptomath\+::is\+Primitive\+Root (
+\begin{DoxyParamCaption}
+\item[{Integral}]{a, }
+\item[{const Integral \&}]{n}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacecryptomath_ade4d38bdd977cca7686b73b516d1edde}{}\label{namespacecryptomath_ade4d38bdd977cca7686b73b516d1edde}
+
+
+Checks if some value is a primitive root. 
+
+A primitive root $ x $ mod $ n $ is any value for which all values coprime to $ n $ can be found as some $ x^k $ mod $ n $ for some $ k $. If $ n $ is prime, then all primitive roots of it are generators of the set $ Z_n $. For any primitive root, its order (number of successive powers before repeat) is $ \phi(n) $
+
+We can check if some $ a $ is a primitive root mod $ n $ with a couple of rules
+\begin{DoxyItemize}
+\item For some prime $ p $, a primitive root will satisfy $ a^{\phi(p)/q_i} \neq 1 $ mod $ p $ for all factors $ q_i $ of $ \phi(p) $
+\item Other than 1, 2, and 4, numbers with primitive roots are of the form $ p^k $ or $ 2p^k $ for some odd prime $ p $
+\item The order of a primitive root mod $ n $ is $ \phi(n) $
+\item If $ a $ is a primitive root of $ p $, then either $ a $ or $ a + p $ is a primitive root of all $ p^k $
+\item If some odd $ a $ is a primitive root of $ p $, then $ a $ is a primitive root of all $ 2p^k $
+\end{DoxyItemize}
+
+So, to check if $ a $ is a primitive root mod $ n $, we first check that $ n $ is of the form of a number with primitive roots. Then we factor $ n $ to get it\textquotesingle{}s prime factor. We check if $ a $ is a primitive root of that prime factor. If that prime factor is the only factor then $ n $ is prime and we are done. Otherwise, we check if the order of $ a $ is $ \phi(n) $ mod $ p^2 $. If 2 is not a factor of $ n $, then we are done; otherwise, we check if $ a $ is odd.
+
+Template arguments
+\begin{DoxyItemize}
+\item class Integral -\/ Some integer value
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em a} & The number to test if it\textquotesingle{}s a primitive root \\
+\hline
+\mbox{\tt in}  & {\em n} & The number to test $ a $ modded by \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool -\/ Whether or not $ a $ is a primitive root mod $ n $ 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em logic\+\_\+error} & \+: powmod would overflow the Integral type \\
+\hline
+\end{DoxyExceptions}
+\index{cryptomath@{cryptomath}!jacobi@{jacobi}}
+\index{jacobi@{jacobi}!cryptomath@{cryptomath}}
+\subsubsection[{\texorpdfstring{jacobi(const Integral \&a, const Integral \&n)}{jacobi(const Integral &a, const Integral &n)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Integral $>$ Integral cryptomath\+::jacobi (
+\begin{DoxyParamCaption}
+\item[{const Integral \&}]{a, }
+\item[{const Integral \&}]{n}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacecryptomath_aeaf6fff4156956c6cd1c684cf2d68476}{}\label{namespacecryptomath_aeaf6fff4156956c6cd1c684cf2d68476}
+
+
+Jacobi symbol wrapper to guarantee that the type is signed. 
+
+The recursive Jacobi function requires signed values. This wrapper throws an exception if the template type is strictly unsigned. Specialize this for any type which cannot be checked with std\+::is\+\_\+unsigned
+
+Template arguments
+\begin{DoxyItemize}
+\item class Integral -\/ Some integral type
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em a} & \\
+\hline
+\mbox{\tt in}  & {\em n} & -\/ Some odd integer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Integral -\/ $ (\frac{a}{n}) $ 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em logic\+\_\+error} & \+: Integral is an unsigned type \\
+\hline
+\end{DoxyExceptions}
+\index{cryptomath@{cryptomath}!jacobi$<$ mpz\+\_\+class $>$@{jacobi$<$ mpz\+\_\+class $>$}}
+\index{jacobi$<$ mpz\+\_\+class $>$@{jacobi$<$ mpz\+\_\+class $>$}!cryptomath@{cryptomath}}
+\subsubsection[{\texorpdfstring{jacobi$<$ mpz\+\_\+class $>$(const mpz\+\_\+class \&a, const mpz\+\_\+class \&n)}{jacobi< mpz_class >(const mpz_class &a, const mpz_class &n)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$$>$ mpz\+\_\+class {\bf cryptomath\+::jacobi}$<$ mpz\+\_\+class $>$ (
+\begin{DoxyParamCaption}
+\item[{const mpz\+\_\+class \&}]{a, }
+\item[{const mpz\+\_\+class \&}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{namespacecryptomath_a47b55922895218d613733ea0370e8e5f}{}\label{namespacecryptomath_a47b55922895218d613733ea0370e8e5f}
+Template specialization of \hyperlink{namespacecryptomath_aeaf6fff4156956c6cd1c684cf2d68476}{jacobi()} for mpz\+\_\+class
+
+The \hyperlink{namespacecryptomath_aeaf6fff4156956c6cd1c684cf2d68476}{jacobi()} function tests that the result type is not unsigned. There is no unsigned mpz\+\_\+class type, so this check is removed
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em a} & \\
+\hline
+\mbox{\tt in}  & {\em n} & -\/ Some odd integer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Integral -\/ $ (\frac{a}{n}) $ 
+\end{DoxyReturn}
+\index{cryptomath@{cryptomath}!legendre@{legendre}}
+\index{legendre@{legendre}!cryptomath@{cryptomath}}
+\subsubsection[{\texorpdfstring{legendre(const Integral \&a, const Integral \&p)}{legendre(const Integral &a, const Integral &p)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Integral $>$ Integral cryptomath\+::legendre (
+\begin{DoxyParamCaption}
+\item[{const Integral \&}]{a, }
+\item[{const Integral \&}]{p}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacecryptomath_ae79615d1b307a407ebe932c452279682}{}\label{namespacecryptomath_ae79615d1b307a407ebe932c452279682}
+
+
+Computes the Legendre symbol. 
+
+The Legendre symbol $ (\frac{a}{p}) $ is defined as $ a^{(p-1)/2} $ mod $ p $ for prime values $ p $
+
+Template arguments
+\begin{DoxyItemize}
+\item class Integral -\/ Some integer type
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em a} & \\
+\hline
+\mbox{\tt in}  & {\em p} & A prime number \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Integral -\/ $ (\frac{a}{p}) $ 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em logic\+\_\+error} & \+: powmod would overflow the Integral type \\
+\hline
+\end{DoxyExceptions}
+\index{cryptomath@{cryptomath}!log2@{log2}}
+\index{log2@{log2}!cryptomath@{cryptomath}}
+\subsubsection[{\texorpdfstring{log2(const Integral \&n)}{log2(const Integral &n)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Integral $>$ uint64\+\_\+t cryptomath\+::log2 (
+\begin{DoxyParamCaption}
+\item[{const Integral \&}]{n}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacecryptomath_a72742b30d75eae62e700454832df24c6}{}\label{namespacecryptomath_a72742b30d75eae62e700454832df24c6}
+
+
+Log base 2. 
+
+Template arguments
+\begin{DoxyItemize}
+\item class Integral -\/ Some integer type
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em n} & Value to square root \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Integral -\/\+Square root of n rounded down 
+\end{DoxyReturn}
+\index{cryptomath@{cryptomath}!log2$<$ mpz\+\_\+class $>$@{log2$<$ mpz\+\_\+class $>$}}
+\index{log2$<$ mpz\+\_\+class $>$@{log2$<$ mpz\+\_\+class $>$}!cryptomath@{cryptomath}}
+\subsubsection[{\texorpdfstring{log2$<$ mpz\+\_\+class $>$(const mpz\+\_\+class \&n)}{log2< mpz_class >(const mpz_class &n)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$$>$ uint64\+\_\+t {\bf cryptomath\+::log2}$<$ mpz\+\_\+class $>$ (
+\begin{DoxyParamCaption}
+\item[{const mpz\+\_\+class \&}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{namespacecryptomath_ace84983f1bbb2211b1fba2c6a606c678}{}\label{namespacecryptomath_ace84983f1bbb2211b1fba2c6a606c678}
+Template specialization of \hyperlink{namespacecryptomath_a72742b30d75eae62e700454832df24c6}{log2()} for mpz\+\_\+class
+
+Returns log base 2 of the number. No log function exists in the G\+MP library, so the number of bits required to represent the number is used instead
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em n} & -\/ Number to take log2 of \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint64\+\_\+t -\/ Number of bits needed to represent n 
+\end{DoxyReturn}
+\index{cryptomath@{cryptomath}!mod@{mod}}
+\index{mod@{mod}!cryptomath@{cryptomath}}
+\subsubsection[{\texorpdfstring{mod(const Integral \&a, const Integral \&b)}{mod(const Integral &a, const Integral &b)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Integral $>$ Integral cryptomath\+::mod (
+\begin{DoxyParamCaption}
+\item[{const Integral \&}]{a, }
+\item[{const Integral \&}]{b}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacecryptomath_ab3f91eb84145b179dc7f377bbec75a95}{}\label{namespacecryptomath_ab3f91eb84145b179dc7f377bbec75a95}
+
+
+Computes a (mod b), properly handling negative values. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em a} & The top of the rational to convert \\
+\hline
+\mbox{\tt in}  & {\em b} & The bottom of the rational to convert\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Integral -\/ a (mod b) 
+\end{DoxyReturn}
+\index{cryptomath@{cryptomath}!mod2@{mod2}}
+\index{mod2@{mod2}!cryptomath@{cryptomath}}
+\subsubsection[{\texorpdfstring{mod2(const Integral \&n)}{mod2(const Integral &n)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Integral $>$ uint8\+\_\+t cryptomath\+::mod2 (
+\begin{DoxyParamCaption}
+\item[{const Integral \&}]{n}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacecryptomath_abdfca9e5adf3b3660fcd8fcf94f116e6}{}\label{namespacecryptomath_abdfca9e5adf3b3660fcd8fcf94f116e6}
+
+
+Checks if a value is odd. 
+
+Standard templated call for checking if a value is odd. This exists because it is often faster to test the least significant bit than to call a modulus operator, and the bitwise operators are not standard for G\+MP. For any integer type that doesn\textquotesingle{}t implement bitwise operators, this can be specialized to provide an efficient odd test.
+
+Template arguments
+\begin{DoxyItemize}
+\item class Integral -\/ Some integer type
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em n} & Value to test for odd-\/ness \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint8\+\_\+t -\/ n \% 2 
+\end{DoxyReturn}
+\index{cryptomath@{cryptomath}!mod2$<$ mpz\+\_\+class $>$@{mod2$<$ mpz\+\_\+class $>$}}
+\index{mod2$<$ mpz\+\_\+class $>$@{mod2$<$ mpz\+\_\+class $>$}!cryptomath@{cryptomath}}
+\subsubsection[{\texorpdfstring{mod2$<$ mpz\+\_\+class $>$(const mpz\+\_\+class \&n)}{mod2< mpz_class >(const mpz_class &n)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$$>$ uint8\+\_\+t {\bf cryptomath\+::mod2}$<$ mpz\+\_\+class $>$ (
+\begin{DoxyParamCaption}
+\item[{const mpz\+\_\+class \&}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{namespacecryptomath_a44ebe48f61ac75ba4a1cda2ef1fd168c}{}\label{namespacecryptomath_a44ebe48f61ac75ba4a1cda2ef1fd168c}
+Template specialization of \hyperlink{namespacecryptomath_abdfca9e5adf3b3660fcd8fcf94f116e6}{mod2()} for mpz\+\_\+class
+
+G\+MP class types do not support binary operators, but the easiest way to mod 2 is by checking the L\+SB. This is done with the special function G\+MP provides for that
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em n} & -\/ The number to mod by 2 \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint8\+\_\+t -\/ n modded by 2 
+\end{DoxyReturn}
+\index{cryptomath@{cryptomath}!next\+Prime@{next\+Prime}}
+\index{next\+Prime@{next\+Prime}!cryptomath@{cryptomath}}
+\subsubsection[{\texorpdfstring{next\+Prime(\+Integral start, const uint64\+\_\+t \&reps=20)}{nextPrime(Integral start, const uint64_t &reps=20)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Integral $>$ Integral cryptomath\+::next\+Prime (
+\begin{DoxyParamCaption}
+\item[{Integral}]{start, }
+\item[{const uint64\+\_\+t \&}]{reps = {\ttfamily 20}}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacecryptomath_a50fd8408608cf109b166fbc13268cbd0}{}\label{namespacecryptomath_a50fd8408608cf109b166fbc13268cbd0}
+
+
+Finds the first prime greater than some number. 
+
+The next prime is found by testing sequential odd numbers for primality until one is found to be prime using the Miller-\/\+Rabin test
+
+Template arguments Integral -\/ Some integer type
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em start} & -\/ The number to start at \\
+\hline
+\mbox{\tt in}  & {\em reps} & -\/ Number of iterations to do the probabalistic prime test \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Integral -\/ The first prime greater than the starting value 
+\end{DoxyReturn}
+\index{cryptomath@{cryptomath}!phi@{phi}}
+\index{phi@{phi}!cryptomath@{cryptomath}}
+\subsubsection[{\texorpdfstring{phi(\+Integral n)}{phi(Integral n)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Integral $>$ Integral cryptomath\+::phi (
+\begin{DoxyParamCaption}
+\item[{Integral}]{n}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacecryptomath_a89a47b8e8f73c44552d629e8b599df4a}{}\label{namespacecryptomath_a89a47b8e8f73c44552d629e8b599df4a}
+Calculates $ \phi(n) $
+
+This function calculates Euler\textquotesingle{}s totient function for any value using only integer math.
+
+Template arguments
+\begin{DoxyItemize}
+\item class Integral -\/ Some integer type 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em n} & The number to find the totient of \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Integral -\/ $ \phi(n) $ 
+\end{DoxyReturn}
+
+\end{DoxyItemize}\index{cryptomath@{cryptomath}!pow\+Int@{pow\+Int}}
+\index{pow\+Int@{pow\+Int}!cryptomath@{cryptomath}}
+\subsubsection[{\texorpdfstring{pow\+Int(const Integral \&a, const Integral \&b)}{powInt(const Integral &a, const Integral &b)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Integral $>$ Integral cryptomath\+::pow\+Int (
+\begin{DoxyParamCaption}
+\item[{const Integral \&}]{a, }
+\item[{const Integral \&}]{b}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacecryptomath_ad0bcf1b0015f3f35ed982614b9faee7e}{}\label{namespacecryptomath_ad0bcf1b0015f3f35ed982614b9faee7e}
+
+
+Integer pow function. 
+
+Template arguments
+\begin{DoxyItemize}
+\item class Integral -\/ Some integer type
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em a} & Base \\
+\hline
+\mbox{\tt in}  & {\em b} & Power to take a to \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Integral -\/ a$^\wedge$b 
+\end{DoxyReturn}
+\index{cryptomath@{cryptomath}!pow\+Mod@{pow\+Mod}}
+\index{pow\+Mod@{pow\+Mod}!cryptomath@{cryptomath}}
+\subsubsection[{\texorpdfstring{pow\+Mod(const Integral \&a, const Integral \&b, const Integral \&n)}{powMod(const Integral &a, const Integral &b, const Integral &n)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Integral $>$ Integral cryptomath\+::pow\+Mod (
+\begin{DoxyParamCaption}
+\item[{const Integral \&}]{a, }
+\item[{const Integral \&}]{b, }
+\item[{const Integral \&}]{n}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacecryptomath_a2d0fbf94961a03f0b41a4026bb2d71fe}{}\label{namespacecryptomath_a2d0fbf94961a03f0b41a4026bb2d71fe}
+
+
+Pow\+Mod wrapper to prevent overflow. 
+
+If n-\/1 is greater than the square root of the maximum value of Integral, then the \+\_\+pow\+Mod function will overflow the type. This wrapper throws an exception if that is the case. Specialize this template for any type which cannot be used with std\+::numeric\+\_\+limits.
+
+Template arguments
+\begin{DoxyItemize}
+\item class Integral -\/ Some integer type
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em a} & \\
+\hline
+\mbox{\tt in}  & {\em b} & \\
+\hline
+\mbox{\tt in}  & {\em n} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Integral -\/ $ a^b$ mod $ n $ 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em logic\+\_\+error} & \+: Computing the power mod n would overflow type Integral \\
+\hline
+\end{DoxyExceptions}
+\index{cryptomath@{cryptomath}!pow\+Mod$<$ mpz\+\_\+class $>$@{pow\+Mod$<$ mpz\+\_\+class $>$}}
+\index{pow\+Mod$<$ mpz\+\_\+class $>$@{pow\+Mod$<$ mpz\+\_\+class $>$}!cryptomath@{cryptomath}}
+\subsubsection[{\texorpdfstring{pow\+Mod$<$ mpz\+\_\+class $>$(const mpz\+\_\+class \&a, const mpz\+\_\+class \&b, const mpz\+\_\+class \&n)}{powMod< mpz_class >(const mpz_class &a, const mpz_class &b, const mpz_class &n)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$$>$ mpz\+\_\+class {\bf cryptomath\+::pow\+Mod}$<$ mpz\+\_\+class $>$ (
+\begin{DoxyParamCaption}
+\item[{const mpz\+\_\+class \&}]{a, }
+\item[{const mpz\+\_\+class \&}]{b, }
+\item[{const mpz\+\_\+class \&}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{namespacecryptomath_a482b681cd134f41c52e4801ee0f61de2}{}\label{namespacecryptomath_a482b681cd134f41c52e4801ee0f61de2}
+Template specialization of \hyperlink{namespacecryptomath_a2d0fbf94961a03f0b41a4026bb2d71fe}{pow\+Mod()} for mpz\+\_\+class
+
+The \hyperlink{namespacecryptomath_a2d0fbf94961a03f0b41a4026bb2d71fe}{pow\+Mod()} function tests that the result type can hold the output of the calculation without overflowing. This check is removed for the mpz\+\_\+class type
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em a} & \\
+\hline
+\mbox{\tt in}  & {\em b} & \\
+\hline
+\mbox{\tt in}  & {\em n} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Integral -\/ $ a^b$ mod $ n $ 
+\end{DoxyReturn}
+\index{cryptomath@{cryptomath}!random\+Prime@{random\+Prime}}
+\index{random\+Prime@{random\+Prime}!cryptomath@{cryptomath}}
+\subsubsection[{\texorpdfstring{random\+Prime(\+Uniform\+Random\+Bit\+Generator \&bits, const uint64\+\_\+t \&bitcount, const uint64\+\_\+t \&prime\+\_\+reps=20)}{randomPrime(UniformRandomBitGenerator &bits, const uint64_t &bitcount, const uint64_t &prime_reps=20)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Integral , class Uniform\+Random\+Bit\+Generator $>$ Integral cryptomath\+::random\+Prime (
+\begin{DoxyParamCaption}
+\item[{Uniform\+Random\+Bit\+Generator \&}]{bits, }
+\item[{const uint64\+\_\+t \&}]{bitcount, }
+\item[{const uint64\+\_\+t \&}]{prime\+\_\+reps = {\ttfamily 20}}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacecryptomath_a93f24268856fbd366cb688640736fb60}{}\label{namespacecryptomath_a93f24268856fbd366cb688640736fb60}
+
+
+Wrapper for \+\_\+random\+Prime that verifies that the output type can hold the prime without overflow. 
+
+For non-\/standard types, specialize the has\+Bits templated function to verify that a type can be used
+
+Template arguments
+\begin{DoxyItemize}
+\item class Integral -\/ Some integer type
+\item class Uniform\+Random\+Bit\+Generator -\/ Some type meeting the C++ Uniform\+Random\+Bit\+Generator specification
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in,out}  & {\em bits} & -\/ A random bit generator \\
+\hline
+\mbox{\tt in}  & {\em bitcount} & -\/ Number of bits in final value \\
+\hline
+\mbox{\tt in}  & {\em prime\+\_\+reps} & -\/ Number of iterations to do probabalistic primality test \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Integral -\/ A random prime with the specified number of bits 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em logic\+\_\+error} & \+: Integral type cannot hold a prime of the size requested \\
+\hline
+\end{DoxyExceptions}
+\index{cryptomath@{cryptomath}!sqrtfloor@{sqrtfloor}}
+\index{sqrtfloor@{sqrtfloor}!cryptomath@{cryptomath}}
+\subsubsection[{\texorpdfstring{sqrtfloor(const Integral \&n)}{sqrtfloor(const Integral &n)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Integral $>$ Integral cryptomath\+::sqrtfloor (
+\begin{DoxyParamCaption}
+\item[{const Integral \&}]{n}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacecryptomath_a9e16705865a198f4d3b0227619a85596}{}\label{namespacecryptomath_a9e16705865a198f4d3b0227619a85596}
+
+
+Floor of square root. 
+
+Template arguments
+\begin{DoxyItemize}
+\item class Integral -\/ Some integer type
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em n} & Value to square root \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Integral -\/ Square root of n rounded down 
+\end{DoxyReturn}
+\index{cryptomath@{cryptomath}!sqrtfloor$<$ mpz\+\_\+class $>$@{sqrtfloor$<$ mpz\+\_\+class $>$}}
+\index{sqrtfloor$<$ mpz\+\_\+class $>$@{sqrtfloor$<$ mpz\+\_\+class $>$}!cryptomath@{cryptomath}}
+\subsubsection[{\texorpdfstring{sqrtfloor$<$ mpz\+\_\+class $>$(const mpz\+\_\+class \&n)}{sqrtfloor< mpz_class >(const mpz_class &n)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$$>$ mpz\+\_\+class {\bf cryptomath\+::sqrtfloor}$<$ mpz\+\_\+class $>$ (
+\begin{DoxyParamCaption}
+\item[{const mpz\+\_\+class \&}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{namespacecryptomath_abfcd8397f758faec532f382662223fb6}{}\label{namespacecryptomath_abfcd8397f758faec532f382662223fb6}
+Template specialization of \hyperlink{namespacecryptomath_a9e16705865a198f4d3b0227619a85596}{sqrtfloor()} for mpz\+\_\+class
+
+Returns the floor of the square root of a number as an integer
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em n} & -\/ Number to find square root of \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+mpz\+\_\+class -\/ Floor of square root of n 
+\end{DoxyReturn}
+\index{cryptomath@{cryptomath}!sundaram\+Sieve@{sundaram\+Sieve}}
+\index{sundaram\+Sieve@{sundaram\+Sieve}!cryptomath@{cryptomath}}
+\subsubsection[{\texorpdfstring{sundaram\+Sieve(const Integral \&n, std\+::vector$<$ Integral $>$ \&result)}{sundaramSieve(const Integral &n, std::vector< Integral > &result)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Integral $>$ void cryptomath\+::sundaram\+Sieve (
+\begin{DoxyParamCaption}
+\item[{const Integral \&}]{n, }
+\item[{std\+::vector$<$ Integral $>$ \&}]{result}
+\end{DoxyParamCaption}
+)}\hypertarget{namespacecryptomath_a6964cc63e189eadb8c74202df0fd0040}{}\label{namespacecryptomath_a6964cc63e189eadb8c74202df0fd0040}
+
+
+Sundaram\textquotesingle{}s sieve for finding prime numbers. 
+
+The sieve of Sundaram finds all the prime numbers less than some $ n $. Start with a list of all numbers less than $ n $. For all $ i, j $ greater than equal to 1, where $ i+j+2ij$ is less than or equal to $ n $, $ i+j+2ij $ is removed. For all remaining values, $ i $, $ 2i + 1 $ is prime.
+
+Template arguments
+\begin{DoxyItemize}
+\item class Integral -\/ Some integer type which can be used to index into a vector (mpz\+\_\+class will not work)
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em n} & -\/ Number to find primes less than \\
+\hline
+\mbox{\tt out}  & {\em result} & -\/ Vector to store results in \\
+\hline
+\end{DoxyParams}

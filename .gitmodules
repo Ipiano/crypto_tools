@@ -1,4 +1,4 @@
 [submodule "modules/module_crypto"]
 	path = modules/module_crypto
-	url = git@github.com:Ipiano/module_crypto.git
+	url = https://github.com/Ipiano/module_crypto.git
 	branch = master

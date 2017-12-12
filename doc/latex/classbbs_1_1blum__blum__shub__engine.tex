@@ -1,0 +1,152 @@
+\hypertarget{classbbs_1_1blum__blum__shub__engine}{}\section{bbs\+:\+:blum\+\_\+blum\+\_\+shub\+\_\+engine$<$ Result, Integral, bits, prime\+\_\+reps $>$ Class Template Reference}
+\label{classbbs_1_1blum__blum__shub__engine}\index{bbs\+::blum\+\_\+blum\+\_\+shub\+\_\+engine$<$ Result, Integral, bits, prime\+\_\+reps $>$@{bbs\+::blum\+\_\+blum\+\_\+shub\+\_\+engine$<$ Result, Integral, bits, prime\+\_\+reps $>$}}
+
+
+A random engine implementing the Blum Blum Shub pseudorandom generator algorithm which satisfies the C++ Uniform\+Random\+Bit\+Generator concept The Blum Blum Shub pseudorandom generation algorithm is as follows
+\begin{DoxyEnumerate}
+\item Pick two primes $ p, q $ such that $ p $ and $ q $ are congruent to 3 mod 4
+\item Define $ n = p * q $
+\item Pick a seed $ x $ such that $ x $ is coprime to $ n $
+\item $ x_0 = x^2$ (mod $ n $)
+\item Repeatedly yield $ x_n $ where $ x_n = x_n^2 $ (mod $ n $) 
+\end{DoxyEnumerate} 
+
+
+\subsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+typedef Result \hyperlink{classbbs_1_1blum__blum__shub__engine_af8f60205a8a8b5cee055ed54d5739805}{result\+\_\+type}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classbbs_1_1blum__blum__shub__engine_a6560d8c40e0f42f72adce96fdf2cba34}{blum\+\_\+blum\+\_\+shub\+\_\+engine} (Integral p, Integral q, Integral x=-\/1)
+\item 
+\hyperlink{classbbs_1_1blum__blum__shub__engine_af8f60205a8a8b5cee055ed54d5739805}{result\+\_\+type} \hyperlink{classbbs_1_1blum__blum__shub__engine_a78164c5ee3e7c0d1b2e8070029e33ec7}{operator()} ()
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static constexpr \hyperlink{classbbs_1_1blum__blum__shub__engine_af8f60205a8a8b5cee055ed54d5739805}{result\+\_\+type} \hyperlink{classbbs_1_1blum__blum__shub__engine_a4c76e93e841646e0f57919b7e6d759f4}{min} ()
+\item 
+static constexpr \hyperlink{classbbs_1_1blum__blum__shub__engine_af8f60205a8a8b5cee055ed54d5739805}{result\+\_\+type} \hyperlink{classbbs_1_1blum__blum__shub__engine_ab150bc100f30d32a7b64ca0834eaa0d9}{max} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$class Result = uint32\+\_\+t, class Integral = uint64\+\_\+t, uint64\+\_\+t bits = 1, uint64\+\_\+t prime\+\_\+reps = 25$>$\\*
+class bbs\+::blum\+\_\+blum\+\_\+shub\+\_\+engine$<$ Result, Integral, bits, prime\+\_\+reps $>$}
+
+A random engine implementing the Blum Blum Shub pseudorandom generator algorithm which satisfies the C++ Uniform\+Random\+Bit\+Generator concept The Blum Blum Shub pseudorandom generation algorithm is as follows
+\begin{DoxyEnumerate}
+\item Pick two primes $ p, q $ such that $ p $ and $ q $ are congruent to 3 mod 4
+\item Define $ n = p * q $
+\item Pick a seed $ x $ such that $ x $ is coprime to $ n $
+\item $ x_0 = x^2$ (mod $ n $)
+\item Repeatedly yield $ x_n $ where $ x_n = x_n^2 $ (mod $ n $) 
+\end{DoxyEnumerate}
+
+This algorithm makes use of quadratic-\/residue to generate random bit sequences. Since $ x $ is coprime to $ n $, we can fairly confident that successive powers of $ x $ will yield a sequence of numbers which will not repeat for a very long time. By repeatedly doing $ x^2 $, we turn this into a one-\/way function because square roots mod $ n $ are difficult to compute. Furthermore, since only the last bits of each number are returned, we can be confident that, even if the most significant portion of the number gets repeated, the bits outputted will be pseudo-\/random.
+
+Notes
+\begin{DoxyItemize}
+\item To maximize the cycle length of the generator, it is recommended that $ gcd(\phi(p), \phi(q)) $ be small
+\item The maximum number of bits that can be safely returned from each $ x_n $ is $ log_2(log_2(n)) $
+\end{DoxyItemize}
+
+This generator also satisfies the C++ concept Uniform\+Random\+Bit\+Generator, which means it can be used in conjunction with any of the C++ random distributions to yield a sequence of random numbers that from that distribution.
+
+Template arguments
+\begin{DoxyItemize}
+\item class Result -\/ Unsigned result type to return yielded bits in
+\item class Integral -\/ Type to use for internal computation
+\item uint64\+\_\+t bits -\/ Number of least significant bits of each $ x_n $ to return (default 1)
+\item uint32\+\_\+t prime\+\_\+reps -\/ Number of repetitions to use in Miller-\/\+Rabin prime test function (default 25) 
+\end{DoxyItemize}
+
+\subsection{Member Typedef Documentation}
+\index{bbs\+::blum\+\_\+blum\+\_\+shub\+\_\+engine@{bbs\+::blum\+\_\+blum\+\_\+shub\+\_\+engine}!result\+\_\+type@{result\+\_\+type}}
+\index{result\+\_\+type@{result\+\_\+type}!bbs\+::blum\+\_\+blum\+\_\+shub\+\_\+engine@{bbs\+::blum\+\_\+blum\+\_\+shub\+\_\+engine}}
+\subsubsection[{\texorpdfstring{result\+\_\+type}{result_type}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Result  = uint32\+\_\+t, class Integral  = uint64\+\_\+t, uint64\+\_\+t bits = 1, uint64\+\_\+t prime\+\_\+reps = 25$>$ typedef Result {\bf bbs\+::blum\+\_\+blum\+\_\+shub\+\_\+engine}$<$ Result, Integral, bits, prime\+\_\+reps $>$\+::{\bf result\+\_\+type}}\hypertarget{classbbs_1_1blum__blum__shub__engine_af8f60205a8a8b5cee055ed54d5739805}{}\label{classbbs_1_1blum__blum__shub__engine_af8f60205a8a8b5cee055ed54d5739805}
+Typedef of return type to satisfy Uniform\+Random\+Bit\+Generator 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{bbs\+::blum\+\_\+blum\+\_\+shub\+\_\+engine@{bbs\+::blum\+\_\+blum\+\_\+shub\+\_\+engine}!blum\+\_\+blum\+\_\+shub\+\_\+engine@{blum\+\_\+blum\+\_\+shub\+\_\+engine}}
+\index{blum\+\_\+blum\+\_\+shub\+\_\+engine@{blum\+\_\+blum\+\_\+shub\+\_\+engine}!bbs\+::blum\+\_\+blum\+\_\+shub\+\_\+engine@{bbs\+::blum\+\_\+blum\+\_\+shub\+\_\+engine}}
+\subsubsection[{\texorpdfstring{blum\+\_\+blum\+\_\+shub\+\_\+engine(\+Integral p, Integral q, Integral x=-\/1)}{blum_blum_shub_engine(Integral p, Integral q, Integral x=-1)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Result  = uint32\+\_\+t, class Integral  = uint64\+\_\+t, uint64\+\_\+t bits = 1, uint64\+\_\+t prime\+\_\+reps = 25$>$ {\bf bbs\+::blum\+\_\+blum\+\_\+shub\+\_\+engine}$<$ Result, Integral, bits, prime\+\_\+reps $>$\+::{\bf blum\+\_\+blum\+\_\+shub\+\_\+engine} (
+\begin{DoxyParamCaption}
+\item[{Integral}]{p, }
+\item[{Integral}]{q, }
+\item[{Integral}]{x = {\ttfamily -\/1}}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classbbs_1_1blum__blum__shub__engine_a6560d8c40e0f42f72adce96fdf2cba34}{}\label{classbbs_1_1blum__blum__shub__engine_a6560d8c40e0f42f72adce96fdf2cba34}
+Constructs a new random generator with $ p, q $ and optional seed $ x $
+
+
+\begin{DoxyParams}{Parameters}
+{\em p} & The first prime to use to find $ n $ \\
+\hline
+{\em q} & The second prime to use to find $ n $ \\
+\hline
+{\em x} & Optional initial seed. If not specified, the valid number greater than $ p $ which is a prime plus 1 is used\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em domain\+\_\+error} & \+: $ p $ or $ q $ is not prime \\
+\hline
+{\em domain\+\_\+error} & \+: $ p $ or $ q $ is not congruent to 3 mod 4 \\
+\hline
+{\em domain\+\_\+error} & \+: The generator cannot securely yield the templated number of bits given $ p $ and $ q $ \\
+\hline
+{\em domain\+\_\+error} & \+: $ x $ is specified and it is not relatively prime to $ n $ \\
+\hline
+\end{DoxyExceptions}
+
+
+\subsection{Member Function Documentation}
+\index{bbs\+::blum\+\_\+blum\+\_\+shub\+\_\+engine@{bbs\+::blum\+\_\+blum\+\_\+shub\+\_\+engine}!max@{max}}
+\index{max@{max}!bbs\+::blum\+\_\+blum\+\_\+shub\+\_\+engine@{bbs\+::blum\+\_\+blum\+\_\+shub\+\_\+engine}}
+\subsubsection[{\texorpdfstring{max()}{max()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Result  = uint32\+\_\+t, class Integral  = uint64\+\_\+t, uint64\+\_\+t bits = 1, uint64\+\_\+t prime\+\_\+reps = 25$>$ static constexpr {\bf result\+\_\+type} {\bf bbs\+::blum\+\_\+blum\+\_\+shub\+\_\+engine}$<$ Result, Integral, bits, prime\+\_\+reps $>$\+::max (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{classbbs_1_1blum__blum__shub__engine_ab150bc100f30d32a7b64ca0834eaa0d9}{}\label{classbbs_1_1blum__blum__shub__engine_ab150bc100f30d32a7b64ca0834eaa0d9}
+Returns maximum possible value output by the generator
+
+Needed to satisy Uniform\+Random\+Bit\+Generator
+
+\begin{DoxyReturn}{Returns}
+The largest value that can be contained by the templated Result 
+\end{DoxyReturn}
+\index{bbs\+::blum\+\_\+blum\+\_\+shub\+\_\+engine@{bbs\+::blum\+\_\+blum\+\_\+shub\+\_\+engine}!min@{min}}
+\index{min@{min}!bbs\+::blum\+\_\+blum\+\_\+shub\+\_\+engine@{bbs\+::blum\+\_\+blum\+\_\+shub\+\_\+engine}}
+\subsubsection[{\texorpdfstring{min()}{min()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Result  = uint32\+\_\+t, class Integral  = uint64\+\_\+t, uint64\+\_\+t bits = 1, uint64\+\_\+t prime\+\_\+reps = 25$>$ static constexpr {\bf result\+\_\+type} {\bf bbs\+::blum\+\_\+blum\+\_\+shub\+\_\+engine}$<$ Result, Integral, bits, prime\+\_\+reps $>$\+::min (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}\hypertarget{classbbs_1_1blum__blum__shub__engine_a4c76e93e841646e0f57919b7e6d759f4}{}\label{classbbs_1_1blum__blum__shub__engine_a4c76e93e841646e0f57919b7e6d759f4}
+Returns minimum possible value output by the generator
+
+Needed to satisy Uniform\+Random\+Bit\+Generator
+
+\begin{DoxyReturn}{Returns}
+The smallest value that can be contained by the templated Result 
+\end{DoxyReturn}
+\index{bbs\+::blum\+\_\+blum\+\_\+shub\+\_\+engine@{bbs\+::blum\+\_\+blum\+\_\+shub\+\_\+engine}!operator()@{operator()}}
+\index{operator()@{operator()}!bbs\+::blum\+\_\+blum\+\_\+shub\+\_\+engine@{bbs\+::blum\+\_\+blum\+\_\+shub\+\_\+engine}}
+\subsubsection[{\texorpdfstring{operator()()}{operator()()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class Result  = uint32\+\_\+t, class Integral  = uint64\+\_\+t, uint64\+\_\+t bits = 1, uint64\+\_\+t prime\+\_\+reps = 25$>$ {\bf result\+\_\+type} {\bf bbs\+::blum\+\_\+blum\+\_\+shub\+\_\+engine}$<$ Result, Integral, bits, prime\+\_\+reps $>$\+::operator() (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}\hypertarget{classbbs_1_1blum__blum__shub__engine_a78164c5ee3e7c0d1b2e8070029e33ec7}{}\label{classbbs_1_1blum__blum__shub__engine_a78164c5ee3e7c0d1b2e8070029e33ec7}
+Calculates the next $ x_n $ and yields the template-\/defined number of bits
+
+\begin{DoxyReturn}{Returns}
+Result -\/ The least significant bits of $ x_n $ 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+modules/module\+\_\+crypto/librandom/bbs/headers/\hyperlink{bbs_8h}{bbs.\+h}\end{DoxyCompactItemize}
